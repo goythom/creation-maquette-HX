@@ -9,10 +9,10 @@
 html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-text-size-adjust:100%}
 #viewport{position:fixed;inset:0;touch-action:none;cursor:grab;overflow:hidden}
 #viewport.dragging{cursor:grabbing}
-#canvas{position:absolute;transform-origin:0 0}
+#canvas{position:absolute;transform-origin:0 0;width:5100px;height:9900px}
 /* ---- board chrome ---- */
-.sec-label{position:absolute;font-weight:700;letter-spacing:.02em;color:#000}
-.sec-sub{position:absolute;color:#555;font-weight:400}
+.sec-label{position:absolute;font-weight:700;letter-spacing:.02em;color:#000;white-space:nowrap;line-height:1.05}
+.sec-sub{position:absolute;color:#555;font-weight:400;white-space:nowrap}
 .badge-demo{position:absolute;background:#000;color:#fff;font-size:11px;letter-spacing:.12em;padding:4px 10px;font-weight:700}
 .note{position:absolute;background:#fff9c4;border:1px solid #e0d890;padding:12px 14px;font-size:13px;line-height:1.45;color:#222;width:280px;box-shadow:2px 2px 0 rgba(0,0,0,.08)}
 .note b{display:block;margin-bottom:4px}
@@ -79,7 +79,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 <body>
 <div id="viewport"><div id="canvas"><!-- SECTION 1 : HOME & SEARCH -->
 <div class="sec-label" style="left:0;top:0;font-size:64px">1 · HOME &amp; SEARCH</div>
-<div class="sec-sub" style="left:2px;top:78px;font-size:22px">Entry point. Search-first, like Pappers + Trendtrack home. Ranking preview below the fold.</div>
+<div class="sec-sub" style="left:2px;top:92px;font-size:22px">Entry point. Search-first, like Pappers + Trendtrack home. Ranking preview below the fold.</div>
 
 <div class="screen" style="left:0;top:140px">
   <div class="s-label">1A · Home <span>entry · hero + search + stats + ranking preview</span></div>
@@ -156,7 +156,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 <div class="note" style="left:4680px;top:140px"><b>Note &middot; search</b>Type tabs mirror Pappers (Companies / Projects / Mines / Processing / Traders / People). Filters live in the left rail, counts next to each value. Freshness is always visible.</div>
 <!-- SECTION 2 : RANKING / EXPLORER -->
 <div class="sec-label" style="left:0;top:1240px;font-size:64px">2 · COMPANY RANKING</div>
-<div class="sec-sub" style="left:2px;top:1318px;font-size:22px">The core product. Trendtrack Explorer pattern: tabs, saved views, filters, sort, export.</div>
+<div class="sec-sub" style="left:2px;top:1332px;font-size:22px">The core product. Trendtrack Explorer pattern: tabs, saved views, filters, sort, export.</div>
 
 <div class="screen" style="left:0;top:1380px">
   <div class="s-label">2A · Explorer <span>ranking table &middot; list view &middot; filters + saved views + export</span></div>
@@ -232,7 +232,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 <div class="note" style="left:4680px;top:1380px"><b>Note &middot; ranking</b>Default sort = production (ranking principle confirmed by Louis). Metric still open: production / capacity / reserves stay distinct columns, never merged. Export CSV like Trendtrack.</div>
 <!-- SECTION 3 : COMPANY SHEET -->
 <div class="sec-label" style="left:0;top:2480px;font-size:64px">3 · COMPANY SHEET</div>
-<div class="sec-sub" style="left:2px;top:2558px;font-size:22px">Pappers fiche + Trendtrack shop sheet. Freshness banner, KPI cards, tabbed sections, cited sources.</div>
+<div class="sec-sub" style="left:2px;top:2572px;font-size:22px">Pappers fiche + Trendtrack shop sheet. Freshness banner, KPI cards, tabbed sections, cited sources.</div>
 
 <div class="screen" style="left:0;top:2620px">
   <div class="s-label">3A · Company overview <span>Lynas &middot; header + KPIs + tabs</span></div>
@@ -318,7 +318,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 <div class="note" style="left:4680px;top:2620px"><b>Note &middot; trust</b>Every number carries a source and a date (Pappers freshness banner + Trendtrack data table). This is the product's core credibility mechanic.</div>
 <!-- SECTION 4 : PRICES -->
 <div class="sec-label" style="left:0;top:3720px;font-size:64px">4 · PRICES</div>
-<div class="sec-sub" style="left:2px;top:3798px;font-size:22px">Element price dashboard. Period windows like Trendtrack (24H / 7D / 30D / 1Y).</div>
+<div class="sec-sub" style="left:2px;top:3812px;font-size:22px">Element price dashboard. Period windows like Trendtrack (24H / 7D / 30D / 1Y).</div>
 
 <div class="screen" style="left:0;top:3860px">
   <div class="s-label">4A · Price dashboard <span>NdPr oxide &middot; chart + element switcher</span></div>
@@ -378,7 +378,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 </div>
 <!-- SECTION 5 : MAP -->
 <div class="sec-label" style="left:0;top:4960px;font-size:64px">5 · MAP</div>
-<div class="sec-sub" style="left:2px;top:5038px;font-size:22px">Geographic view of mines, plants and projects. Pappers établissements map, scaled worldwide.</div>
+<div class="sec-sub" style="left:2px;top:5052px;font-size:22px">Geographic view of mines, plants and projects. Pappers établissements map, scaled worldwide.</div>
 
 <div class="screen" style="left:0;top:5100px">
   <div class="s-label">5A · World map <span>1,150 projects &middot; filter by element / stage</span></div>
@@ -428,7 +428,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 <div class="flow-tag" style="left:720px;top:6060px">popup &rarr; company sheet</div>
 <!-- SECTION 6 : WATCH & COMPARE -->
 <div class="sec-label" style="left:0;top:6200px;font-size:64px">6 · WATCHLIST &amp; COMPARE</div>
-<div class="sec-sub" style="left:2px;top:6278px;font-size:22px">Trendtrack Brandtracker pattern: tracked companies, activity feed, folders, side-by-side compare.</div>
+<div class="sec-sub" style="left:2px;top:6292px;font-size:22px">Trendtrack Brandtracker pattern: tracked companies, activity feed, folders, side-by-side compare.</div>
 
 <div class="screen" style="left:0;top:6340px">
   <div class="s-label">6A · Watchlist <span>tracked companies + activity feed</span></div>
@@ -464,7 +464,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 </div>
 <!-- SECTION 7 : SOURCES & DATA QUALITY -->
 <div class="sec-label" style="left:0;top:7440px;font-size:64px">7 · SOURCES &amp; DATA QUALITY</div>
-<div class="sec-sub" style="left:2px;top:7518px;font-size:22px">The trust layer. 96 sources, fetch status, method. This is what makes it a data company.</div>
+<div class="sec-sub" style="left:2px;top:7532px;font-size:22px">The trust layer. 96 sources, fetch status, method. This is what makes it a data company.</div>
 
 <div class="screen" style="left:0;top:7580px">
   <div class="s-label">7A · Sources index <span>every source, type, freshness, coverage</span></div>
@@ -493,7 +493,7 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 </div>
 <!-- SECTION 8 : ACCOUNT / API (PROPOSED) + STATES -->
 <div class="sec-label" style="left:0;top:8680px;font-size:64px">8 · ACCOUNT / API (PROPOSED) + STATES</div>
-<div class="sec-sub" style="left:2px;top:8758px;font-size:22px">Proposed, not decided. Sign-in, API access, and the three UI states every screen needs.</div>
+<div class="sec-sub" style="left:2px;top:8772px;font-size:22px">Proposed, not decided. Sign-in, API access, and the three UI states every screen needs.</div>
 
 <div class="screen" style="left:0;top:8820px">
   <div class="s-label">8A · Sign in <span>proposed &middot; needed for watchlist + alerts</span></div>
@@ -563,4 +563,4 @@ function fitAll(){const w=5100,h=9900;s=Math.min(innerWidth/w,innerHeight/h)*.96
 fitAll();
 </script>
 </body>
-  </html>
+</html>
