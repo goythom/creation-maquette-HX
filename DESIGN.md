@@ -38,17 +38,18 @@ one-line change in code.
 Board-only extras (never inside product screens): backdrop #dcdcdc, sticky
 note #fff9c4 / #e0d890.
 
-## Themes (accent, up, down, soft) - PROPOSED, default MONO
+## Themes (accent, up, down, soft) - YELLOW selected by Louis (board default), others stay available
 
 | theme  | accent   | up       | down     | soft     | status   |
 |--------|----------|----------|----------|----------|----------|
-| mono   | #000     | #000     | #666     | #f2f2f2  | current  |
-| petrol | #0f4c5c  | #1a7f5a  | #b23a48  | #e6eff2  | proposed |
-| oxide  | #0f6b4f  | #1a7f37  | #b3261e  | #e8f3ee  | proposed |
-| terra  | #a34a17  | #3d7a2c  | #a12626  | #f7ede4  | proposed |
+| yellow | #eab308  | #1a7f37  | #b3261e  | #fdf6d8  | selected |
+| mono   | #000     | #000     | #666     | #f2f2f2  | option   |
+| petrol | #0f4c5c  | #1a7f5a  | #b23a48  | #e6eff2  | option   |
+| oxide  | #0f6b4f  | #1a7f37  | #b3261e  | #e8f3ee  | option   |
+| terra  | #a34a17  | #3d7a2c  | #a12626  | #f7ede4  | option   |
 
 Live preview: THEME control bottom-right of the board (persisted in
-localStorage). Palette choice is Louis's; MONO stays default until decided.
+localStorage). YELLOW is the board default; other themes stay one click away.
 
 ## Type - Helvetica Neue / system sans
 
