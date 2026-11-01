@@ -22,6 +22,11 @@ html,body{height:100%;overflow:hidden;background:#dcdcdc;font-family:"Helvetica 
 html[data-theme="petrol"]{--accent:#0f4c5c;--accent-ink:#fff;--accent-soft:#e6eff2;--up:#1a7f5a;--dn:#b23a48}
 html[data-theme="oxide"]{--accent:#0f6b4f;--accent-ink:#fff;--accent-soft:#e8f3ee;--up:#1a7f37;--dn:#b3261e}
 html[data-theme="terra"]{--accent:#a34a17;--accent-ink:#fff;--accent-soft:#f7ede4;--up:#3d7a2c;--dn:#a12626}
+html[data-theme="yellow"]{--accent:#eab308;--accent-ink:#000;--accent-soft:#fdf6d8;--up:#1a7f37;--dn:#b3261e}
+html[data-theme="yellow"] .btn.solid,html[data-theme="yellow"] .chip.on{border-color:#000}
+html[data-theme="yellow"] .nav b{color:#000;border-bottom-color:var(--accent)}
+html[data-theme="yellow"] .tabs .on{color:#000}
+html[data-theme="yellow"] .check.on{border-color:#000}
 /* ---- board chrome ---- */
 .sec-label{position:absolute;font-weight:700;letter-spacing:.02em;color:#000;white-space:nowrap;line-height:1.05}
 .sec-sub{position:absolute;color:#555;font-weight:400;white-space:nowrap}
@@ -1029,30 +1034,37 @@ html[data-theme="terra"]{--accent:#a34a17;--accent-ink:#fff;--accent-soft:#f7ede
 <div class="ui" style="left:40px;top:760px;width:1320px"><span style="background:#000;color:#fff;font-size:11px;letter-spacing:.12em;padding:4px 10px;font-weight:700">DEMO DATA</span>&nbsp;&nbsp;<span style="background:#fff;border:2px dashed #999;color:#555;font-size:11px;letter-spacing:.12em;padding:3px 9px;font-weight:700">PROPOSED</span>&nbsp;&nbsp;<span class="sub">badges are mandatory: every figure is demo until a source is wired &middot; proposals are never drawn as decided</span></div>
 </div>
 
-<div class="screen" style="left:3120px;top:18740px"><div class="s-label">14C &middot; Color themes <span>PROPOSED &middot; pick one &middot; default stays MONO</span></div>
+<div class="screen" style="left:3120px;top:18740px"><div class="s-label">14C &middot; Color themes <span>YELLOW selected by Louis &middot; others stay available in THEME preview</span></div>
 <div class="ui" style="left:40px;top:36px;width:1360px;display:flex;gap:20px">
-<div style="width:325px;border:3px solid #000;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">MONO</b><span class="tag" style="border-color:#000;color:#000;font-weight:700">CURRENT</span></div>
+<div style="width:252px;border:3px solid #000;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">MONO</b><span class="tag">OPTION</span></div>
 <div style="display:flex;gap:8px;margin:14px 0"><span style="width:52px;height:40px;background:#000"></span><span style="width:34px;height:40px;background:#000"></span><span style="width:34px;height:40px;background:#666"></span><span style="width:34px;height:40px;background:#f2f2f2;border:1px solid #ddd"></span></div>
 <div style="font-family:Menlo,monospace;font-size:10px;color:#666;line-height:1.7">accent #000 &middot; up #000<br>down #666 &middot; soft #f2f2f2</div>
 <div style="margin-top:14px;border-top:1px solid #ddd;padding-top:14px"><span style="display:inline-block;background:#000;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Primary</span>&nbsp;<span style="display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Default</span>
 <div style="margin-top:10px"><span style="display:inline-block;background:#000;color:#fff;font-size:11px;padding:4px 10px">Selected chip</span></div>
 <div style="margin-top:10px;font-size:13px;font-weight:700">&#9650; 4% &nbsp;<span style="color:#666">&#9660; 1%</span></div></div>
 <div class="sub" style="margin-top:12px">audited charte: strict black/gray/white, arrows monochrome</div></div>
-<div style="width:325px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">PETROL</b><span class="tag">PROPOSED</span></div>
+<div style="width:252px;border:3px solid #000;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">YELLOW</b><span class="tag" style="border-color:#000;color:#000;font-weight:700">SELECTED</span></div>
+<div style="display:flex;gap:8px;margin:14px 0"><span style="width:52px;height:40px;background:#eab308;border:1px solid #000"></span><span style="width:34px;height:40px;background:#1a7f37"></span><span style="width:34px;height:40px;background:#b3261e"></span><span style="width:34px;height:40px;background:#fdf6d8;border:1px solid #ddd"></span></div>
+<div style="font-family:Menlo,monospace;font-size:10px;color:#666;line-height:1.7">accent #eab308 &middot; ink #000<br>up #1a7f37 &middot; down #b3261e</div>
+<div style="margin-top:14px;border-top:1px solid #ddd;padding-top:14px"><span style="display:inline-block;background:#eab308;color:#000;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Primary</span>&nbsp;<span style="display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Default</span>
+<div style="margin-top:10px"><span style="display:inline-block;background:#eab308;color:#000;font-size:11px;font-weight:700;padding:4px 10px;border:1.5px solid #000">Selected chip</span></div>
+<div style="margin-top:10px;font-size:13px;font-weight:700;color:#1a7f37">&#9650; 4% &nbsp;<span style="color:#b3261e">&#9660; 1%</span></div></div>
+<div class="sub" style="margin-top:12px">Louis's choice &middot; interaction only, signals green/red</div></div>
+<div style="width:252px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">PETROL</b><span class="tag">PROPOSED</span></div>
 <div style="display:flex;gap:8px;margin:14px 0"><span style="width:52px;height:40px;background:#0f4c5c"></span><span style="width:34px;height:40px;background:#1a7f5a"></span><span style="width:34px;height:40px;background:#b23a48"></span><span style="width:34px;height:40px;background:#e6eff2;border:1px solid #ddd"></span></div>
 <div style="font-family:Menlo,monospace;font-size:10px;color:#666;line-height:1.7">accent #0f4c5c &middot; up #1a7f5a<br>down #b23a48 &middot; soft #e6eff2</div>
 <div style="margin-top:14px;border-top:1px solid #ddd;padding-top:14px"><span style="display:inline-block;background:#0f4c5c;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #0f4c5c">Primary</span>&nbsp;<span style="display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Default</span>
 <div style="margin-top:10px"><span style="display:inline-block;background:#0f4c5c;color:#fff;font-size:11px;padding:4px 10px">Selected chip</span></div>
 <div style="margin-top:10px;font-size:13px;font-weight:700;color:#1a7f5a">&#9650; 4% &nbsp;<span style="color:#b23a48">&#9660; 1%</span></div></div>
 <div class="sub" style="margin-top:12px">deep blue-green &middot; sober data-tool feel, close to current mood</div></div>
-<div style="width:325px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">OXIDE</b><span class="tag">PROPOSED</span></div>
+<div style="width:252px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">OXIDE</b><span class="tag">PROPOSED</span></div>
 <div style="display:flex;gap:8px;margin:14px 0"><span style="width:52px;height:40px;background:#0f6b4f"></span><span style="width:34px;height:40px;background:#1a7f37"></span><span style="width:34px;height:40px;background:#b3261e"></span><span style="width:34px;height:40px;background:#e8f3ee;border:1px solid #ddd"></span></div>
 <div style="font-family:Menlo,monospace;font-size:10px;color:#666;line-height:1.7">accent #0f6b4f &middot; up #1a7f37<br>down #b3261e &middot; soft #e8f3ee</div>
 <div style="margin-top:14px;border-top:1px solid #ddd;padding-top:14px"><span style="display:inline-block;background:#0f6b4f;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #0f6b4f">Primary</span>&nbsp;<span style="display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Default</span>
 <div style="margin-top:10px"><span style="display:inline-block;background:#0f6b4f;color:#fff;font-size:11px;padding:4px 10px">Selected chip</span></div>
 <div style="margin-top:10px;font-size:13px;font-weight:700;color:#1a7f37">&#9650; 4% &nbsp;<span style="color:#b3261e">&#9660; 1%</span></div></div>
 <div class="sub" style="margin-top:12px">mineral green &middot; mining / land identity, classic market up/down</div></div>
-<div style="width:325px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">TERRA</b><span class="tag">PROPOSED</span></div>
+<div style="width:252px;border:2px dashed #999;padding:18px;background:#fff"><div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:15px">TERRA</b><span class="tag">PROPOSED</span></div>
 <div style="display:flex;gap:8px;margin:14px 0"><span style="width:52px;height:40px;background:#a34a17"></span><span style="width:34px;height:40px;background:#3d7a2c"></span><span style="width:34px;height:40px;background:#a12626"></span><span style="width:34px;height:40px;background:#f7ede4;border:1px solid #ddd"></span></div>
 <div style="font-family:Menlo,monospace;font-size:10px;color:#666;line-height:1.7">accent #a34a17 &middot; up #3d7a2c<br>down #a12626 &middot; soft #f7ede4</div>
 <div style="margin-top:14px;border-top:1px solid #ddd;padding-top:14px"><span style="display:inline-block;background:#a34a17;color:#fff;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #a34a17">Primary</span>&nbsp;<span style="display:inline-block;font-size:12px;font-weight:700;padding:6px 14px;border:2px solid #000">Default</span>
@@ -1060,8 +1072,8 @@ html[data-theme="terra"]{--accent:#a34a17;--accent-ink:#fff;--accent-soft:#f7ede
 <div style="margin-top:10px;font-size:13px;font-weight:700;color:#3d7a2c">&#9650; 4% &nbsp;<span style="color:#a12626">&#9660; 1%</span></div></div>
 <div class="sub" style="margin-top:12px">rare-earth oxide / terracotta &middot; warmest, most distinctive</div></div>
 </div>
-<div class="ui" style="left:40px;top:340px;width:1360px"><div class="panel" style="padding:16px 20px"><h3>Rule for every theme</h3><div style="font-size:13px;line-height:1.55;color:#333">Structure never changes color: layout borders, body text and tables stay black/gray. Color only marks interaction (primary buttons, selected chips and tabs, active nav) and data signals (trend arrows, chart bars, map pins). Switch live with the <b>THEME</b> control, bottom-right &middot; applies to all 46 screens through tokens &middot; choice is Louis's, MONO stays the default until decided.</div></div></div>
-<div class="ui fresh" style="left:40px;top:866px">Charter v1 &middot; also in DESIGN.md &middot; themes PROPOSED, not decided</div>
+<div class="ui" style="left:40px;top:340px;width:1360px"><div class="panel" style="padding:16px 20px"><h3>Rule for every theme</h3><div style="font-size:13px;line-height:1.55;color:#333">Structure never changes color: layout borders, body text and tables stay black/gray. Color only marks interaction (primary buttons, selected chips and tabs, active nav) and data signals (trend arrows, chart bars, map pins). Switch live with the <b>THEME</b> control, bottom-right &middot; applies to all 46 screens through tokens &middot; YELLOW is Louis's choice and the board default; switch anytime.</div></div></div>
+<div class="ui fresh" style="left:40px;top:866px">Charter v1 &middot; also in DESIGN.md &middot; YELLOW selected, others stay available</div>
 </div>
 
 <!-- JOURNEY CONNECTORS (parcours between screens) -->
@@ -1078,7 +1090,8 @@ html[data-theme="terra"]{--accent:#a34a17;--accent-ink:#fff;--accent-soft:#f7ede
 <div id="hud" style="position:fixed;left:16px;bottom:16px;background:#000;color:#fff;font:700 13px Helvetica;padding:10px 16px;letter-spacing:.05em;z-index:10">RARE EARTH DATA · UX BOARD · <span id="zoompct">100%</span></div>
 <div id="themebar" style="position:fixed;right:16px;bottom:64px;z-index:10;display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #000;padding:6px 10px">
 <span style="font:700 11px Helvetica;letter-spacing:.1em;color:#000">THEME &middot; PREVIEW</span>
-<button data-t="mono" onclick="setTheme('mono')" title="Mono (current)" style="width:22px;height:22px;background:#000;border:2px solid #000;cursor:pointer;padding:0"></button>
+<button data-t="yellow" onclick="setTheme('yellow')" title="Yellow (selected)" style="width:22px;height:22px;background:#eab308;border:2px solid #000;cursor:pointer;padding:0"></button>
+<button data-t="mono" onclick="setTheme('mono')" title="Mono" style="width:22px;height:22px;background:#000;border:2px solid #000;cursor:pointer;padding:0"></button>
 <button data-t="petrol" onclick="setTheme('petrol')" title="Petrol (proposed)" style="width:22px;height:22px;background:#0f4c5c;border:2px solid #000;cursor:pointer;padding:0"></button>
 <button data-t="oxide" onclick="setTheme('oxide')" title="Oxide (proposed)" style="width:22px;height:22px;background:#0f6b4f;border:2px solid #000;cursor:pointer;padding:0"></button>
 <button data-t="terra" onclick="setTheme('terra')" title="Terra (proposed)" style="width:22px;height:22px;background:#a34a17;border:2px solid #000;cursor:pointer;padding:0"></button>
@@ -1104,8 +1117,8 @@ function fitAll(){const w=8320,h=19840;s=Math.min(innerWidth/w,innerHeight/h)*.9
 function goBackend(){const top=13540,h=2560,w=7000;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function goCharter(){const top=18560,h=1280,w=4700;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('hx-theme',t)}catch(e){}document.querySelectorAll('#themebar button').forEach(b=>{b.style.outline=b.dataset.t===t?'3px solid #fff':'none';b.style.boxShadow=b.dataset.t===t?'0 0 0 5px var(--accent)':'none'})}
-try{setTheme(localStorage.getItem('hx-theme')||'mono')}catch(e){setTheme('mono')}
+try{setTheme(localStorage.getItem('hx-theme')||'yellow')}catch(e){setTheme('yellow')}
 fitAll();
 </script>
 </body>
-  </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </html>
