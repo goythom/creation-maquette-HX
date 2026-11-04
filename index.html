@@ -31,6 +31,10 @@ html[data-theme="yellow"] .check.on{border-color:#000}
 #tabbar{position:fixed;left:16px;top:16px;z-index:10;display:flex;background:#fff;border:2px solid #000}
 #tabbar button{font:700 13px "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.08em;padding:10px 18px;border:0;background:#fff;color:#000;cursor:pointer}
 #tabbar button.on{background:#000;color:#fff}
+#subbar{position:fixed;left:16px;top:58px;z-index:10;display:none;background:#fff;border:2px solid #000}
+#subbar button{font:700 12px "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.04em;padding:8px 14px;border:0;background:#fff;color:#000;cursor:pointer}
+#subbar button+button{border-left:2px solid #000}
+#subbar button.on{background:#000;color:#fff}
 /* ---- board chrome ---- */
 .sec-label{position:absolute;font-weight:700;letter-spacing:.02em;color:#000;white-space:nowrap;line-height:1.05}
 .sec-sub{position:absolute;color:#555;font-weight:400;white-space:nowrap}
@@ -2128,7 +2132,8 @@ fit();window.addEventListener("load",fit);var done=false;if(window.ResizeObserve
 window.addEventListener('load',fit);if(window.ResizeObserver){new ResizeObserver(fit).observe(r)}})();
 </script>
 </div>
-<div id="tabbar"><button id="tab-hx" class="on" onclick="showTab('hx')">PLANCHE HX</button><button id="tab-insta" onclick="showTab('insta')" style="border-left:2px solid #000">INSTAFRAME</button><button id="tab-instab" onclick="showTab('instab')" style="border-left:2px solid #000">INSTAFRAME CHOIX B</button><button id="tab-ibp" onclick="showTab('ibp')" style="border-left:2px solid #000">InstaFrame Choix B parcours utilisateur graphique</button></div>
+<div id="tabbar"><button id="tab-hx" class="on" onclick="showTab('hx')">PLANCHE HX</button><button id="tab-insta" onclick="showInsta()" style="border-left:2px solid #000">InstaFrame</button></div>
+<div id="subbar"><button id="sub-insta" onclick="showTab('insta')">DA 3 pistes</button><button id="sub-instab" onclick="showTab('instab')">Choix B</button><button id="sub-ibp" onclick="showTab('ibp')">Choix B parcours utilisateur</button></div>
 <div id="hud" style="position:fixed;left:16px;bottom:16px;background:#000;color:#fff;font:700 13px Helvetica;padding:10px 16px;letter-spacing:.05em;z-index:10"><span id="hudlabel">RARE EARTH DATA &middot; UX BOARD</span> &middot; <span id="zoompct">100%</span></div>
 <div id="themebar" style="position:fixed;right:16px;bottom:64px;z-index:10;display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #000;padding:6px 10px">
 <span style="font:700 11px Helvetica;letter-spacing:.1em;color:#000">THEME &middot; PREVIEW</span>
@@ -2157,10 +2162,13 @@ function showTab(t){
  cur=t;const b=boards[t];cv=b.el;b.el.style.display='block';
  document.getElementById('hudlabel').textContent=b.label;
  document.getElementById('hxnav').style.display=t==='hx'?'inline':'none';
+ const insta=t==='insta'||t==='instab'||t==='ibp';
  document.getElementById('tab-hx').classList.toggle('on',t==='hx');
- document.getElementById('tab-insta').classList.toggle('on',t==='insta');
- document.getElementById('tab-instab').classList.toggle('on',t==='instab');
- document.getElementById('tab-ibp').classList.toggle('on',t==='ibp');
+ document.getElementById('tab-insta').classList.toggle('on',insta);
+ document.getElementById('subbar').style.display=insta?'flex':'none';
+ document.getElementById('sub-insta').classList.toggle('on',t==='insta');
+ document.getElementById('sub-instab').classList.toggle('on',t==='instab');
+ document.getElementById('sub-ibp').classList.toggle('on',t==='ibp');
  try{history.replaceState(null,'',t==='insta'?'#instaframe':t==='instab'?'#instaframe-b':t==='ibp'?'#instaframe-b-parcours':location.pathname)}catch(e){}
  if(!b.visited){b.visited=true;fitAll()}else{tx=b.tx;ty=b.ty;s=b.s;apply()}
 }
@@ -2180,9 +2188,10 @@ function goCharter(){const top=18560,h=1280,w=4700;const ns=Math.min(innerWidth/
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('hx-theme',t)}catch(e){}document.querySelectorAll('#themebar button').forEach(b=>{b.style.outline=b.dataset.t===t?'3px solid #fff':'none';b.style.boxShadow=b.dataset.t===t?'0 0 0 5px var(--accent)':'none'})}
 try{setTheme(localStorage.getItem('hx-theme')||'yellow')}catch(e){setTheme('yellow')}
 fitAll();
-if(location.hash==='#instaframe')showTab('insta');
-else if(location.hash==='#instaframe-b')showTab('instab');
-else if(location.hash==='#instaframe-b-parcours')showTab('ibp');
+function showInsta(){if(cur==='insta'||cur==='instab'||cur==='ibp'){document.getElementById('subbar').style.display='flex';return}showTab('insta')}
+function tabFromHash(){if(location.hash==='#instaframe')return 'insta';if(location.hash==='#instaframe-b')return 'instab';if(location.hash==='#instaframe-b-parcours')return 'ibp';return null}
+window.addEventListener('hashchange',()=>{const t=tabFromHash();if(t)showTab(t)});
+const start=tabFromHash();if(start)showTab(start);
 </script>
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
