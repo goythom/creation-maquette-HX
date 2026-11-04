@@ -2970,9 +2970,9 @@ F('3.24','instaframe.fr/album',function(){return ST({name:'For Léa',view:spread
 F('3.25','instaframe.fr/album',function(){return ST({over:W('Mes albums',T.NBROW('For Léa')+'<small>Échap ou clic à l’extérieur pour fermer</small>',{css:'max-width:820px',ic:'dossier'})})});
 var V3=function(){return R(CH(['Perspective','Face','Dessus'],0)+bev('','moins')+bev('','plus'))};
 F('3.26','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C('<div style="text-align:center"><div class="ib6-sk" style="width:420px;height:300px"></div><p>Page 3 / 12 chargée</p><div class="ib6-bar" style="width:420px"><b style="width:25%"></b></div></div>','min-height:600px')})});
-F('3.27','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C('<div style="transform:perspective(900px) rotateX(18deg) rotateY(-14deg)">'+E.BOOK({t:'For Léa',c:'#A3305F'})+'</div>','min-height:560px')+V3(),pag:'Couverture'})});
+F('3.27','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C('<div class="if-m3d" style="transform:perspective(900px) rotateX(18deg) rotateY(-14deg)">'+E.BOOK({t:'For Léa',c:'#A3305F'})+'</div>','min-height:560px')+V3(),pag:'Couverture'})});
 F('3.28','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C(E.BOOK({t:'For Léa',c:'#A3305F'}),'min-height:560px')+R(CH(['Perspective','Face','Dessus'],1)),pag:'Couverture'})});
-F('3.29','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C('<div style="transform:perspective(900px) rotateY(-10deg)">'+spread(T.PAGEC({ph:1}))+'</div>','min-height:560px')+V3(),pag:'Pages 1-2 / 12'})});
+F('3.29','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:C('<div class="if-m3d if-m3d-b" style="transform:perspective(900px) rotateY(-10deg)">'+spread(T.PAGEC({ph:1}))+'</div>','min-height:560px')+V3(),pag:'Pages 1-2 / 12'})});
 F('3.30','instaframe.fr/album/preview',function(){return PV({mode:'3d',view:msg('info','La 3D n’est pas disponible sur cet appareil. Lecture en 2D.')+C(spread(T.PAGEC({ph:1})),'min-height:520px'),pag:'Pages 1-2 / 12'})});
 F('3.31','instaframe.fr/album',function(){return window.__ib7.STUDIOSHELL('<div class="ib7-sbar">'+SK('60%',34)+'</div><div class="ib7-sstage"><div class="ib7-center">'+SK('760px',480)+'</div></div>',{pal:'<div style="display:flex;flex-direction:column;gap:10px;padding:0 4px">'+SK()+SK()+SK('60%')+'</div>'})});
 F('3.32','instaframe.fr/album',function(){return ST({empty:1})});
@@ -3061,7 +3061,7 @@ window.__ib6map=S;
 </div><div id="canvas-ibd" style="position:absolute;transform-origin:0 0;width:8320px;height:19840px;display:none;box-sizing:border-box">
 <div class="if-wrap ib-wrap" id="ibd-root" style="box-sizing:border-box"></div>
 <script>
-(function(){var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('ibd-root');if(!u||!E||!K||!S||!D||!root)return;
+window.__ibdBuild=function(){if(window.__ibdBuilt)return;window.__ibdBuilt=true;var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('ibd-root');if(!u||!E||!K||!S||!D||!root)return;
 var ic=u.ic,B=u.B,msg=u.msg,v=window.__ib5,PX=v.PX,BX=v.BX,R=v.R,O=K.O,GEN=K.GEN;window.__ib6err=[];
 function C(h){return '<div style="display:grid;place-items:center;min-height:420px">'+h+'</div>'}
 function SCR(url,html){return '<div class="ib6-z">'+u.scr(url.replace(/^instaframe\.fr/,''),'<div class="ib-mb">'+html+'</div>','width:1440px')+'</div>'}
@@ -3100,7 +3100,12 @@ html+=u.board('Éléments générables','Un design par élément','Chaque élém
 var q=Math.ceil(MAP.length/4),cols=[];for(var c=0;c<4;c++)cols.push(MAP.slice(c*q,(c+1)*q));
 html+=u.board('Correspondance','Figma → HTML Choix B',MAP.length+' étapes Figma, '+MAP.length+' écrans HTML. Colonne « Repris » : écran N-xx ou planche Choix B existante réutilisée ; sinon nouvel écran.','<div class="ib6-g4" style="gap:28px;align-items:start">'+cols.map(function(cl){return '<table class="ib6-tbl" style="background:#fff;font-size:15px"><tr><th>Étape</th><th>Écran HTML</th><th>Repris</th></tr>'+cl.map(function(m){return '<tr><td><b>'+m[0]+'</b> '+m[1]+'</td><td>'+m[3]+'</td><td>'+(m[4]||'nouveau')+'</td></tr>'}).join('')+'</table>'}).join('')+'</div>','ib-span');
 root.insertAdjacentHTML('beforeend',html);window.__ib6count={steps:MAP.length,rows:TR,journeys:D.j.length,reused:MAP.filter(function(m){return m[4]}).length};
-})();
+window.__ibdVis=function(){if(typeof cur==='undefined'||cur!=='ibd')return;var r=document.getElementById('ibd-root');if(!r||!r.children.length)return;
+if(!r.__vc||r.__vh!==r.offsetHeight){var c=[];for(var i=0;i<r.children.length;i++){var b=r.children[i];c.push({b:b,t:b.offsetTop,h:b.offsetHeight})}if(!c.length||!c[0].h)return;r.__vc=c;r.__vh=r.offsetHeight}
+var mg=innerHeight/s*0.75,vt=-ty/s-mg,vb=(innerHeight-ty)/s+mg;
+for(var i=0;i<r.__vc.length;i++){var e=r.__vc[i];e.b.style.visibility=(e.t<vb&&e.t+e.h>vt)?'':'hidden'}};
+};
+if(location.hash==='#instaframe-b-detail')window.__ibdBuild();
 
 
 </script>
@@ -3202,6 +3207,7 @@ const boards={
 let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
 function showTab(t){
  if(t===cur||!boards[t])return;
+ if(t==='ibd'&&window.__ibdBuild)window.__ibdBuild();
  const o=boards[cur];o.tx=tx;o.ty=ty;o.s=s;o.el.style.display='none';
  cur=t;const b=boards[t];cv=b.el;b.el.style.display='block';
  document.getElementById('hudlabel').textContent=b.label;
@@ -3218,7 +3224,7 @@ function showTab(t){
  if(!b.visited){b.visited=true;fitAll()}else{tx=b.tx;ty=b.ty;s=b.s;apply()}
 }
 let _raf=0,_lfT=0,_gest=false;function lowfi(){_gest=true;clearTimeout(_lfT);_lfT=setTimeout(function(){_gest=false;cv.classList.toggle('lowfi',s<0.25)},150)}
-function apply(){if(_raf)return;_raf=requestAnimationFrame(function(){_raf=0;cv.classList.toggle('lowfi',_gest||s<0.25);cv.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;document.getElementById('zoompct').textContent=Math.round(s*100)+'%'})}
+function apply(){if(_raf)return;_raf=requestAnimationFrame(function(){_raf=0;cv.classList.toggle('lowfi',_gest||s<0.25);cv.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;document.getElementById('zoompct').textContent=Math.round(s*100)+'%';if(cur==='ibd'&&window.__ibdVis)window.__ibdVis()})}
 function zoomBy(f,cx,cy){cx=cx??innerWidth/2;cy=cy??innerHeight/2;const ns=Math.min(2.5,Math.max(.04,s*f));tx=cx-(cx-tx)*ns/s;ty=cy-(cy-ty)*ns/s;s=ns;lowfi();apply()}
 vp.addEventListener('wheel',e=>{e.preventDefault();if(e.ctrlKey||e.metaKey||Math.abs(e.deltaY)>0){zoomBy(e.deltaY<0?1.12:0.9,e.clientX,e.clientY)}},{passive:false});
 let drag=null;const pts=new Map();
@@ -3228,7 +3234,7 @@ vp.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;const prev
  if(drag){tx=e.clientX-drag[0];ty=e.clientY-drag[1];lowfi();apply()}});
 const up=e=>{pts.delete(e.pointerId);if(pts.size===0){drag=null;vp.classList.remove('dragging')}else{const f=[...pts.values()][0];drag=[f[0]-tx,f[1]-ty]}};
 vp.addEventListener('pointerup',up);vp.addEventListener('pointercancel',up);
-function fitAll(){const b=boards[cur],w=b.w,h=b.h;s=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*s)/2;ty=(innerHeight-h*s)/2;apply()}
+function fitAll(){const b=boards[cur],w=b.w,h=b.h;s=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*s)/2;ty=(innerHeight-h*s)/2;cv.classList.toggle('lowfi',_gest||s<0.25);apply()}
 function goBackend(){const top=13540,h=2560,w=7000;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function goCharter(){const top=18560,h=1280,w=4700;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('hx-theme',t)}catch(e){}document.querySelectorAll('#themebar button').forEach(b=>{b.style.outline=b.dataset.t===t?'3px solid #fff':'none';b.style.boxShadow=b.dataset.t===t?'0 0 0 5px var(--accent)':'none'})}
@@ -3240,9 +3246,7 @@ window.addEventListener('hashchange',()=>{const t=tabFromHash();if(t)showTab(t)}
 const start=tabFromHash();if(start)showTab(start);
 document.documentElement.removeAttribute('data-start');
 </script>
-<style id="perf-cv">.cv-on>.if-board{content-visibility:auto;contain:layout paint}#canvas-ibd.lowfi *,#canvas-instab.lowfi *{filter:none!important;box-shadow:none!important}#canvas-ibd,#canvas-instab{will-change:auto}</style>
-<script>/* perf: fige la taille de chaque planche puis active content-visibility (aucun changement de layout) */
-(function(){function lock(id){var r=document.getElementById(id);if(!r||r.classList.contains('cv-on'))return;var c=r.closest('[id^=canvas-]');if(!c||getComputedStyle(c).display==='none')return;var bs=[].slice.call(r.children).filter(function(b){return b.classList.contains('if-board')});if(!bs.length||!bs[0].offsetHeight)return;bs.forEach(function(b){b.style.containIntrinsicSize=b.offsetWidth+'px '+b.offsetHeight+'px'});r.classList.add('cv-on')}
-function all(){lock('ibd-root');lock('ib-root')}window.addEventListener('load',function(){setTimeout(all,300)});window.addEventListener('hashchange',function(){setTimeout(all,300)});document.addEventListener('click',function(){setTimeout(all,300)},true)})();</script>
+<style id="perf-cv">#canvas-ibd.lowfi *,#canvas-instab.lowfi *{filter:none!important;box-shadow:none!important}#canvas-ibd.lowfi .if-m3d{transform:matrix(.970,-.0747,0,.951,0,0)!important}#canvas-ibd.lowfi .if-m3d-b{transform:matrix(.9848,0,0,1,0,0)!important}#canvas-ibd,#canvas-instab{will-change:auto}</style>
+
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
