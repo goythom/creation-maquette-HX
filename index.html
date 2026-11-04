@@ -27,6 +27,10 @@ html[data-theme="yellow"] .btn.solid,html[data-theme="yellow"] .chip.on{border-c
 html[data-theme="yellow"] .nav b{color:#000;border-bottom-color:var(--accent)}
 html[data-theme="yellow"] .tabs .on{color:#000}
 html[data-theme="yellow"] .check.on{border-color:#000}
+/* ---- tabs ---- */
+#tabbar{position:fixed;left:16px;top:16px;z-index:10;display:flex;background:#fff;border:2px solid #000}
+#tabbar button{font:700 13px "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.08em;padding:10px 18px;border:0;background:#fff;color:#000;cursor:pointer}
+#tabbar button.on{background:#000;color:#fff}
 /* ---- board chrome ---- */
 .sec-label{position:absolute;font-weight:700;letter-spacing:.02em;color:#000;white-space:nowrap;line-height:1.05}
 .sec-sub{position:absolute;color:#555;font-weight:400;white-space:nowrap}
@@ -1086,8 +1090,9 @@ html[data-theme="yellow"] .check.on{border-color:#000}
 <div class="flow-tag" style="left:900px;top:9950px">element &rarr; filtered ranking &uarr;</div>
 <div class="flow-tag" style="left:3020px;top:1090px">save view &rarr; watchlist &darr;</div>
 
-</div></div>
-<div id="hud" style="position:fixed;left:16px;bottom:16px;background:#000;color:#fff;font:700 13px Helvetica;padding:10px 16px;letter-spacing:.05em;z-index:10">RARE EARTH DATA · UX BOARD · <span id="zoompct">100%</span></div>
+</div><div id="canvas-insta" style="position:absolute;transform-origin:0 0;width:8320px;height:19840px;display:none"></div></div>
+<div id="tabbar"><button id="tab-hx" class="on" onclick="showTab('hx')">PLANCHE HX</button><button id="tab-insta" onclick="showTab('insta')" style="border-left:2px solid #000">INSTAFRAME</button></div>
+<div id="hud" style="position:fixed;left:16px;bottom:16px;background:#000;color:#fff;font:700 13px Helvetica;padding:10px 16px;letter-spacing:.05em;z-index:10"><span id="hudlabel">RARE EARTH DATA &middot; UX BOARD</span> &middot; <span id="zoompct">100%</span></div>
 <div id="themebar" style="position:fixed;right:16px;bottom:64px;z-index:10;display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #000;padding:6px 10px">
 <span style="font:700 11px Helvetica;letter-spacing:.1em;color:#000">THEME &middot; PREVIEW</span>
 <button data-t="yellow" onclick="setTheme('yellow')" title="Yellow (selected)" style="width:22px;height:22px;background:#eab308;border:2px solid #000;cursor:pointer;padding:0"></button>
@@ -1097,12 +1102,27 @@ html[data-theme="yellow"] .check.on{border-color:#000}
 <button data-t="terra" onclick="setTheme('terra')" title="Terra (proposed)" style="width:22px;height:22px;background:#a34a17;border:2px solid #000;cursor:pointer;padding:0"></button>
 </div>
 <div style="position:fixed;right:16px;bottom:16px;z-index:10;display:flex;gap:8px">
-<button class="btn sm" onclick="fitAll()">FIT</button><button class="btn sm" onclick="goBackend()">BACKEND &darr;</button><button class="btn sm" onclick="goCharter()">CHARTER &darr;</button>
+<button class="btn sm" onclick="fitAll()">FIT</button><span id="hxnav"><button class="btn sm" onclick="goBackend()">BACKEND &darr;</button><button class="btn sm" onclick="goCharter()">CHARTER &darr;</button></span>
 <button class="btn sm" onclick="zoomBy(1.25)">+</button><button class="btn sm" onclick="zoomBy(0.8)">-</button>
 </div>
 <script>
-const cv=document.getElementById('canvas'),vp=document.getElementById('viewport');
-let tx=0,ty=0,s=0.28;
+const vp=document.getElementById('viewport');
+const boards={
+ hx:{el:document.getElementById('canvas'),w:8320,h:19840,label:'RARE EARTH DATA \u00b7 UX BOARD',tx:0,ty:0,s:0.28,visited:true},
+ insta:{el:document.getElementById('canvas-insta'),w:8320,h:19840,label:'INSTAFRAME \u00b7 BOARD',tx:0,ty:0,s:0.28,visited:false}
+};
+let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
+function showTab(t){
+ if(t===cur||!boards[t])return;
+ const o=boards[cur];o.tx=tx;o.ty=ty;o.s=s;o.el.style.display='none';
+ cur=t;const b=boards[t];cv=b.el;b.el.style.display='block';
+ document.getElementById('hudlabel').textContent=b.label;
+ document.getElementById('hxnav').style.display=t==='hx'?'inline':'none';
+ document.getElementById('tab-hx').classList.toggle('on',t==='hx');
+ document.getElementById('tab-insta').classList.toggle('on',t==='insta');
+ try{history.replaceState(null,'',t==='insta'?'#instaframe':location.pathname)}catch(e){}
+ if(!b.visited){b.visited=true;fitAll()}else{tx=b.tx;ty=b.ty;s=b.s;apply()}
+}
 function apply(){cv.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;document.getElementById('zoompct').textContent=Math.round(s*100)+'%'}
 function zoomBy(f,cx,cy){cx=cx??innerWidth/2;cy=cy??innerHeight/2;const ns=Math.min(2.5,Math.max(.04,s*f));tx=cx-(cx-tx)*ns/s;ty=cy-(cy-ty)*ns/s;s=ns;apply()}
 vp.addEventListener('wheel',e=>{e.preventDefault();if(e.ctrlKey||e.metaKey||Math.abs(e.deltaY)>0){zoomBy(e.deltaY<0?1.12:0.9,e.clientX,e.clientY)}},{passive:false});
@@ -1113,12 +1133,13 @@ vp.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;const prev
  if(drag){tx=e.clientX-drag[0];ty=e.clientY-drag[1];apply()}});
 const up=e=>{pts.delete(e.pointerId);if(pts.size===0){drag=null;vp.classList.remove('dragging')}else{const f=[...pts.values()][0];drag=[f[0]-tx,f[1]-ty]}};
 vp.addEventListener('pointerup',up);vp.addEventListener('pointercancel',up);
-function fitAll(){const w=8320,h=19840;s=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*s)/2;ty=(innerHeight-h*s)/2;apply()}
+function fitAll(){const b=boards[cur],w=b.w,h=b.h;s=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*s)/2;ty=(innerHeight-h*s)/2;apply()}
 function goBackend(){const top=13540,h=2560,w=7000;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function goCharter(){const top=18560,h=1280,w=4700;const ns=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*ns)/2;ty=(innerHeight-h*ns)/2-top*ns;s=ns;apply()}
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('hx-theme',t)}catch(e){}document.querySelectorAll('#themebar button').forEach(b=>{b.style.outline=b.dataset.t===t?'3px solid #fff':'none';b.style.boxShadow=b.dataset.t===t?'0 0 0 5px var(--accent)':'none'})}
 try{setTheme(localStorage.getItem('hx-theme')||'yellow')}catch(e){setTheme('yellow')}
 fitAll();
+if(location.hash==='#instaframe')showTab('insta');
 </script>
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
