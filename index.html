@@ -3217,14 +3217,15 @@ function showTab(t){
  try{history.replaceState(null,'',t==='insta'?'#instaframe':t==='instab'?'#instaframe-b':t==='ibp'?'#instaframe-b-parcours':t==='ibd'?'#instaframe-b-detail':location.pathname)}catch(e){}
  if(!b.visited){b.visited=true;fitAll()}else{tx=b.tx;ty=b.ty;s=b.s;apply()}
 }
-let _raf=0;function apply(){if(_raf)return;_raf=requestAnimationFrame(function(){_raf=0;cv.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;document.getElementById('zoompct').textContent=Math.round(s*100)+'%'})}
-function zoomBy(f,cx,cy){cx=cx??innerWidth/2;cy=cy??innerHeight/2;const ns=Math.min(2.5,Math.max(.04,s*f));tx=cx-(cx-tx)*ns/s;ty=cy-(cy-ty)*ns/s;s=ns;apply()}
+let _raf=0,_lfT=0,_gest=false;function lowfi(){_gest=true;clearTimeout(_lfT);_lfT=setTimeout(function(){_gest=false;cv.classList.toggle('lowfi',s<0.25)},150)}
+function apply(){if(_raf)return;_raf=requestAnimationFrame(function(){_raf=0;cv.classList.toggle('lowfi',_gest||s<0.25);cv.style.transform=`translate(${tx}px,${ty}px) scale(${s})`;document.getElementById('zoompct').textContent=Math.round(s*100)+'%'})}
+function zoomBy(f,cx,cy){cx=cx??innerWidth/2;cy=cy??innerHeight/2;const ns=Math.min(2.5,Math.max(.04,s*f));tx=cx-(cx-tx)*ns/s;ty=cy-(cy-ty)*ns/s;s=ns;lowfi();apply()}
 vp.addEventListener('wheel',e=>{e.preventDefault();if(e.ctrlKey||e.metaKey||Math.abs(e.deltaY)>0){zoomBy(e.deltaY<0?1.12:0.9,e.clientX,e.clientY)}},{passive:false});
 let drag=null;const pts=new Map();
 vp.addEventListener('pointerdown',e=>{vp.setPointerCapture(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);if(pts.size===1){drag=[e.clientX-tx,e.clientY-ty];vp.classList.add('dragging')}});
 vp.addEventListener('pointermove',e=>{if(!pts.has(e.pointerId))return;const prev=pts.get(e.pointerId);pts.set(e.pointerId,[e.clientX,e.clientY]);
  if(pts.size===2){const a=[...pts.values()];const other=[...pts.keys()].find(k=>k!==e.pointerId);const o=pts.get(other);const pd=Math.hypot(prev[0]-o[0],prev[1]-o[1]),nd=Math.hypot(e.clientX-o[0],e.clientY-o[1]);if(pd>0)zoomBy(nd/pd,(e.clientX+o[0])/2,(e.clientY+o[1])/2);return}
- if(drag){tx=e.clientX-drag[0];ty=e.clientY-drag[1];apply()}});
+ if(drag){tx=e.clientX-drag[0];ty=e.clientY-drag[1];lowfi();apply()}});
 const up=e=>{pts.delete(e.pointerId);if(pts.size===0){drag=null;vp.classList.remove('dragging')}else{const f=[...pts.values()][0];drag=[f[0]-tx,f[1]-ty]}};
 vp.addEventListener('pointerup',up);vp.addEventListener('pointercancel',up);
 function fitAll(){const b=boards[cur],w=b.w,h=b.h;s=Math.min(innerWidth/w,innerHeight/h)*.96;tx=(innerWidth-w*s)/2;ty=(innerHeight-h*s)/2;apply()}
@@ -3239,5 +3240,9 @@ window.addEventListener('hashchange',()=>{const t=tabFromHash();if(t)showTab(t)}
 const start=tabFromHash();if(start)showTab(start);
 document.documentElement.removeAttribute('data-start');
 </script>
+<style id="perf-cv">.cv-on>.if-board{content-visibility:auto;contain:layout paint}#canvas-ibd.lowfi *,#canvas-instab.lowfi *{filter:none!important;box-shadow:none!important}#canvas-ibd,#canvas-instab{will-change:auto}</style>
+<script>/* perf: fige la taille de chaque planche puis active content-visibility (aucun changement de layout) */
+(function(){function lock(id){var r=document.getElementById(id);if(!r||r.classList.contains('cv-on'))return;var c=r.closest('[id^=canvas-]');if(!c||getComputedStyle(c).display==='none')return;var bs=[].slice.call(r.children).filter(function(b){return b.classList.contains('if-board')});if(!bs.length||!bs[0].offsetHeight)return;bs.forEach(function(b){b.style.containIntrinsicSize=b.offsetWidth+'px '+b.offsetHeight+'px'});r.classList.add('cv-on')}
+function all(){lock('ibd-root');lock('ib-root')}window.addEventListener('load',function(){setTimeout(all,300)});window.addEventListener('hashchange',function(){setTimeout(all,300)});document.addEventListener('click',function(){setTimeout(all,300)},true)})();</script>
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>
