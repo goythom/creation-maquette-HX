@@ -3299,8 +3299,98 @@ window.__ib6map=S;
  #canvas-isel .px-dissolve{display:none}
 }
 #canvas-isel.lowfi *{box-shadow:none!important;animation:none!important}
+
+/* === A · Étagère v3 (scoped; D/E untouched) === */
+#canvas-isel .a-mock{background:#E3E3E3}
+#canvas-isel .a-main{position:relative}
+#canvas-isel .a-hint{display:flex;align-items:flex-start;gap:12px;background:#FCE6EF;border:3px solid #A3305F;padding:12px 14px;margin:0 0 16px;box-shadow:4px 4px 0 #404040;font-size:15px;color:#404040}
+#canvas-isel .a-hint b{display:block;font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#A3305F;margin-bottom:4px}
+#canvas-isel .a-hint[hidden],#canvas-isel .a-hint.is-gone{display:none}
+#canvas-isel .a-hint-pix{width:16px;height:16px;flex:0 0 16px;margin-top:2px;background:repeating-linear-gradient(90deg,#A3305F 0 4px,transparent 4px 8px),repeating-linear-gradient(0deg,#A3305F 0 4px,transparent 4px 8px);background-size:8px 8px;background-color:#F7C5D8;border:2px solid #404040}
+#canvas-isel .a-hint-x{margin-left:auto;border:2px solid #404040;background:#FFFFFF;width:36px;height:36px;font:700 18px/1 DM Sans,sans-serif;cursor:pointer;color:#404040}
+#canvas-isel .a-hint-x:focus-visible{outline:3px solid #447174;outline-offset:2px}
+#canvas-isel .shelf-stage{background:#F5F5F5;border:3px solid #404040;padding:28px 32px 20px;display:flex;flex-direction:column;gap:18px;min-height:520px;position:relative}
+#canvas-isel .a-affordance{display:flex;justify-content:space-between;align-items:center;font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#447174;letter-spacing:.06em}
+#canvas-isel .a-pull{background:#A9C4C3;border:2px solid #404040;padding:6px 10px;color:#2D434B}
+#canvas-isel .a-rest-label{color:#404040}
+#canvas-isel .shelf{display:flex;align-items:flex-end;gap:12px;height:280px;padding:8px 8px 0;border-bottom:14px solid #447174;position:relative;background:linear-gradient(180deg,#E3E3E3 0%,#F5F5F5 65%);touch-action:pan-y}
+#canvas-isel .shelf::after{content:"";position:absolute;left:-8px;right:-8px;bottom:-22px;height:12px;background:#404040}
+#canvas-isel .spine{width:44px;min-width:44px;height:210px;border:2px solid #404040;border-bottom:0;display:flex;align-items:center;justify-content:center;writing-mode:vertical-rl;transform:rotate(180deg);font:700 11px/1 "DM Sans",sans-serif;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;position:relative;transition:transform .18s cubic-bezier(.2,.7,.2,1),width .2s cubic-bezier(.2,.7,.2,1),height .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s;user-select:none;-webkit-user-select:none}
+#canvas-isel .spine .sp-mark{writing-mode:horizontal-tb;transform:rotate(180deg);font-size:14px;margin-top:8px}
+#canvas-isel .spine .sp-label{max-height:150px;overflow:hidden}
+#canvas-isel .spine.is-hover,#canvas-isel .spine:hover:not(.on){transform:rotate(180deg) translateX(-8px)}
+#canvas-isel .spine .a-tip,#canvas-isel .spine.is-hover .a-tip{display:none}
+#canvas-isel .spine.is-hover .a-tip,#canvas-isel .spine:hover:not(.on) .a-tip{display:block;position:absolute;left:50%;bottom:calc(100% + 10px);transform:translateX(-50%) rotate(180deg);writing-mode:horizontal-tb;background:#404040;color:#FFFFFF;font:400 11px/1.2 Silkscreen,monospace;text-transform:uppercase;padding:6px 8px;white-space:nowrap;pointer-events:none;z-index:5;border:2px solid #404040}
+#canvas-isel .spine.is-focus,#canvas-isel .spine:focus-visible{outline:3px solid #447174;outline-offset:3px;z-index:3}
+#canvas-isel .spine.is-pressed{transform:rotate(180deg) translateX(2px)!important;filter:brightness(.92)}
+#canvas-isel .spine.on{width:160px;min-width:160px;height:240px;writing-mode:horizontal-tb;transform:none;align-items:stretch;justify-content:stretch;padding:0;z-index:4;box-shadow:6px 6px 0 #404040;outline:3px solid #A3305F;outline-offset:2px;border-color:#A3305F}
+#canvas-isel .spine.on::after{content:"▼";position:absolute;left:50%;bottom:-28px;transform:translateX(-50%);color:#A3305F;font-size:14px;line-height:1}
+#canvas-isel .spine.on .sp-label,#canvas-isel .spine.on .sp-mark,#canvas-isel .spine.on .a-tip{display:none}
+#canvas-isel .spine:not(.on) .sp-face{display:none}
+#canvas-isel .spine.on .sp-face{display:block;width:100%;height:100%}
+#canvas-isel .spine.on.is-confirm{animation:isel-a-confirm .4s steps(4)}
+@keyframes isel-a-confirm{0%{filter:none}25%{filter:contrast(1.4) brightness(1.1)}50%{filter:contrast(.8)}75%{filter:contrast(1.3)}100%{filter:none}}
+#canvas-isel .a-sticky{display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:#FFFFFF;border:3px solid #404040;padding:12px 14px;box-shadow:4px 4px 0 #404040;position:sticky;bottom:0;z-index:6}
+#canvas-isel .a-sticky-left{display:flex;align-items:center;gap:14px;flex:1;min-width:220px}
+#canvas-isel .a-badge{font:400 14px/1 Silkscreen,monospace;background:#2D434B;color:#FFFFFF;padding:8px 10px;border:2px solid #404040;letter-spacing:.04em}
+#canvas-isel .a-sticky-nav{display:flex;gap:8px}
+#canvas-isel .a-nav{min-width:44px;min-height:44px}
+#canvas-isel .a-cta{min-height:48px;white-space:nowrap}
+#canvas-isel .a-cta[data-confirming]{background:#2D434B}
+#canvas-isel .a-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:14px;font-size:13px;color:#404040;align-items:center}
+#canvas-isel .a-legend kbd{font:400 11px/1 Silkscreen,monospace;background:#E3E3E3;border:2px solid #404040;padding:4px 6px;margin-right:4px;display:inline-block}
+#canvas-isel .a-legend-note{color:#447174;font-style:italic}
+#canvas-isel .a-cues{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+#canvas-isel .a-cue{border:3px solid #404040;background:#FFFFFF;padding:18px 20px;box-shadow:4px 4px 0 #C1C1C2}
+#canvas-isel .a-cue b{display:block;font:400 14px/1.2 Silkscreen,monospace;text-transform:uppercase;margin-bottom:8px;color:#A3305F}
+#canvas-isel .a-cue span{font-size:15px}
+#canvas-isel .a-nav-grid .a-mini-annot{margin-top:12px;font:400 11px/1.3 Silkscreen,monospace;text-transform:uppercase;color:#447174;background:#A9C4C3;border:2px solid #404040;padding:6px 8px;display:inline-block}
+#canvas-isel .a-states{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;margin-top:18px}
+#canvas-isel .a-state{border:3px solid #404040;background:#FFFFFF;padding:14px;box-shadow:4px 4px 0 #404040;display:flex;flex-direction:column;gap:8px;min-height:220px}
+#canvas-isel .a-state b{font:400 13px/1 Silkscreen,monospace;text-transform:uppercase}
+#canvas-isel .a-state>span{font-size:13px;color:#404040}
+#canvas-isel .a-state-frame{height:140px;display:flex;align-items:flex-end;justify-content:center;background:#F5F5F5;border:2px solid #C1C1C2;padding:10px}
+#canvas-isel .a-state-frame--wide{align-items:center}
+#canvas-isel .spine.a-demo{pointer-events:none;width:36px;min-width:36px;height:120px;font-size:9px}
+#canvas-isel .spine.a-demo.on,#canvas-isel .a-state-frame--wide .spine.on{width:90px;min-width:90px;height:120px}
+#canvas-isel .spine.a-demo.is-hover{transform:rotate(180deg) translateX(-6px)}
+#canvas-isel .spine.a-demo.is-focus{outline:3px solid #447174;outline-offset:2px}
+#canvas-isel .spine.a-demo.is-pressed{background:#447174!important;color:#fff!important}
+#canvas-isel .a-confirm-demo{position:relative;background:#2D434B}
+#canvas-isel .a-confirm-flash{font:400 16px/1 Silkscreen,monospace;color:#FFFFFF;text-transform:uppercase;letter-spacing:.08em}
+#canvas-isel .a-story{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:18px}
+#canvas-isel .a-step{border:3px solid #404040;background:#FFFFFF;padding:16px;box-shadow:4px 4px 0 #A9C4C3;min-height:160px}
+#canvas-isel .a-step-n{display:inline-block;font:400 12px/1 Silkscreen,monospace;background:#2D434B;color:#FFFFFF;padding:4px 8px;margin-bottom:8px}
+#canvas-isel .a-step b{display:block;font:700 15px/1.2 DM Sans,sans-serif;margin-bottom:6px;text-transform:uppercase}
+#canvas-isel .a-step p{margin:0;font-size:14px}
+#canvas-isel .a-step--rm{background:#FCE6EF;box-shadow:4px 4px 0 #A3305F}
+#canvas-isel .a-mock--ipad{width:1024px;background:#E3E3E3}
+#canvas-isel .a-ipad-body{padding:28px 32px 24px;background:#FFFFFF}
+#canvas-isel .a-ipad-title{font:400 36px/1 Silkscreen,monospace;text-transform:uppercase;margin:0 0 6px}
+#canvas-isel .a-ipad-sub{margin:0 0 18px;color:#447174;font-size:16px}
+#canvas-isel .shelf--ipad{height:240px;gap:14px}
+#canvas-isel .shelf--ipad .spine{width:48px;min-width:48px;height:190px}
+#canvas-isel .shelf--ipad .spine.on{width:140px;min-width:140px;height:220px}
+#canvas-isel .a-sticky--ipad{margin-top:18px}
+#canvas-isel .a-mock--mobile{width:390px;background:#E3E3E3}
+#canvas-isel .a-mob{padding:20px 16px 16px;background:#FFFFFF}
+#canvas-isel .a-mob h2{font:400 26px/1 Silkscreen,monospace;text-transform:uppercase;margin:0 0 6px}
+#canvas-isel .a-mob-hint{margin:0 0 14px;font-size:14px;color:#447174}
+#canvas-isel .shelf--mob{height:200px;gap:8px;overflow-x:auto;padding-bottom:4px}
+#canvas-isel .shelf--mob .spine{width:44px;min-width:44px;height:160px;font-size:9px}
+#canvas-isel .shelf--mob .spine.on{width:110px;min-width:110px;height:180px}
+#canvas-isel .a-sticky--mob{margin-top:14px;padding:10px}
+#canvas-isel .a-sticky--mob .a-cta{flex:1;min-width:120px}
+@media (prefers-reduced-motion:reduce){
+#canvas-isel .spine,#canvas-isel .spine.on,#canvas-isel .spine.is-hover,#canvas-isel .spine:hover:not(.on){transition:none!important}
+#canvas-isel .spine.on.is-confirm{animation:none!important}
+}
+
+#canvas-isel .spine .sp-svg{width:18px;height:18px;writing-mode:horizontal-tb;transform:rotate(180deg);margin-top:8px;flex:0 0 auto;fill:currentColor}
+#canvas-isel .spine .sp-svg path{fill:currentColor}
+
 </style>
-<div id="canvas-isel" style="position:absolute;transform-origin:0 0;width:8320px;height:7800px;display:none"><div class="se-wrap">
+<div id="canvas-isel" style="position:absolute;transform-origin:0 0;width:8320px;height:14000px;display:none"><div class="se-wrap">
 
 <!-- INTRO -->
 <div class="se-bd">
@@ -3314,12 +3404,13 @@ window.__ib6map=S;
 </div>
 
 <div class="se-bd" data-concept="a">
-<span class="se-tag">Concept A · Étagère</span>
+<span class="se-tag">Concept A · Étagère · v3 détail</span>
 <div class="se-t">Bibliothèque à dos</div>
-<p class="se-lead">Les 8 carnets sont rangés côte à côte, dos visibles. Le sélectionné se tire vers l’avant et montre sa couverture. Interaction principale : clic / tap sur un dos, flèches gauche-droite, Entrée pour choisir.</p>
+<p class="se-lead">Les 8 carnets sont rangés côte à côte, dos visibles. On <b>tire</b> un dos pour révéler la couverture. Objectif : compréhensible en 3 secondes, sélection sans ambiguïté, CTA collé au carnet actif. Identité <code>#instaframe-b3c</code> + marques SVG pixel live.</p>
 
+<!-- DESKTOP MOCK -->
 <div class="se-h2">Maquette desktop <i>A · Shelf</i></div>
-<div class="se-mock" id="mock-a">
+<div class="se-mock a-mock" id="mock-a" tabindex="-1" aria-label="Maquette concept A étagère">
  <div class="se-url"><i></i><i></i><i></i><span>instaframe.fr/get-inspired · concept A</span></div>
  <div class="se-shell">
   <aside class="se-side">
@@ -3329,36 +3420,201 @@ window.__ib6map=S;
    <div class="navi">📗 Album Studio</div>
    <div class="navi">🛍 Shop</div>
   </aside>
-  <div class="se-main">
+  <div class="se-main a-main">
    <h1>Get Inspired</h1>
    <p class="sub">Une étagère, huit histoires. Tire le carnet qui te parle.</p>
-   <div class="shelf-stage">
-    <div class="shelf" role="listbox" aria-label="Choix du carnet" id="shelf-a"></div>
-    <div class="shelf-controls">
-     <button type="button" class="se-ghost" data-a-prev aria-label="Précédent">←</button>
-     <span class="count" data-a-count>01 / 08</span>
-     <button type="button" class="se-ghost" data-a-next aria-label="Suivant">→</button>
-     <div class="shelf-info">
-      <p class="se-name" data-a-name>The Anniversary</p>
-      <p class="se-meta" data-a-desc>For another year of you two.</p>
+
+   <!-- First-visit hint -->
+   <div class="a-hint" data-a-hint role="status">
+    <span class="a-hint-pix" aria-hidden="true"></span>
+    <div>
+     <b>Astuce</b>
+     <span>Clique un dos pour le tirer · glisse pour parcourir · Entrée pour choisir</span>
+    </div>
+    <button type="button" class="a-hint-x" data-a-hint-dismiss aria-label="Fermer l’astuce">×</button>
+   </div>
+
+   <div class="shelf-stage" data-a-stage>
+    <div class="a-affordance" aria-hidden="true">
+     <span class="a-pull">← tire</span>
+     <span class="a-rest-label">dos rangés</span>
+    </div>
+    <div class="shelf" role="listbox" aria-label="Choix du carnet" aria-activedescendant="" id="shelf-a"></div>
+
+    <!-- Sticky choose bar -->
+    <div class="a-sticky" data-a-sticky>
+     <div class="a-sticky-left">
+      <span class="a-badge" data-a-count aria-live="polite">01 / 08</span>
+      <div class="shelf-info">
+       <p class="se-name" data-a-name>The Anniversary</p>
+       <p class="se-meta" data-a-desc>For another year of you two.</p>
+      </div>
      </div>
-     <button type="button" class="se-cta" data-a-choose>Choisir ce carnet →</button>
+     <div class="a-sticky-nav">
+      <button type="button" class="se-ghost a-nav" data-a-prev aria-label="Carnet précédent">←</button>
+      <button type="button" class="se-ghost a-nav" data-a-next aria-label="Carnet suivant">→</button>
+     </div>
+     <button type="button" class="se-cta a-cta" data-a-choose>Choisir The Anniversary →</button>
     </div>
    </div>
-   <p class="se-meta">Glisser horizontalement sur l’étagère · flèches clavier · Entrée = choisir</p>
+
+   <!-- Legend -->
+   <div class="a-legend" aria-label="Légende des gestes">
+    <span><kbd>clic</kbd> tirer</span>
+    <span><kbd>glisser</kbd> parcourir</span>
+    <span><kbd>←</kbd><kbd>→</kbd> naviguer</span>
+    <span><kbd>Home</kbd>/<kbd>End</kbd></span>
+    <span><kbd>Entrée</kbd> choisir</span>
+    <span class="a-legend-note">Survol = aperçu du nom</span>
+   </div>
   </div>
  </div>
 </div>
 
-<div class="se-h3">Transition</div>
-<p>Le dos actif s’élargit (160×240) et révèle la face ; les autres restent en dos étroits. Durée ~250 ms, annulée si <code>prefers-reduced-motion</code>. Aucune rotation 3D de scène.</p>
-
-<div class="se-grid3" style="margin-top:28px">
- <div class="se-card"><h4>Avantages</h4><ul><li>Métaphore claire « bibliothèque ».</li><li>Les 8 modèles restent visibles en permanence.</li><li>La couverture sélectionnée gagne la place sans cacher le reste.</li></ul></div>
- <div class="se-card"><h4>Limites</h4><ul><li>Les dos étroits demandent de bons contrastes de couleur.</li><li>Noms longs peu lisibles en vertical.</li><li>Moins « wow » que le carrousel 3D actuel.</li></ul></div>
- <div class="se-card"><h4>À tester</h4><ul><li>Reconnaissance d’un carnet au seul dos.</li><li>Temps pour trouver « The Everyday ».</li><li>Comfort iPad : largeur des dos ≥ 44 px au touch.</li></ul></div>
+<!-- SELECTED STATE -->
+<div class="se-h2">État sélectionné <i>sans ambiguïté</i></div>
+<p>Plusieurs signaux simultanés — si l’un manque, les autres compensent.</p>
+<div class="a-cues">
+ <div class="a-cue"><b>1 · Dos tiré</b><span>Largeur 160×240, face visible, ombre pixel 6×6.</span></div>
+ <div class="a-cue"><b>2 · Contour rose</b><span>Anneau <code>#A3305F</code> 3 px + offset, marqueur ▼ sous le dos.</span></div>
+ <div class="a-cue"><b>3 · Nom + compteur</b><span><code>03 / 08</code> + titre du carnet dans la barre sticky.</span></div>
+ <div class="a-cue"><b>4 · aria-selected</b><span><code>true</code> sur l’option active, <code>aria-activedescendant</code> sur la listbox.</span></div>
+ <div class="a-cue"><b>5 · CTA nommé</b><span><code>Choisir The Everyday →</code> — jamais un libellé générique.</span></div>
+ <div class="a-cue"><b>6 · Focus visible</b><span>Ring bleu-vert <code>#447174</code> en navigation clavier.</span></div>
 </div>
-<div class="se-ipad" style="margin-top:20px"><b>iPad</b>Dos élargis à 48 px min, zone de glissement sur toute l’étagère, CTA sticky sous l’étagère. <b style="margin-top:8px">Mobile</b>Passer en liste verticale de cartes (une phrase : hors cible iPhone du produit).</div>
+
+<!-- NAV CALLOUTS -->
+<div class="se-h2">Navigation annotée <i>souris · tactile · clavier</i></div>
+<div class="se-grid3 a-nav-grid">
+ <div class="se-card a-callout">
+  <h4>Souris</h4>
+  <ul>
+   <li><b>Survol</b> — le dos s’avance de 8 px, label nom au-dessus.</li>
+   <li><b>Clic</b> — sélectionne + tire (état selected).</li>
+   <li><b>Clic CTA</b> — confirme le choix (flash pixel).</li>
+  </ul>
+  <div class="a-mini-annot">curseur pointer · cible ≥ dos 44×210</div>
+ </div>
+ <div class="se-card a-callout">
+  <h4>Tactile</h4>
+  <ul>
+   <li><b>Tap</b> — tire le dos (targets ≥ 44 px).</li>
+   <li><b>Swipe</b> horizontal sur l’étagère — précédent / suivant.</li>
+   <li><b>CTA sticky</b> toujours dans le pouce (bas de stage).</li>
+  </ul>
+  <div class="a-mini-annot">swipe seuil 40 px · pas de hover</div>
+ </div>
+ <div class="se-card a-callout">
+  <h4>Clavier</h4>
+  <ul>
+   <li><b>← / →</b> — roving tabindex entre dos.</li>
+   <li><b>Home / End</b> — premier / dernier.</li>
+   <li><b>Entrée</b> — Choisir le carnet actif.</li>
+   <li><b>Espace</b> — sélectionner sans confirmer.</li>
+  </ul>
+  <div class="a-mini-annot">focus ring toujours visible</div>
+ </div>
+</div>
+
+<!-- DETAILED STATES -->
+<div class="se-h2">États détaillés <i>rest → confirmé</i></div>
+<div class="a-states" id="a-states-gallery">
+ <div class="a-state" data-demo="rest">
+  <div class="a-state-frame"><div class="spine a-demo" style="background:#C1C1C2;color:#404040"><span class="sp-mark">○</span><span class="sp-label">Everyday</span></div></div>
+  <b>Rest</b><span>Dos 44×210, neutre gris.</span>
+ </div>
+ <div class="a-state" data-demo="hover">
+  <div class="a-state-frame"><div class="spine a-demo is-hover" style="background:#A9C4C3;color:#2D434B"><span class="sp-mark">○</span><span class="sp-label">Everyday</span><span class="a-tip">The Everyday</span></div></div>
+  <b>Hover</b><span>TranslateY −8 px + tip nom.</span>
+ </div>
+ <div class="a-state" data-demo="focus">
+  <div class="a-state-frame"><div class="spine a-demo is-focus" style="background:#A9C4C3;color:#2D434B"><span class="sp-mark">○</span><span class="sp-label">Everyday</span></div></div>
+  <b>Focus</b><span>Ring 3 px <code>#447174</code>.</span>
+ </div>
+ <div class="a-state" data-demo="selected">
+  <div class="a-state-frame a-state-frame--wide" data-a-state-selected><!-- filled by JS: real cover --></div>
+  <b>Selected</b><span>Face tirée + contour rose + ▼.</span>
+ </div>
+ <div class="a-state" data-demo="pressed">
+  <div class="a-state-frame"><div class="spine a-demo is-pressed" style="background:#447174;color:#FFFFFF"><span class="sp-mark">○</span><span class="sp-label">Everyday</span></div></div>
+  <b>Pressed</b><span>Enfoncé 2 px, fond bleu-vert.</span>
+ </div>
+ <div class="a-state" data-demo="confirmed">
+  <div class="a-state-frame a-state-frame--wide a-confirm-demo"><div class="a-confirm-flash">✓ Choisi</div></div>
+  <b>Confirmé</b><span>Flash dither 400 ms + check.</span>
+ </div>
+</div>
+
+<!-- TRANSITION STORYBOARD -->
+<div class="se-h2">Transition entre deux carnets <i>pas à pas</i></div>
+<p>Exemple : passer de <b>The Anniversary</b> (tiré) à <b>The Everyday</b>. Durée totale 280 ms. Easing : <code>cubic-bezier(.2,.7,.2,1)</code>. Si <code>prefers-reduced-motion: reduce</code> → coupe à un cross-fade 120 ms sans translate.</p>
+<div class="a-story">
+ <div class="a-step"><span class="a-step-n">0 ms</span><b>Repos</b><p>Anniversary tiré (160). Everyday en dos. Pointer/tap sur Everyday.</p></div>
+ <div class="a-step"><span class="a-step-n">0–80</span><b> pressed</b><p>Everyday : état pressed. Anniversary garde selected jusqu’au frame suivant.</p></div>
+ <div class="a-step"><span class="a-step-n">80–200</span><b> shrink</b><p>Anniversary : 160→44, face dissolve pixel (dither 4×4). Everyday : 44→160, face fade-in stepped 3 frames.</p></div>
+ <div class="a-step"><span class="a-step-n">200–280</span><b> settle</b><p>Contour rose + ▼ se déplacent sous Everyday. Compteur <code>07 / 08</code>, CTA « Choisir The Everyday → ».</p></div>
+ <div class="a-step a-step--rm"><span class="a-step-n">RM</span><b> reduced</b><p>Pas de largeur animée : swap immédiat des classes + opacity 120 ms. Dither off.</p></div>
+</div>
+
+<!-- IPAD -->
+<div class="se-h2">Maquette tablette <i>iPad 1024</i></div>
+<div class="se-mock a-mock a-mock--ipad" id="mock-a-ipad">
+ <div class="se-url"><i></i><i></i><i></i><span>instaframe.fr · iPad</span></div>
+ <div class="a-ipad-body">
+  <h2 class="a-ipad-title">Get Inspired</h2>
+  <p class="a-ipad-sub">Tire un dos · swipe pour parcourir</p>
+  <div class="shelf shelf--ipad" id="shelf-a-ipad" role="listbox" aria-label="Choix du carnet (iPad)"></div>
+  <div class="a-sticky a-sticky--ipad">
+   <span class="a-badge" data-a-ipad-count>01 / 08</span>
+   <span class="se-name" data-a-ipad-name>The Anniversary</span>
+   <button type="button" class="se-cta a-cta" data-a-ipad-choose>Choisir The Anniversary →</button>
+  </div>
+ </div>
+</div>
+<div class="se-ipad" style="margin-top:16px"><b>iPad</b>Dos min 48 px, swipe sur toute l’étagère, CTA sticky pleine largeur sous l’étagère, légende condensée. Landscape : info à droite du stage.</div>
+
+<!-- MOBILE -->
+<div class="se-h2">Maquette mobile <i>compacte</i></div>
+<div class="se-mock a-mock a-mock--mobile" id="mock-a-mobile">
+ <div class="se-url"><i></i><i></i><i></i><span>instaframe.fr · mobile</span></div>
+ <div class="a-mob">
+  <h2>Get Inspired</h2>
+  <p class="a-mob-hint">Swipe les dos · tap pour tirer</p>
+  <div class="shelf shelf--mob" id="shelf-a-mob" role="listbox" aria-label="Choix du carnet (mobile)"></div>
+  <div class="a-sticky a-sticky--mob">
+   <div>
+    <span class="a-badge" data-a-mob-count>01 / 08</span>
+    <p class="se-name" data-a-mob-name>The Anniversary</p>
+   </div>
+   <button type="button" class="se-cta a-cta" data-a-mob-choose>Choisir →</button>
+  </div>
+ </div>
+</div>
+<p class="se-meta" style="margin-top:12px">Mobile : variante compacte (hors cible iPhone produit, mais demandée pour le brief). Liste de dos horizontale scrollable + CTA sticky bas d’écran.</p>
+
+<!-- PROS CONS TESTS -->
+<div class="se-h2">Avantages · Limites · À tester</div>
+<div class="se-grid3" style="margin-top:12px">
+ <div class="se-card"><h4>Avantages</h4><ul>
+  <li>Métaphore bibliothèque immédiate.</li>
+  <li>8 modèles toujours visibles.</li>
+  <li>Sélection multi-signaux (tiré + contour + nom + CTA + ARIA).</li>
+  <li>CTA nommé = zéro ambiguïté.</li>
+  <li>Clavier complet (roving, Home/End, Entrée).</li>
+ </ul></div>
+ <div class="se-card"><h4>Limites</h4><ul>
+  <li>Dos étroits : contrastes couleur critiques.</li>
+  <li>Noms longs peu lisibles en vertical (d’où le tip hover + barre sticky).</li>
+  <li>Swipe peut entrer en conflit avec scroll de page — à borner au stage.</li>
+ </ul></div>
+ <div class="se-card"><h4>À tester</h4><ul>
+  <li>Temps pour trouver « The Everyday » (cible &lt; 8 s).</li>
+  <li>« Sans consigne, comprends-tu qu’il faut tirer ? »</li>
+  <li>Comfort iPad : dos ≥ 48 px, CTA pouce.</li>
+  <li>Clavier seul : parcours 1→8 + Choisir.</li>
+  <li>Reduced-motion : swap lisible sans nausée.</li>
+ </ul></div>
+</div>
 </div>
 
 
@@ -3540,37 +3796,125 @@ Thèmes CSS + grain <code>leather-grain.webp</code> (base64) + <b>marques emboss
   setTimeout(function(){d.remove()},480);
  }
 
- /* A — shelf (inchangé dans le principe) */
+ /* A — shelf v3 détail */
  var aIdx=0, shelf=document.getElementById('shelf-a');
- function renderShelf(){
-  if(!shelf)return;
-  shelf.innerHTML=NB.map(function(n,i){
-   var c=spineColor(n);
-   if(i===aIdx){
-    return '<div class="spine on" role="option" aria-selected="true" tabindex="0" data-i="'+i+'" style="background:transparent">'+coverHTML(n,'style="width:100%;height:100%;border-radius:0;box-shadow:none"')+'</div>';
-   }
-   return '<div class="spine" role="option" aria-selected="false" tabindex="0" data-i="'+i+'" style="background:'+c.bg+';color:'+c.ink+'"><span class="sp-mark">'+n.mark+'</span><span class="sp-label">'+n.name.replace(/^The /,'')+'</span></div>';
-  }).join('');
-  var n=NB[aIdx];
-  var el=function(s){return document.querySelector('[data-a-'+s+']')};
-  if(el('name'))el('name').textContent=n.name;
-  if(el('desc'))el('desc').textContent=n.description;
-  if(el('count'))el('count').textContent=pad(aIdx);
-  shelf.querySelectorAll('.spine').forEach(function(sp){
-   sp.addEventListener('click',function(){aIdx=+sp.getAttribute('data-i');renderShelf();});
-   sp.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();aIdx=+sp.getAttribute('data-i');renderShelf();}});
+ var shelfIpad=document.getElementById('shelf-a-ipad');
+ var shelfMob=document.getElementById('shelf-a-mob');
+ var aConfirming=false;
+ function aName(){return NB[aIdx].name}
+ function aSetChoose(sel, short){
+  var el=document.querySelector(sel);
+  if(!el)return;
+  el.textContent=short?('Choisir →'):('Choisir '+aName()+' →');
+ }
+ function aSpineHTML(n,i,opts){
+  opts=opts||{};
+  var selected=i===aIdx;
+  var tab=selected?0:-1;
+  var c=spineColor(n);
+  var id=(opts.idPrefix||'a-spine')+'-'+i;
+  if(selected){
+   return '<div class="spine on'+(aConfirming?' is-confirm':'')+'" role="option" id="'+id+'" aria-selected="true" tabindex="'+tab+'" data-i="'+i+'" aria-label="'+n.name+', sélectionné">'+coverHTML(n,'style="width:100%;height:100%;border-radius:0;box-shadow:none"')+'</div>';
+  }
+  var path=ICONS[n.name]||''; var mark=path?('<svg class="sp-svg" viewBox="0 0 24 24" aria-hidden="true">'+path+'</svg>'):('<span class="sp-mark" aria-hidden="true">'+n.mark+'</span>');
+  return '<div class="spine" role="option" id="'+id+'" aria-selected="false" tabindex="'+tab+'" data-i="'+i+'" style="background:'+c.bg+';color:'+c.ink+'" aria-label="'+n.name+'">'+mark+'<span class="sp-label">'+n.name.replace(/^The /,'')+'</span><span class="a-tip">'+n.name+'</span></div>';
+ }
+ function aBindShelf(el, idPrefix){
+  if(!el)return;
+  el.innerHTML=NB.map(function(n,i){return aSpineHTML(n,i,{idPrefix:idPrefix});}).join('');
+  el.setAttribute('aria-activedescendant', (idPrefix||'a-spine')+'-'+aIdx);
+  el.querySelectorAll('.spine').forEach(function(sp){
+   sp.addEventListener('click',function(){aIdx=+sp.getAttribute('data-i');aConfirming=false;renderShelf();});
+   sp.addEventListener('pointerdown',function(){if(!sp.classList.contains('on'))sp.classList.add('is-pressed');});
+   sp.addEventListener('pointerup',function(){sp.classList.remove('is-pressed');});
+   sp.addEventListener('pointerleave',function(){sp.classList.remove('is-pressed');});
+   sp.addEventListener('mouseenter',function(){if(!sp.classList.contains('on'))sp.classList.add('is-hover');});
+   sp.addEventListener('mouseleave',function(){sp.classList.remove('is-hover');});
+   sp.addEventListener('focus',function(){sp.classList.add('is-focus');});
+   sp.addEventListener('blur',function(){sp.classList.remove('is-focus');});
+   sp.addEventListener('keydown',function(e){
+    var k=e.key;
+    if(k==='Enter'){e.preventDefault();aIdx=+sp.getAttribute('data-i');aDoChoose();}
+    else if(k===' '){e.preventDefault();aIdx=+sp.getAttribute('data-i');aConfirming=false;renderShelf();}
+    else if(k==='ArrowRight'){e.preventDefault();aStep(1);}
+    else if(k==='ArrowLeft'){e.preventDefault();aStep(-1);}
+    else if(k==='Home'){e.preventDefault();aIdx=0;aConfirming=false;renderShelf();aFocusActive();}
+    else if(k==='End'){e.preventDefault();aIdx=7;aConfirming=false;renderShelf();aFocusActive();}
+   });
   });
  }
- function aStep(d){aIdx=(aIdx+d+8)%8;renderShelf();}
+ function aFocusActive(){
+  var sp=shelf&&shelf.querySelector('.spine.on');
+  if(sp)sp.focus();
+ }
+ function aSyncMeta(){
+  var n=NB[aIdx];
+  var set=function(sel,val){var e=document.querySelector(sel);if(e)e.textContent=val;};
+  set('[data-a-name]',n.name); set('[data-a-desc]',n.description); set('[data-a-count]',pad(aIdx));
+  set('[data-a-ipad-name]',n.name); set('[data-a-ipad-count]',pad(aIdx));
+  set('[data-a-mob-name]',n.name); set('[data-a-mob-count]',pad(aIdx));
+  aSetChoose('[data-a-choose]',false);
+  aSetChoose('[data-a-ipad-choose]',false);
+  aSetChoose('[data-a-mob-choose]',true);
+  /* selected-state gallery: real cover */
+  var frame=document.querySelector('[data-a-state-selected]');
+  if(frame){
+   var everyday=NB.filter(function(x){return /Everyday/.test(x.name);})[0]||n;
+   frame.innerHTML=coverHTML(everyday,'class="spine on a-demo" style="width:90px;height:120px;border-radius:0"');
+   var wrap=frame.querySelector('.cv');
+   if(wrap){ /* ensure outline via parent */ }
+   frame.innerHTML='<div class="spine on a-demo" style="background:transparent">'+coverHTML(everyday,'style="width:100%;height:100%;border-radius:0;box-shadow:none"')+'</div>';
+  }
+ }
+ function renderShelf(){
+  aBindShelf(shelf,'a-spine');
+  aBindShelf(shelfIpad,'a-ipad');
+  aBindShelf(shelfMob,'a-mob');
+  aSyncMeta();
+ }
+ function aStep(d){aIdx=(aIdx+d+8)%8;aConfirming=false;renderShelf();aFocusActive();}
+ function aDoChoose(){
+  aConfirming=true;renderShelf();
+  var btns=document.querySelectorAll('[data-a-choose],[data-a-ipad-choose],[data-a-mob-choose]');
+  btns.forEach(function(b){b.setAttribute('data-confirming','1');b.textContent='✓ '+aName()+' choisi';});
+  var live=document.querySelector('[data-a-count]');
+  if(live)live.textContent=pad(aIdx)+' · choisi';
+  if(reduceMotion()){
+   setTimeout(function(){aConfirming=false;btns.forEach(function(b){b.removeAttribute('data-confirming');});aSyncMeta();renderShelf();},200);
+  }else{
+   setTimeout(function(){aConfirming=false;btns.forEach(function(b){b.removeAttribute('data-confirming');});aSyncMeta();renderShelf();},450);
+  }
+ }
  var ap=document.querySelector('[data-a-prev]'), an=document.querySelector('[data-a-next]');
  if(ap)ap.addEventListener('click',function(){aStep(-1)});
  if(an)an.addEventListener('click',function(){aStep(1)});
+ document.querySelectorAll('[data-a-choose],[data-a-ipad-choose],[data-a-mob-choose]').forEach(function(b){
+  b.addEventListener('click',function(){aDoChoose();});
+ });
+ var hint=document.querySelector('[data-a-hint]');
+ var dismiss=document.querySelector('[data-a-hint-dismiss]');
+ function aHideHint(){if(hint){hint.hidden=true;hint.classList.add('is-gone');}}
+ if(dismiss)dismiss.addEventListener('click',aHideHint);
  var mockA=document.getElementById('mock-a');
- if(mockA)mockA.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')aStep(-1);if(e.key==='ArrowRight')aStep(1);});
- (function(){var x0=null;if(!shelf)return;shelf.addEventListener('pointerdown',function(e){x0=e.clientX});shelf.addEventListener('pointerup',function(e){if(x0==null)return;var dx=e.clientX-x0;if(Math.abs(dx)>40)aStep(dx<0?1:-1);x0=null});})();
+ if(mockA)mockA.addEventListener('keydown',function(e){
+  if(e.target.closest&&e.target.closest('.spine'))return;
+  if(e.key==='ArrowLeft'){e.preventDefault();aStep(-1);}
+  if(e.key==='ArrowRight'){e.preventDefault();aStep(1);}
+  if(e.key==='Home'){e.preventDefault();aIdx=0;renderShelf();}
+  if(e.key==='End'){e.preventDefault();aIdx=7;renderShelf();}
+  if(e.key==='Enter'&&e.target.matches&&e.target.matches('[data-a-choose]')){/* native */}
+ });
+ function aSwipe(el){
+  if(!el)return; var x0=null;
+  el.addEventListener('pointerdown',function(e){x0=e.clientX;aHideHint();});
+  el.addEventListener('pointerup',function(e){if(x0==null)return;var dx=e.clientX-x0;if(Math.abs(dx)>40)aStep(dx<0?1:-1);x0=null;});
+ }
+ aSwipe(shelf); aSwipe(shelfIpad); aSwipe(shelfMob);
+ if(shelf)shelf.addEventListener('click',aHideHint);
  renderShelf();
 
- /* D — stamp */
+
+/* D — stamp */
  var dIdx=0, tray=document.getElementById('stamp-tray'), stampPad=document.getElementById('stamp-pad');
  function renderStamp(){
   var n=NB[dIdx];
@@ -4691,7 +5035,7 @@ const boards={
  ibp:{el:document.getElementById('canvas-ibp'),w:7400,h:12000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 PARCOURS',tx:0,ty:0,s:0.28,visited:false},
  ibd:{el:document.getElementById('canvas-ibd'),w:8320,h:19840,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 PARCOURS DÉTAILLÉS',tx:0,ty:0,s:0.28,visited:false},
  ib3c:{el:document.getElementById('canvas-ib3c'),w:8320,h:6000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 3 COULEURS',tx:0,ty:0,s:0.28,visited:false},
- isel:{el:document.getElementById('canvas-isel'),w:8320,h:7800,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 S\u00c9LECTEUR DE CARNETS',tx:0,ty:0,s:0.28,visited:false}
+ isel:{el:document.getElementById('canvas-isel'),w:8320,h:14000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 S\u00c9LECTEUR DE CARNETS',tx:0,ty:0,s:0.28,visited:false}
 };
 let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
 function showTab(t){
