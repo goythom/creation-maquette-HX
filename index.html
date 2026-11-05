@@ -4112,7 +4112,7 @@ Thèmes CSS + grain <code>leather-grain.webp</code> (base64) + <b>marques emboss
 #canvas-ilave .lv-marquee{animation:none}
 }
 </style>
-<div id="canvas-ilave" style="position:absolute;transform-origin:0 0;width:8320px;height:10200px;display:none"><div class="lv-wrap">
+<div id="canvas-ilave" style="position:absolute;transform-origin:0 0;width:8320px;height:22000px;display:none"><div class="lv-wrap">
 
 <!-- INTRO -->
 <div class="lv-bd">
@@ -4435,6 +4435,327 @@ Thèmes CSS + grain <code>leather-grain.webp</code> (base64) + <b>marques emboss
 </div>
 <div class="lv-note" style="margin-top:24px"><b>Mobile (brief)</b>Pas de maquette iPhone dédiée. Compact : fond #F7F4F1, cartes blanches, CTA orange sticky, cibles ≥ 44 px.</div>
 </div>
+
+<style id="ilave-pieces-css">
+/* === Accueil lave · 6 pièces Choix B (sous Accueil v2) === */
+#canvas-ilave .lv-piece{background:#FFFFFF;border:2px solid #E8D9D0;padding:72px 80px;position:relative;box-shadow:0 1px 0 #F0E6DE}
+#canvas-ilave .lv-piece::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:linear-gradient(180deg,#fbc856,#e73b0d 55%,#a71d08)}
+#canvas-ilave .lv-piece .lv-tag{position:absolute;top:-2px;left:20px;background:#e73b0d;color:#100808;font:700 13px/1 "DM Sans",sans-serif;letter-spacing:.1em;padding:9px 14px;text-transform:uppercase}
+#canvas-ilave .lv-piece .lv-t{font:400 44px/1.05 "Silkscreen",monospace;text-transform:uppercase;margin:36px 0 12px;color:#100808}
+#canvas-ilave .lv-piece .lv-lead{font-size:18px;color:#5C4A45;max-width:2400px;margin:0 0 36px;line-height:1.5}
+#canvas-ilave .lv-screen{width:1280px;max-width:100%;background:#FFFFFF;border:2px solid #E8D9D0;overflow:hidden;position:relative;box-shadow:0 10px 32px #1008080a}
+#canvas-ilave .lv-screen.sm{width:920px}
+#canvas-ilave .lv-screen.wide{width:1400px}
+#canvas-ilave .lv-pro{display:inline-block;font:700 10px/1 DM Sans,sans-serif;letter-spacing:.06em;padding:4px 7px;border:1px solid #100808;background:#fbc856;color:#100808;text-transform:uppercase;vertical-align:middle}
+#canvas-ilave .lv-pro.soon{background:#FFF8F3;color:#5C4A45}
+#canvas-ilave .lv-pro.prem{background:#e73b0d;color:#100808}
+/* window chrome */
+#canvas-ilave .lv-w{background:#FFFFFF;border:2px solid #100808;box-shadow:4px 4px 0 #E8D9D0;overflow:hidden}
+#canvas-ilave .lv-w .tb{display:flex;align-items:center;gap:8px;padding:8px 12px;background:#FFF8F3;border-bottom:2px solid #100808;font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#100808}
+#canvas-ilave .lv-w .tb .xb{margin-left:auto;width:18px;height:18px;border:2px solid #100808;display:grid;place-items:center;background:#FFFFFF;font-size:12px;line-height:1}
+#canvas-ilave .lv-w .wb{padding:28px;background:#FFFFFF}
+/* 1 · Mes éléments */
+#canvas-ilave .lv-desk{display:grid;grid-template-columns:repeat(7,1fr);gap:14px}
+#canvas-ilave .lv-desk>div{display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px 8px;border:2px solid transparent;cursor:pointer;min-height:110px;justify-content:center}
+#canvas-ilave .lv-desk>div.on,#canvas-ilave .lv-desk>div:hover{border-color:#e73b0d;background:#FFF8F3;box-shadow:0 0 0 3px #fbc85655}
+#canvas-ilave .lv-desk>div i{width:56px;height:56px;border:2px solid #100808;display:grid;place-items:center;background:#FFF8F3}
+#canvas-ilave .lv-desk>div span{font:400 11px/1.2 Silkscreen,monospace;text-transform:uppercase;color:#100808;text-align:center}
+#canvas-ilave .lv-cd{width:140px;height:140px;border-radius:50%;border:3px solid #100808;background:conic-gradient(from 0deg,#fbc856 0 25%,#e73b0d 25% 50%,#a71d08 50% 75%,#100808 75% 100%);position:relative;box-shadow:4px 4px 0 #E8D9D0}
+#canvas-ilave .lv-cd::after{content:"";position:absolute;inset:48px;border-radius:50%;background:#F7F4F1;border:2px solid #100808}
+#canvas-ilave .lv-cd-wrap{width:280px;display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+#canvas-ilave .lv-cd-wrap p{margin:0;font-size:15px;color:#5C4A45;line-height:1.45}
+/* 2 · steps + tick */
+#canvas-ilave .lv-tick{display:flex;gap:22px;overflow:hidden;padding:14px 0;border-top:1px solid #E8D9D0;border-bottom:1px solid #E8D9D0;background:#FFF8F3;margin-bottom:28px}
+#canvas-ilave .lv-tick span{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#100808}
+#canvas-ilave .lv-tick .pix{width:10px;height:10px;background:#e73b0d;box-shadow:inset -2px -2px 0 #fbc856;flex:0 0 10px}
+#canvas-ilave .lv-steps-row{display:grid;grid-template-columns:1fr 48px 1fr 48px 1fr;align-items:stretch;gap:0}
+#canvas-ilave .lv-step-card{background:#FFFFFF;border:2px solid #100808;box-shadow:3px 3px 0 #E8D9D0;overflow:hidden}
+#canvas-ilave .lv-step-card .tb{background:#FFF8F3}
+#canvas-ilave .lv-step-card .tb.y{background:#fbc856}
+#canvas-ilave .lv-step-card .bd{padding:22px 18px;display:flex;flex-direction:column;gap:12px;min-height:220px}
+#canvas-ilave .lv-step-card .ic{width:72px;height:72px;border:2px solid #100808;display:grid;place-items:center;background:#FFF8F3}
+#canvas-ilave .lv-step-card b{font:700 20px/1.2 DM Sans,sans-serif;color:#100808}
+#canvas-ilave .lv-step-card p{margin:0;font-size:14px;color:#5C4A45;line-height:1.45}
+#canvas-ilave .lv-arrow{display:grid;place-items:center;color:#e73b0d;font-size:28px}
+/* 3 · sidebar */
+#canvas-ilave .lv-sides{display:flex;gap:40px;align-items:flex-start;flex-wrap:wrap}
+#canvas-ilave .lv-side{width:260px;background:#FFFFFF;border:2px solid #100808;box-shadow:4px 4px 0 #E8D9D0;padding:18px 14px;display:flex;flex-direction:column;gap:4px;min-height:420px}
+#canvas-ilave .lv-side .logo{font:700 16px/1 DM Sans,sans-serif;margin:4px 8px 16px;color:#100808}
+#canvas-ilave .lv-side .it{display:flex;align-items:center;gap:10px;min-height:44px;padding:8px 10px;font:700 14px/1.2 DM Sans,sans-serif;color:#100808;border:2px solid transparent;cursor:pointer}
+#canvas-ilave .lv-side .it.on{background:#FFF8F3;border-color:#e73b0d;box-shadow:0 0 0 3px #fbc85655}
+#canvas-ilave .lv-side .it:hover:not(.on){border-color:#E8D9D0;background:#F7F4F1}
+#canvas-ilave .lv-side .ico{width:22px;height:22px;flex:0 0 22px;display:grid;place-items:center}
+#canvas-ilave .lv-side.collapsed{width:72px;align-items:center;padding:14px 8px}
+#canvas-ilave .lv-side.collapsed .logo,#canvas-ilave .lv-side.collapsed .lab,#canvas-ilave .lv-side.collapsed .lv-pro{display:none}
+#canvas-ilave .lv-side.collapsed .it{justify-content:center;padding:10px;width:48px}
+#canvas-ilave .lv-side-lbl{font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#5C4A45;margin-bottom:10px}
+/* 4 · offers */
+#canvas-ilave .lv-plans{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1100px}
+#canvas-ilave .lv-plan{background:#FFFFFF;border:2px solid #E8D9D0;padding:32px 28px;display:flex;flex-direction:column;gap:12px;min-height:380px;box-shadow:0 4px 0 #F0E6DE}
+#canvas-ilave .lv-plan.hi{border-color:#e73b0d;box-shadow:0 4px 0 #fbc856}
+#canvas-ilave .lv-plan .price{font:700 40px/1 DM Sans,sans-serif;color:#100808}
+#canvas-ilave .lv-plan .price small{font-size:16px;color:#5C4A45;font-weight:500;margin-left:6px}
+#canvas-ilave .lv-plan h3{font:700 22px/1.2 DM Sans,sans-serif;margin:0;color:#100808}
+#canvas-ilave .lv-plan .sub{font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#e73b0d}
+#canvas-ilave .lv-plan p{margin:0;color:#5C4A45;font-size:15px;line-height:1.45}
+#canvas-ilave .lv-plan ul{margin:4px 0 16px;padding-left:18px;color:#5C4A45;font-size:14px;flex:1}
+#canvas-ilave .lv-plan li{margin:8px 0}
+/* 5 · saved */
+#canvas-ilave .lv-saved{display:grid;grid-template-columns:220px 1fr;min-height:640px;background:#F7F4F1}
+#canvas-ilave .lv-saved .rail{background:#FFFFFF;border-right:1px solid #E8D9D0;padding:20px 14px;display:flex;flex-direction:column;gap:4px}
+#canvas-ilave .lv-saved .main{padding:28px 32px;overflow:hidden}
+#canvas-ilave .lv-saved h2{font:700 28px/1.2 DM Sans,sans-serif;margin:0 0 16px;color:#100808}
+#canvas-ilave .lv-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+#canvas-ilave .lv-filters span{border:2px solid #E8D9D0;background:#FFFFFF;padding:8px 12px;font:700 13px/1 DM Sans,sans-serif;color:#5C4A45;min-height:36px;display:inline-flex;align-items:center;cursor:pointer}
+#canvas-ilave .lv-filters span.on{border-color:#e73b0d;color:#100808;background:#FFF8F3;box-shadow:0 0 0 3px #fbc85655}
+#canvas-ilave .lv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+#canvas-ilave .lv-scard{background:#FFFFFF;border:2px solid #E8D9D0;padding:14px;display:flex;flex-direction:column;gap:10px;min-height:220px}
+#canvas-ilave .lv-scard .th{height:90px;border:2px solid #100808;background:linear-gradient(135deg,#FFF8F3,#fbc85644,#e73b0d33)}
+#canvas-ilave .lv-scard b{font:700 15px/1.2 DM Sans,sans-serif;color:#100808}
+#canvas-ilave .lv-scard small{color:#5C4A45;font-size:13px}
+#canvas-ilave .lv-scard .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}
+#canvas-ilave .lv-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 14px;border:2px solid #100808;font:700 13px/1 DM Sans,sans-serif;cursor:pointer;background:#FFFFFF;color:#100808;text-decoration:none}
+#canvas-ilave .lv-btn.fill{background:#e73b0d;box-shadow:3px 3px 0 #100808}
+#canvas-ilave .lv-btn.fill:hover{filter:brightness(1.05)}
+#canvas-ilave .lv-btn.ghost{background:#FFFFFF}
+#canvas-ilave .lv-btn.ghost:hover{border-color:#e73b0d;color:#e73b0d}
+#canvas-ilave .lv-acct{position:absolute;left:24px;bottom:24px;width:280px;background:#FFFFFF;border:2px solid #100808;box-shadow:4px 4px 0 #E8D9D0;padding:14px;z-index:2}
+#canvas-ilave .lv-acct .who{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+#canvas-ilave .lv-acct .av{width:36px;height:36px;border:2px solid #100808;background:#fbc856;display:grid;place-items:center;font:700 13px/1 DM Sans,sans-serif}
+#canvas-ilave .lv-acct .li{min-height:40px;display:flex;align-items:center;gap:8px;padding:6px 4px;border-bottom:1px solid #E8D9D0;font-size:14px;color:#100808}
+#canvas-ilave .lv-acct .li:last-child{border-bottom:0;color:#a71d08}
+/* 6 · album studio */
+#canvas-ilave .lv-alb{display:grid;grid-template-columns:240px 1fr;min-height:720px;background:#F7F4F1;overflow:hidden}
+#canvas-ilave .lv-alb-left{background:#FFFFFF;border-right:1px solid #E8D9D0;padding:16px;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+#canvas-ilave .lv-alb-left .tabs{display:flex;gap:6px}
+#canvas-ilave .lv-alb-left .tabs span{flex:1;text-align:center;padding:10px 8px;border:2px solid #E8D9D0;font:700 13px/1 DM Sans,sans-serif;color:#5C4A45;cursor:pointer;min-height:40px}
+#canvas-ilave .lv-alb-left .tabs span.on{border-color:#e73b0d;color:#100808;background:#FFF8F3}
+#canvas-ilave .lv-alb-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#canvas-ilave .lv-alb-grid i{height:72px;border:2px solid #100808;background:#FFF8F3;display:block}
+#canvas-ilave .lv-alb-main{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+#canvas-ilave .lv-toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 14px;background:#FFFFFF;border-bottom:1px solid #E8D9D0}
+#canvas-ilave .lv-tbtn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:0 10px;border:2px solid #E8D9D0;background:#FFFFFF;font:700 12px/1 DM Sans,sans-serif;color:#100808;cursor:pointer;white-space:nowrap}
+#canvas-ilave .lv-tbtn:hover{border-color:#e73b0d;color:#e73b0d}
+#canvas-ilave .lv-tbtn.on{background:#FFF8F3;border-color:#e73b0d;box-shadow:0 0 0 2px #fbc85655}
+#canvas-ilave .lv-tbtn.sq{width:36px;padding:0}
+#canvas-ilave .lv-tsep{width:1px;height:24px;background:#E8D9D0;margin:0 4px}
+#canvas-ilave .lv-stage{flex:1;display:grid;place-items:center;padding:28px;background:#F7F4F1;min-height:0;overflow:hidden}
+#canvas-ilave .lv-cover{width:280px;height:360px;background:#FFFFFF;border:3px solid #100808;box-shadow:8px 8px 0 #E8D9D0;position:relative;overflow:hidden}
+#canvas-ilave .lv-cover .band{height:28px;background:#e73b0d;border-bottom:2px solid #100808}
+#canvas-ilave .lv-cover .band.b{position:absolute;left:0;right:0;bottom:0;border-bottom:0;border-top:2px solid #100808}
+#canvas-ilave .lv-cover .title{position:absolute;left:20px;right:20px;top:42%;text-align:center;font:700 22px/1.2 DM Sans,sans-serif;color:#100808}
+#canvas-ilave .lv-cover .sub{position:absolute;left:20px;right:20px;top:58%;text-align:center;font:italic 14px Georgia,serif;color:#5C4A45}
+#canvas-ilave .lv-cover .hinge{position:absolute;left:0;top:0;bottom:0;width:14px;background:linear-gradient(90deg,#10080822,#fff0)}
+#canvas-ilave .lv-row-gap{display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap}
+</style>
+
+<!-- ===== 6 PIÈCES CHOIX B · LAVE ===== -->
+<div class="lv-piece" id="lave-p1">
+<span class="lv-tag">Pièce 01 · Section 02</span>
+<div class="lv-t">Ce que vous pouvez créer</div>
+<p class="lv-lead">Fenêtre pixel « Mes éléments » (7 tuiles) + disque pixel à droite — recolorée lave claire. Structure reprise de la planche Accueil Choix B.</p>
+<div class="lv-row-gap">
+ <div class="lv-w" style="flex:1;min-width:640px;max-width:860px">
+  <div class="tb"><span aria-hidden="true">▦</span><span>Mes éléments</span><i style="opacity:.5">_</i><span class="xb" aria-hidden="true">×</span></div>
+  <div class="wb" style="background:#F7F4F1">
+   <div class="lv-desk">
+    <div class="on"><i style="background:#FFF8F3"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M1 2h10v8H1zM3 4h2v2H3z"/></svg></i><span>Cadres</span></div>
+    <div><i style="background:#fbc856"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#100808" d="M2 2h8v2H2zM2 5h8v5H2z"/></svg></i><span>Post-its</span></div>
+    <div><i style="background:#FFF8F3"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M2 5h8v2H2zM5 2h2v8H5z"/></svg></i><span>Audio</span></div>
+    <div><i style="background:#FBF6F1"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#a71d08" d="M3 2h6v8H3zM5 4h2v2H5z"/></svg></i><span>Musique</span></div>
+    <div><i style="background:#FFF8F3"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M2 3h8v6H2zM4 1h4v2H4z"/></svg></i><span>Timbres</span></div>
+    <div><i style="background:#fbc856"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#100808" d="M2 2h3v3H2zM7 2h3v3H7zM4 7h4v3H4z"/></svg></i><span>Stickers</span></div>
+    <div><i style="background:#FFF8F3"><svg width="28" height="28" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M1 3h10v6H1zM5 5h2v2H5z"/></svg></i><span>Vidéo</span></div>
+   </div>
+  </div>
+ </div>
+ <div class="lv-cd-wrap">
+  <div class="lv-cd" aria-hidden="true"></div>
+  <p>Musique et audio en lecteur, timbres, post-its, vidéo : chaque élément a son icône pixel, comme sur un vieux bureau.</p>
+ </div>
+</div>
+</div>
+
+<div class="lv-piece" id="lave-p2">
+<span class="lv-tag">Pièce 02 · Section 01</span>
+<div class="lv-t">Comment ça marche</div>
+<p class="lv-lead">Bandeau défilant + 3 cartes Étape 01 / 02 / 03 avec flèches. Fonds clairs, lave en filets et icônes.</p>
+<div class="lv-screen wide" style="padding:0;background:#FFFFFF">
+ <div class="lv-tick" aria-hidden="true">
+  <span><i class="pix"></i>Anniversaires</span>
+  <span><i class="pix"></i>Dates qui comptent</span>
+  <span><i class="pix"></i>Juste parce que</span>
+  <span><i class="pix"></i>Un carnet passé en classe</span>
+  <span><i class="pix"></i>Pages noires</span>
+  <span><i class="pix"></i>Légendes à la main</span>
+  <span><i class="pix"></i>Anniversaires</span>
+  <span><i class="pix"></i>Dates qui comptent</span>
+ </div>
+ <div style="padding:28px 32px 36px">
+  <div style="font:400 12px/1 Silkscreen,monospace;text-transform:uppercase;color:#e73b0d;margin-bottom:8px">Comment ça marche</div>
+  <div style="font:700 28px/1.2 DM Sans,sans-serif;color:#100808;margin-bottom:28px">Trois étapes pour dire je tiens à toi</div>
+  <div class="lv-steps-row">
+   <div class="lv-step-card"><div class="tb y">Étape 01<span class="xb" style="margin-left:auto;border:0;background:transparent;width:auto">×</span></div><div class="bd"><div class="ic" style="background:#fbc856"><svg width="36" height="36" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#100808" d="M4 0h4v1h1v1h1v1h1v4h-1v1h-1v1h-1v1h-4v-1h-1v-1h-1v-1h-1v-4h1v-1h1v-1h1z"/></svg></div><b>Trouver l’inspiration</b><p>Parcourez Inspiration pour trouver des idées de ce qu’on peut raconter.</p></div></div>
+   <div class="lv-arrow" aria-hidden="true">→</div>
+   <div class="lv-step-card"><div class="tb">Étape 02<span style="margin-left:auto">×</span></div><div class="bd"><div class="ic"><svg width="36" height="36" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M1 2h10v1H1zM2 4h8v6H2zM4 6h1v1h-1zM7 6h1v1h-1zM4 8h4v1H4z"/></svg></div><b>Créer, puis remplir</b><p>Créez photos, stickers et dessins dans le générateur, puis remplissez votre carnet.</p></div></div>
+   <div class="lv-arrow" aria-hidden="true">→</div>
+   <div class="lv-step-card"><div class="tb">Étape 03<span style="margin-left:auto">×</span></div><div class="bd"><div class="ic"><svg width="36" height="36" viewBox="0 0 12 12" shape-rendering="crispEdges"><path fill="#e73b0d" d="M1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM1 3h9v5H1zM5 9h1v1h-1z"/></svg></div><b>Lui offrir</b><p>Elle ou il le découvre, et comprend que quelqu’un a pris le temps.</p></div></div>
+  </div>
+ </div>
+</div>
+</div>
+
+<div class="lv-piece" id="lave-p3">
+<span class="lv-tag">Pièce 03 · Sidebar app</span>
+<div class="lv-t">Sidebar · ouverte &amp; repliée</div>
+<p class="lv-lead">Inspiration, Créer mes éléments (actif), Album Studio PREMIUM, Boutique BIENTÔT, Mon compte. Même structure Choix B, badges lave sur petites surfaces.</p>
+<div class="lv-sides">
+ <div>
+  <div class="lv-side-lbl">Ouverte</div>
+  <aside class="lv-side" aria-label="Navigation ouverte">
+   <div class="logo">InstaFrame</div>
+   <div class="it"><span class="ico" aria-hidden="true">✧</span><span class="lab">Inspiration</span></div>
+   <div class="it on"><span class="ico" aria-hidden="true">▣</span><span class="lab">Créer mes éléments</span></div>
+   <div class="it"><span class="ico" aria-hidden="true">▤</span><span class="lab">Album Studio</span> <span class="lv-pro prem">PREMIUM</span></div>
+   <div class="it"><span class="ico" aria-hidden="true">♡</span><span class="lab">Boutique</span> <span class="lv-pro soon">BIENTÔT</span></div>
+   <div style="flex:1"></div>
+   <div class="it"><span class="ico" aria-hidden="true">☺</span><span class="lab">Mon compte</span></div>
+  </aside>
+ </div>
+ <div>
+  <div class="lv-side-lbl">Repliée</div>
+  <aside class="lv-side collapsed" aria-label="Navigation repliée">
+   <div class="logo">IF</div>
+   <div class="it" title="Inspiration"><span class="ico">✧</span></div>
+   <div class="it on" title="Créer mes éléments"><span class="ico">▣</span></div>
+   <div class="it" title="Album Studio PREMIUM"><span class="ico">▤</span></div>
+   <div class="it" title="Boutique BIENTÔT"><span class="ico">♡</span></div>
+   <div style="flex:1"></div>
+   <div class="it" title="Mon compte"><span class="ico">☺</span></div>
+  </aside>
+ </div>
+</div>
+</div>
+
+<div class="lv-piece" id="lave-p4">
+<span class="lv-tag">Pièce 04 · Section 06 Offres</span>
+<div class="lv-t">Offres · Gratuit &amp; Premium</div>
+<p class="lv-lead">Deux formules : Gratuit 0 € et Premium 7,99 € — paiement unique, à vie (consigne Louis). Un seul CTA orange plein (Premium).</p>
+<div class="lv-plans">
+ <div class="lv-plan">
+  <div class="sub">Pour commencer</div>
+  <h3>Gratuit</h3>
+  <div class="price">0 €<small>sans compte</small></div>
+  <p>Pour commencer, sans compte.</p>
+  <ul>
+   <li>Pour toujours</li>
+   <li>Les éléments gratuits du générateur</li>
+   <li>Pas de compte pour commencer</li>
+  </ul>
+  <a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Commencer gratuitement</a>
+ </div>
+ <div class="lv-plan hi">
+  <div class="sub">Paiement unique, à vie</div>
+  <h3>Premium</h3>
+  <div class="price">7,99 €<small>une fois</small></div>
+  <p>Tout InstaFrame, payé une seule fois.</p>
+  <ul>
+   <li>Éléments premium du générateur (PRO : Lettre, Messages, Date, Combinaison)</li>
+   <li>L’éditeur de carnet (Album Studio)</li>
+   <li>Accès à vie, sans abonnement</li>
+  </ul>
+  <a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Passer Premium · 7,99 €</a>
+ </div>
+</div>
+</div>
+
+<div class="lv-piece" id="lave-p5">
+<span class="lv-tag">Pièce 05 · /saved/elements</span>
+<div class="lv-t">Éléments enregistrés</div>
+<p class="lv-lead">Filtres par type, grille de cartes, actions « Envoyer au carnet » / « Ajouter à la galerie », carte compte en bas à gauche (N-19/N-20).</p>
+<div class="lv-screen wide" style="position:relative">
+ <div class="lv-saved">
+  <aside class="rail" aria-label="Sidebar">
+   <div class="lv-side-lbl" style="margin:0 0 8px 8px">App</div>
+   <div class="it" style="display:flex;gap:8px;align-items:center;min-height:40px;padding:8px;color:#5C4A45;font-weight:700">✧ Inspiration</div>
+   <div class="it" style="display:flex;gap:8px;align-items:center;min-height:40px;padding:8px;border:2px solid #e73b0d;background:#FFF8F3;font-weight:700">▣ Créer mes éléments</div>
+   <div class="it" style="display:flex;gap:8px;align-items:center;min-height:40px;padding:8px;font-weight:700">▤ Album Studio</div>
+   <div class="it" style="display:flex;gap:8px;align-items:center;min-height:40px;padding:8px;font-weight:700">♡ Boutique</div>
+  </aside>
+  <div class="main">
+   <h2>Éléments enregistrés</h2>
+   <div class="lv-filters" aria-label="Filtrer par type">
+    <span class="on">Tous</span><span>Cadres</span><span>Post-it</span><span>Audio</span><span>Stickers</span><span>Musique</span><span>Timbres</span><span>Vidéo</span><span>Date</span><span>Lettre</span><span>Combinaison</span>
+   </div>
+   <div class="lv-cards">
+    <div class="lv-scard"><div class="th"></div><b>Cadre</b><small>Été 2026</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+    <div class="lv-scard"><div class="th" style="background:linear-gradient(160deg,#fbc85655,#FFF8F3)"></div><b>Post-it</b><small>toi &amp; moi</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+    <div class="lv-scard"><div class="th" style="background:linear-gradient(120deg,#e73b0d33,#F7F4F1)"></div><b>Audio</b><small>—</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+    <div class="lv-scard"><div class="th"></div><b>Sticker</b><small>Cœur</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+    <div class="lv-scard"><div class="th" style="background:linear-gradient(200deg,#a71d0822,#FFF8F3)"></div><b>Timbre</b><small>—</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+    <div class="lv-scard"><div class="th"></div><b>Lettre</b><small>Pour Léa</small><div class="acts"><a class="lv-btn fill" href="#instaframe-lave" onclick="return false">Envoyer au carnet</a><a class="lv-btn ghost" href="#instaframe-lave" onclick="return false">Ajouter à la galerie</a></div></div>
+   </div>
+  </div>
+ </div>
+ <div class="lv-acct" aria-label="Carte compte">
+  <div class="who"><span class="av">L</span><div><b style="display:block;font:700 14px DM Sans,sans-serif">Louis</b><small style="color:#5C4A45">Mon compte</small></div></div>
+  <div class="li">Éléments enregistrés</div>
+  <div class="li">Carnets</div>
+  <div class="li">Faire la visite</div>
+  <div class="li">Télécharger mes données</div>
+  <div class="li">Se déconnecter</div>
+ </div>
+</div>
+</div>
+
+<div class="lv-piece" id="lave-p6">
+<span class="lv-tag">Pièce 06 · Studio Album</span>
+<div class="lv-t">Studio Album · écran réel</div>
+<p class="lv-lead">Barre d’outils et panneau gauche repris des libellés live (AlbumPage) : Ajouter du texte, Écrire au stylet, Zoom, Ajuster, 100 %, pages, Formes, Ouvrir le carnet, Couverture, Aperçu, Partager, Enregistrer, Mes albums. Couverture au centre. Fonds clairs ; page noire = contenu produit.</p>
+<div class="lv-screen wide">
+ <div class="lv-alb">
+  <aside class="lv-alb-left" aria-label="Stickers et éléments">
+   <div class="tabs"><span class="on">Stickers</span><span>Éléments</span></div>
+   <div class="lv-alb-grid" aria-hidden="true">
+    <i></i><i style="background:#fbc85633"></i><i style="background:#e73b0d22"></i><i></i><i style="background:#FFF8F3"></i><i></i>
+   </div>
+   <p style="margin:0;font-size:13px;color:#5C4A45">Glisse un sticker sur la couverture ou la page.</p>
+  </aside>
+  <div class="lv-alb-main">
+   <div class="lv-toolbar" aria-label="Barre d’outils Studio Album">
+    <button type="button" class="lv-tbtn on">Ajouter du texte</button>
+    <button type="button" class="lv-tbtn">Écrire au stylet</button>
+    <span class="lv-tsep"></span>
+    <button type="button" class="lv-tbtn sq" aria-label="Dézoomer">−</button>
+    <button type="button" class="lv-tbtn sq" aria-label="Zoomer">+</button>
+    <button type="button" class="lv-tbtn">Ajuster</button>
+    <button type="button" class="lv-tbtn">100 %</button>
+    <span class="lv-tsep"></span>
+    <button type="button" class="lv-tbtn">+ Ajouter une page</button>
+    <button type="button" class="lv-tbtn">Retirer 1 page</button>
+    <button type="button" class="lv-tbtn">Formes</button>
+    <span class="lv-tsep"></span>
+    <button type="button" class="lv-tbtn">Ouvrir le carnet</button>
+    <button type="button" class="lv-tbtn on">Couverture</button>
+    <button type="button" class="lv-tbtn">Aperçu du livre</button>
+    <button type="button" class="lv-tbtn">Partager</button>
+    <button type="button" class="lv-tbtn fill" style="background:#e73b0d;border-color:#100808;box-shadow:2px 2px 0 #100808">Enregistrer</button>
+    <button type="button" class="lv-tbtn">Mes albums</button>
+   </div>
+   <div class="lv-stage">
+    <div class="lv-cover" aria-label="Couverture du carnet">
+     <div class="band"></div>
+     <div class="hinge" aria-hidden="true"></div>
+     <div class="title">nos souvenirs</div>
+     <div class="sub">pour toi ♡</div>
+     <div class="band b"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+</div>
+
 
 </div></div>
 
@@ -5506,7 +5827,7 @@ const boards={
  ibd:{el:document.getElementById('canvas-ibd'),w:8320,h:19840,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 PARCOURS DÉTAILLÉS',tx:0,ty:0,s:0.28,visited:false},
  ib3c:{el:document.getElementById('canvas-ib3c'),w:8320,h:6000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 3 COULEURS',tx:0,ty:0,s:0.28,visited:false},
  isel:{el:document.getElementById('canvas-isel'),w:8320,h:14000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 S\u00c9LECTEUR DE CARNETS',tx:0,ty:0,s:0.28,visited:false},
- ilave:{el:document.getElementById('canvas-ilave'),w:8320,h:10200,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 ACCUEIL LAVE',tx:0,ty:0,s:0.28,visited:false}
+ ilave:{el:document.getElementById('canvas-ilave'),w:8320,h:22000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 ACCUEIL LAVE',tx:0,ty:0,s:0.28,visited:false}
 };
 let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
 function showTab(t){
