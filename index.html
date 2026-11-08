@@ -5715,7 +5715,7 @@ fit();window.addEventListener('load',fit);if(window.ResizeObserver){new ResizeOb
 <div class="if-wrap ib-wrap lv-cb-remap" id="iux-root" style="box-sizing:border-box"></div>
 <div class="if-wrap ib-wrap lv-cb-remap" id="iuy-root" style="box-sizing:border-box"></div>
 <script>
-window.__iuxBuild=function(){if(window.__iuxBuilt)return;window.__iuxBuilt=true;var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('iux-root');if(!u||!E||!K||!S||!D||!root)return;
+window.__iuxBuild=function(tab){var wantDetail=tab==='iux'||(!tab&&location.hash==='#ux-design-figma');var needDetail=wantDetail&&!window.__iuxBuilt,needSimple=!window.__iuyBuilt;if(!needDetail&&!needSimple)return;if(needDetail)window.__iuxBuilt=true;if(needSimple)window.__iuyBuilt=true;var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('iux-root');if(!u||!E||!K||!S||!D||!root)return;
 D={j:D.j.map(function(j){var rows=j.rows.map(function(r){var o=Object.assign({},r);o.s=r.s.filter(function(x){return['1.1','1.5','1.12','5.6'].indexOf(x[0])<0}).map(function(x){return ['1.4','1.11','4.1','4.2','4.3','4.4','4.6','4.7','4.8','4.9','4.10','4.11','4.12','4.13'].indexOf(x[0])>=0?[x[0],x[1],x[2],x[3],1]:x});return o}).filter(function(r){return r.s.length});var oj=Object.assign({},j);oj.rows=rows;return oj})};
 var ic=u.ic,B=u.B,msg=u.msg,v=window.__ib5,PX=v.PX,BX=v.BX,R=v.R,O=K.O,GEN=K.GEN;window.__ib6err=[];
 /* --- UX Design Figma : ecrans repris de la prod instaframe.fr (releve du 08/11/2026) --- */
@@ -5768,7 +5768,7 @@ return '<div class="ib6-st" id="iux-'+id.replace('.','-')+'"><div class="ib6-sh"
 function row(r){var h='<div class="ib6-rh"><span class="c">'+r.c+'</span><b>'+r.t+'</b><p style="margin:0">'+r.d+'</p>'+(r.l.length?'<ul>'+r.l.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'')+(r.x.length?'<div class="ex">'+r.x.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>':'')+(r.sim?'<span class="ib6-sim">'+r.sim+' état'+(r.sim>1?'s':'')+' simulé'+(r.sim>1?'s':'')+'</span>':'')+'</div>';
 return '<div class="ib6-row">'+h+r.s.map(function(s,i){return (i?ARW:'')+step(r,s,i)}).join('')+'</div>'}
 /* Vue d'ensemble */
-var TS=0,TR=0,TN=0;D.j.forEach(function(j){j.rows.forEach(function(r){TR++;TS+=r.s.length;r.s.forEach(function(s){TN+=s[4]})})});
+if(needDetail){var TS=0,TR=0,TN=0;D.j.forEach(function(j){j.rows.forEach(function(r){TR++;TS+=r.s.length;r.s.forEach(function(s){TN+=s[4]})})});
 var ent='<div class="ib6-ov" style="grid-template-columns:repeat(6,1fr)">'+[['Accueil','/'],['Get Inspired','/get-inspired'],['Lien partagé','/s/:id'],['Lien de transfert','/t/:id'],['Admin','/admin'],['Propriétaire','/owner']].map(function(e){return '<div class="ib6-oc en"><small>Entrée</small><b>'+e[0]+'</b><span>'+e[1]+'</span></div>'}).join('')+'</div>';
 var cards='<div class="ib6-ov">'+D.j.map(function(j,k){var ns=0,nn=0;j.rows.forEach(function(r){ns+=r.s.length;r.s.forEach(function(s){nn+=s[4]})});return '<div class="ib6-oc"><span class="n">'+j.n+'</span><b>'+j.t+'</b><span>'+j.rows.length+' rangées · '+ns+' étapes · '+nn+' NEW</span><small>Rangées '+j.rows.map(function(r){return r.c}).join(', ')+'</small></div>'}).join('')+'</div>';
 var leg='<div class="ib6-lg"><span><i></i>Clic, étape suivante</span><span><i class="d"></i>Sortie vers un autre parcours</span><span class="ib6-new">CONCEPT</span><span>Écran proposé, absent d’instaframe.fr</span><span class="ib6-sim">état simulé</span><span class="ib6-ru">Repris · écran ou planche existant</span><span class="ib6-ru n">Nouvel écran</span></div>';
@@ -5795,8 +5795,9 @@ BL.push(u.board('Éléments générables','Un design par élément','Chaque él�
 /* Table de correspondance */
 var q=Math.ceil(MAP.length/4),cols=[];for(var c=0;c<4;c++)cols.push(MAP.slice(c*q,(c+1)*q));
 BL.push(u.board('Correspondance','Figma → HTML',MAP.length+' étapes Figma, '+MAP.length+' écrans HTML. Colonne « Repris » : écran N-xx ou planche existante réutilisée ; sinon nouvel écran.','<div class="ib6-g4" style="gap:28px;align-items:start">'+cols.map(function(cl){return '<table class="ib6-tbl" style="background:#fff;font-size:15px"><tr><th>Étape</th><th>Écran HTML</th><th>Repris</th></tr>'+cl.map(function(m){return '<tr><td><b>'+m[0]+'</b> '+m[1]+'</td><td>'+m[3]+'</td><td>'+(m[4]||'nouveau')+'</td></tr>'}).join('')+'</table>'}).join('')+'</div>','ib-span'));
+}
 /* --- Design UX Figma simplifie : 20 ecrans cles, memes rendus que l'onglet detaille --- */
-(function(){var byId={};D.j.forEach(function(j){j.rows.forEach(function(r){r.s.forEach(function(x){byId[x[0]]=x})})});
+if(needSimple){(function(){var byId={};D.j.forEach(function(j){j.rows.forEach(function(r){r.s.forEach(function(x){byId[x[0]]=x})})});
 var n0=MAP.length;
 var G=[
 ['A','Découvrir et se connecter','Les pages d’entrée côté visiteur : inspiration, aide, premier accueil du générateur et connexion Google.',[
@@ -5819,8 +5820,9 @@ var html=u.board('Design UX Figma simplifié','Les 20 écrans clés d’InstaFra
 MAP.length=n0;
 var rt=document.getElementById('iuy-root');rt.innerHTML=html;window.__iuycount={screens:cnt};
 window.__iuyFit=function(){var h=Math.ceil(rt.offsetHeight);if(h>500){boards.iuy.h=h;boards.iuy.el.style.height=h+'px'}};
-})();
+})();}
 var __iuxR0=document.getElementById('iux-root');
+if(needDetail){
 window.__iuxB=BL.map(function(h,i){
  var reg=__iuxRH[i];
  return{html:h,rows:reg?reg.rows:null,meta:reg?reg.meta:null,head:'',shell:null,rowsC:null,rowEls:[],rowH:[],rowReal:[]};
@@ -5887,8 +5889,10 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){
  });
 });
 
+}
 };
-if(location.hash==='#ux-design-figma'||location.hash==='#ux-design-figma-simplifie')window.__iuxBuild();
+if(location.hash==='#ux-design-figma')window.__iuxBuild('iux');
+if(location.hash==='#ux-design-figma-simplifie')window.__iuxBuild('iuy');
 
 
 </script>
@@ -6851,7 +6855,7 @@ let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
 function showTab(t){
  if(t===cur||!boards[t])return;
  if(t==='ibd'&&window.__ibdBuild)window.__ibdBuild();
- if((t==='iux'||t==='iuy')&&window.__iuxBuild)window.__iuxBuild();
+ if((t==='iux'||t==='iuy')&&window.__iuxBuild)window.__iuxBuild(t);
  const o=boards[cur];o.tx=tx;o.ty=ty;o.s=s;o.el.style.display='none';
  cur=t;const b=boards[t];cv=b.el;b.el.style.display='block';
  if(t==='iux'||t==='iuy'){cv.setAttribute('data-mode',t);if(t==='iuy'&&window.__iuyFit)window.__iuyFit();else cv.style.height=boards.iux.h+'px'}
