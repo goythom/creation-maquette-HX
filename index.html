@@ -15,12 +15,14 @@ html[data-start="insta"] #canvas-insta{display:block!important}
 html[data-start="instab"] #canvas-instab{display:block!important}
 html[data-start="ibp"] #canvas-ibp{display:block!important}
 html[data-start="ibd"] #canvas-ibd{display:block!important}
-html[data-start="iux"] #canvas-iux{display:block!important}
+html[data-start="iux"] #canvas-iux,html[data-start="iuy"] #canvas-iux{display:block!important}
+#canvas-iux[data-mode="iuy"] #iux-root{display:none}#canvas-iux:not([data-mode="iuy"]) #iuy-root{display:none}#canvas-iux #iuy-root{width:5400px!important}
+html[data-start="iuy"] #canvas-iux #iux-root{display:none}
 html[data-start="ilave"] #canvas-ilave{display:block!important}
 html[data-start] #tab-hx{background:#fff!important;color:#000!important}
 html[data-start] #tab-insta{background:#000!important;color:#fff!important}
 html[data-start] #subbar{display:flex}
-html[data-start="insta"] #sub-insta,html[data-start="instab"] #sub-instab,html[data-start="ibp"] #sub-ibp,html[data-start="ibd"] #sub-ibd,html[data-start="ilave"] #sub-ilave,html[data-start="iux"] #sub-iux{background:#000!important;color:#fff!important}
+html[data-start="insta"] #sub-insta,html[data-start="instab"] #sub-instab,html[data-start="ibp"] #sub-ibp,html[data-start="ibd"] #sub-ibd,html[data-start="ilave"] #sub-ilave,html[data-start="iux"] #sub-iux,html[data-start="iuy"] #sub-iuy{background:#000!important;color:#fff!important}
 html[data-start] #hud,html[data-start] #hxnav{visibility:hidden}
 
 /* ---- HX design tokens (charter v1 - see DESIGN.md) ---- */
@@ -120,7 +122,7 @@ html[data-start] #hxsub{display:none}
 .stat-l{font-size:11px;letter-spacing:.1em;color:#666;text-transform:uppercase}
 .skel{background:linear-gradient(90deg,#ddd,#f2f2f2,#ddd);border:1px solid #ddd}
 </style>
-<script>(function(){var h=location.hash,t=h==='#instaframe'?'insta':h==='#instaframe-b'?'instab':h==='#instaframe-b-parcours'?'ibp':h==='#instaframe-b-detail'?'ibd':h==='#instaframe-lave'?'ilave':h==='#ux-design-figma'?'iux':null;if(t)document.documentElement.setAttribute('data-start',t)})();</script>
+<script>(function(){var h=location.hash,t=h==='#instaframe'?'insta':h==='#instaframe-b'?'instab':h==='#instaframe-b-parcours'?'ibp':h==='#instaframe-b-detail'?'ibd':h==='#instaframe-lave'?'ilave':h==='#ux-design-figma'?'iux':h==='#ux-design-figma-simplifie'?'iuy':null;if(t)document.documentElement.setAttribute('data-start',t)})();</script>
 </head>
 <body>
 <div id="viewport"><div id="canvas"><!-- SECTION 1 : HOME & SEARCH -->
@@ -5711,6 +5713,7 @@ fit();window.addEventListener('load',fit);if(window.ResizeObserver){new ResizeOb
 </style>
 <div id="canvas-iux" style="position:absolute;transform-origin:0 0;width:8320px;height:19840px;display:none;box-sizing:border-box">
 <div class="if-wrap ib-wrap lv-cb-remap" id="iux-root" style="box-sizing:border-box"></div>
+<div class="if-wrap ib-wrap lv-cb-remap" id="iuy-root" style="box-sizing:border-box"></div>
 <script>
 window.__iuxBuild=function(){if(window.__iuxBuilt)return;window.__iuxBuilt=true;var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('iux-root');if(!u||!E||!K||!S||!D||!root)return;
 D={j:D.j.map(function(j){var rows=j.rows.map(function(r){var o=Object.assign({},r);o.s=r.s.filter(function(x){return['1.1','1.5','1.12','5.6'].indexOf(x[0])<0}).map(function(x){return ['1.4','1.11','4.1','4.2','4.3','4.4','4.6','4.7','4.8','4.9','4.10','4.11','4.12','4.13'].indexOf(x[0])>=0?[x[0],x[1],x[2],x[3],1]:x});return o}).filter(function(r){return r.s.length});var oj=Object.assign({},j);oj.rows=rows;return oj})};
@@ -5792,6 +5795,31 @@ BL.push(u.board('Éléments générables','Un design par élément','Chaque él�
 /* Table de correspondance */
 var q=Math.ceil(MAP.length/4),cols=[];for(var c=0;c<4;c++)cols.push(MAP.slice(c*q,(c+1)*q));
 BL.push(u.board('Correspondance','Figma → HTML',MAP.length+' étapes Figma, '+MAP.length+' écrans HTML. Colonne « Repris » : écran N-xx ou planche existante réutilisée ; sinon nouvel écran.','<div class="ib6-g4" style="gap:28px;align-items:start">'+cols.map(function(cl){return '<table class="ib6-tbl" style="background:#fff;font-size:15px"><tr><th>Étape</th><th>Écran HTML</th><th>Repris</th></tr>'+cl.map(function(m){return '<tr><td><b>'+m[0]+'</b> '+m[1]+'</td><td>'+m[3]+'</td><td>'+(m[4]||'nouveau')+'</td></tr>'}).join('')+'</table>'}).join('')+'</div>','ib-span'));
+/* --- Design UX Figma simplifie : 20 ecrans cles, memes rendus que l'onglet detaille --- */
+(function(){var byId={};D.j.forEach(function(j){j.rows.forEach(function(r){r.s.forEach(function(x){byId[x[0]]=x})})});
+var n0=MAP.length;
+var G=[
+['A','Découvrir et se connecter','Les pages d’entrée côté visiteur : inspiration, aide, premier accueil du générateur et connexion Google.',[
+ ['1.2',['1.6','1.9'],'Carnet choisi, version FR'],['1.3',['1.10'],'Question ouverte'],['2.1',['2.2','2.3','2.4'],'Visite guidée en 3 étapes'],['5.1',['5.2','5.10','5.11'],'Menu compte, erreur, consentement RGPD']]],
+['B','Générateur · photo et import','Cadres, import des photos et passage Premium.',[
+ ['2.5',['2.25','2.26','2.27','2.28','2.29','2.30','2.31'],'Photo importée, Polaroid, plusieurs photos, filtre, téléchargement, galerie, erreur'],['2.6',['2.7','2.8','2.89'],'QR code, page /phone, téléphone connecté'],['2.54',['2.51','2.52','2.53','2.55','2.56'],'Polaroid et bandes Strip 3, 4, 5'],['2.17',['2.92'],'Paywall et plan de test']]],
+['C','Générateur · éléments','Un écran par type d’élément ; les variantes sont regroupées sur la carte.',[
+ ['2.9',['2.32','2.33'],'Rectangle, Square coloré'],['2.10',['2.34','2.35','2.36'],'Format Card, fichier chargé, erreur micro'],['2.12',['2.37','2.38','2.39'],'Recherche de pochette, carte remplie, couleur. Base détaillée : en prod, le format Disque est remplacé par Wide (B3), non redessiné ici'],['2.13',['2.42','2.43','2.44'],'Gravure verte, bleue, pointillé rose vieilli']]],
+['D','Générateur · éléments suite et Premium','Stickers, vidéo et les éléments Premium Message et Combination.',[
+ ['2.11',['2.45','2.46','2.47'],'Fond retiré, bordure de couleur, gomme manuelle'],['2.14',['2.48','2.49','2.50'],'Lien refusé, lien Drive valide, aide au partage'],['2.57',['2.58','2.59','2.60','2.61','2.62','2.63','2.64','2.65','2.66','2.67','2.68','2.69'],'Letter (styles), Post-it, Messages, Date (couleurs)'],['2.70',['2.71','2.72','2.73','2.74','2.75'],'Postcard et Concert Ticket, recto et verso']]],
+['E','Album Studio et partage','Le carnet : édition, apparence, partage et retrouvailles.',[
+ ['3.3',['3.1','3.2','3.4','3.5','3.6','3.37','3.38','3.40'],'Studio, couverture, stylet, texte'],['3.8',['3.51','3.52','3.53'],'Cuir, papier, épaisseur'],['3.11',['3.9','3.10','3.11b'],'Lecture 2D, objet 3D, lien invalide'],['3.14',['3.13','3.15'],'Sauvegarde, paywall du studio']]]];
+var rowsH=[],cnt=0;
+G.forEach(function(g){var cards=g[3].map(function(c){var s0=byId[c[0]];if(!s0){window.__ib6err.push('iuy manquant '+c[0]);return ''}
+ cnt++;var names=c[1].map(function(i){return byId[i]?byId[i][1]:null}).filter(Boolean);
+ var d=s0[2]+(c[1].length?' <br><b>Regroupe aussi '+c[1].length+' écrans :</b> '+c[2]+'.':'');
+ var s2=[s0[0],'Écran '+cnt+' · '+s0[1],d,s0[3],s0[4]];return step(null,s2,0)}).join('');
+ rowsH.push('<div class="ib6-row"><div class="ib6-rh"><span class="c">'+g[0]+'</span><b>'+g[1]+'</b><p style="margin:0">'+g[2]+'</p></div>'+cards+'</div>')});
+var html=u.board('Design UX Figma simplifié','Les 20 écrans clés d’InstaFrame','Sélection de '+cnt+' écrans de l’onglet « UX Design Figma », même rendu et mêmes composants que la prod. Chaque carte regroupe ses écrans proches (variantes, états, FR). La page d’accueil n’est pas reprise : elle est déjà dans Figma. Le détail complet (209 écrans) reste dans l’onglet « UX Design Figma ». Les écrans CONCEPT (boutique, tarifs, commande) ne sont pas dans cette sélection. Les rendus reprennent l’onglet détaillé : l’écran Music montre encore la carte, alors que la prod propose maintenant le format Wide (B3) à la place du Disque ; il n’est pas redessiné ici.','<div class="ib6-j">'+rowsH.join('')+'</div>','ib-span');
+MAP.length=n0;
+var rt=document.getElementById('iuy-root');rt.innerHTML=html;window.__iuycount={screens:cnt};
+window.__iuyFit=function(){var h=Math.ceil(rt.offsetHeight);if(h>500){boards.iuy.h=h;boards.iuy.el.style.height=h+'px'}};
+})();
 var __iuxR0=document.getElementById('iux-root');
 window.__iuxB=BL.map(function(h,i){
  var reg=__iuxRH[i];
@@ -5860,7 +5888,7 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){
 });
 
 };
-if(location.hash==='#ux-design-figma')window.__iuxBuild();
+if(location.hash==='#ux-design-figma'||location.hash==='#ux-design-figma-simplifie')window.__iuxBuild();
 
 
 </script>
@@ -6793,7 +6821,7 @@ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sync);
 </div>
 <div id="tabbar"><button id="tab-hx" class="on" onclick="showTab('hx')">PLANCHE HX</button><button id="tab-insta" onclick="showInsta()" style="border-left:2px solid #000">InstaFrame</button></div>
 <div id="hxsub"><button id="sub-hx" class="on" onclick="showTab('hx')">Planche HX</button><button id="tab-pappers" onclick="showTab('pappers')">Pappers</button><button id="tab-remap" onclick="showTab('remap')">REMAP</button></div>
-<div id="subbar"><button id="sub-insta" onclick="showTab('insta')">DA 3 pistes</button><button id="sub-instab" onclick="showTab('instab')">Choix B</button><button id="sub-ibp" onclick="showTab('ibp')">Choix B parcours utilisateur</button><button id="sub-ibd" onclick="showTab('ibd')">Choix B parcours détaillés</button><button id="sub-ilave" onclick="showTab('ilave')">Choix B · Accueil lave</button><button id="sub-iux" onclick="showTab('iux')">UX Design Figma</button></div>
+<div id="subbar"><button id="sub-insta" onclick="showTab('insta')">DA 3 pistes</button><button id="sub-instab" onclick="showTab('instab')">Choix B</button><button id="sub-ibp" onclick="showTab('ibp')">Choix B parcours utilisateur</button><button id="sub-ibd" onclick="showTab('ibd')">Choix B parcours détaillés</button><button id="sub-ilave" onclick="showTab('ilave')">Choix B · Accueil lave</button><button id="sub-iux" onclick="showTab('iux')">UX Design Figma</button><button id="sub-iuy" onclick="showTab('iuy')">Design UX Figma simplifié</button></div>
 <div id="hud" style="position:fixed;left:16px;bottom:16px;background:#000;color:#fff;font:700 13px Helvetica;padding:10px 16px;letter-spacing:.05em;z-index:10"><span id="hudlabel">RARE EARTH DATA &middot; UX BOARD</span> &middot; <span id="zoompct">100%</span></div>
 <div id="themebar" style="position:fixed;right:16px;bottom:64px;z-index:10;display:flex;gap:8px;align-items:center;background:#fff;border:2px solid #000;padding:6px 10px">
 <span style="font:700 11px Helvetica;letter-spacing:.1em;color:#000">THEME &middot; PREVIEW</span>
@@ -6816,18 +6844,20 @@ const boards={
  ibp:{el:document.getElementById('canvas-ibp'),w:7400,h:12000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 PARCOURS',tx:0,ty:0,s:0.28,visited:false},
  ibd:{el:document.getElementById('canvas-ibd'),w:8320,h:19840,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 PARCOURS DÉTAILLÉS',tx:0,ty:0,s:0.28,visited:false},
  ilave:{el:document.getElementById('canvas-ilave'),w:8320,h:42000,label:'INSTAFRAME \u00b7 CHOIX B \u00b7 ACCUEIL LAVE',tx:0,ty:0,s:0.28,visited:false},
- iux:{el:document.getElementById('canvas-iux'),w:8320,h:19840,label:'INSTAFRAME \u00b7 UX DESIGN FIGMA',tx:0,ty:0,s:0.28,visited:false}
+ iux:{el:document.getElementById('canvas-iux'),w:8320,h:19840,label:'INSTAFRAME \u00b7 UX DESIGN FIGMA',tx:0,ty:0,s:0.28,visited:false},
+ iuy:{el:document.getElementById('canvas-iux'),w:5400,h:6400,label:'INSTAFRAME \u00b7 DESIGN UX FIGMA SIMPLIFI\u00c9',tx:0,ty:0,s:0.28,visited:false}
 };
 let cur='hx',cv=boards.hx.el,tx=0,ty=0,s=0.28;
 function showTab(t){
  if(t===cur||!boards[t])return;
  if(t==='ibd'&&window.__ibdBuild)window.__ibdBuild();
- if(t==='iux'&&window.__iuxBuild)window.__iuxBuild();
+ if((t==='iux'||t==='iuy')&&window.__iuxBuild)window.__iuxBuild();
  const o=boards[cur];o.tx=tx;o.ty=ty;o.s=s;o.el.style.display='none';
  cur=t;const b=boards[t];cv=b.el;b.el.style.display='block';
+ if(t==='iux'||t==='iuy'){cv.setAttribute('data-mode',t);if(t==='iuy'&&window.__iuyFit)window.__iuyFit();else cv.style.height=boards.iux.h+'px'}
  document.getElementById('hudlabel').textContent=b.label;
  document.getElementById('hxnav').style.display=t==='hx'?'inline':'none';
- const insta=t==='insta'||t==='instab'||t==='ibp'||t==='ibd'||t==='ilave'||t==='iux';
+ const insta=t==='insta'||t==='instab'||t==='ibp'||t==='ibd'||t==='ilave'||t==='iux'||t==='iuy';
  const hxfam=t==='hx'||t==='pappers'||t==='remap';
  document.getElementById('tab-hx').classList.toggle('on',hxfam);
  document.getElementById('tab-insta').classList.toggle('on',insta);
@@ -6840,7 +6870,8 @@ function showTab(t){
  document.getElementById('sub-ibd').classList.toggle('on',t==='ibd');
  document.getElementById('sub-ilave').classList.toggle('on',t==='ilave');
  document.getElementById('sub-iux').classList.toggle('on',t==='iux');
- try{history.replaceState(null,'',t==='insta'?'#instaframe':t==='instab'?'#instaframe-b':t==='ibp'?'#instaframe-b-parcours':t==='ibd'?'#instaframe-b-detail':t==='ilave'?'#instaframe-lave':t==='iux'?'#ux-design-figma':location.pathname)}catch(e){}
+ document.getElementById('sub-iuy').classList.toggle('on',t==='iuy');
+ try{history.replaceState(null,'',t==='insta'?'#instaframe':t==='instab'?'#instaframe-b':t==='ibp'?'#instaframe-b-parcours':t==='ibd'?'#instaframe-b-detail':t==='ilave'?'#instaframe-lave':t==='iux'?'#ux-design-figma':t==='iuy'?'#ux-design-figma-simplifie':location.pathname)}catch(e){}
  if(!b.visited){b.visited=true;fitAll()}else{tx=b.tx;ty=b.ty;s=b.s;apply()}
 }
 let _raf=0,_lfT=0,_gest=false;function lowfi(){_gest=true;clearTimeout(_lfT);_lfT=setTimeout(function(){_gest=false;cv.classList.toggle('lowfi',s<0.25)},150)}
@@ -6860,8 +6891,8 @@ function goCharter(){const top=18560,h=1280,w=4700;const ns=Math.min(innerWidth/
 function setTheme(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('hx-theme',t)}catch(e){}document.querySelectorAll('#themebar button').forEach(b=>{b.style.outline=b.dataset.t===t?'3px solid #fff':'none';b.style.boxShadow=b.dataset.t===t?'0 0 0 5px var(--accent)':'none'})}
 try{setTheme(localStorage.getItem('hx-theme')||'yellow')}catch(e){setTheme('yellow')}
 fitAll();
-function showInsta(){if(cur==='insta'||cur==='instab'||cur==='ibp'||cur==='ibd'||cur==='ilave'||cur==='iux'){document.getElementById('subbar').style.display='flex';return}showTab('insta')}
-function tabFromHash(){if(location.hash==='#instaframe')return 'insta';if(location.hash==='#instaframe-b')return 'instab';if(location.hash==='#instaframe-b-parcours')return 'ibp';if(location.hash==='#instaframe-b-detail')return 'ibd';if(location.hash==='#instaframe-lave')return 'ilave';if(location.hash==='#ux-design-figma')return 'iux';return null}
+function showInsta(){if(cur==='insta'||cur==='instab'||cur==='ibp'||cur==='ibd'||cur==='ilave'||cur==='iux'||cur==='iuy'){document.getElementById('subbar').style.display='flex';return}showTab('insta')}
+function tabFromHash(){if(location.hash==='#instaframe')return 'insta';if(location.hash==='#instaframe-b')return 'instab';if(location.hash==='#instaframe-b-parcours')return 'ibp';if(location.hash==='#instaframe-b-detail')return 'ibd';if(location.hash==='#instaframe-lave')return 'ilave';if(location.hash==='#ux-design-figma')return 'iux';if(location.hash==='#ux-design-figma-simplifie')return 'iuy';return null}
 window.addEventListener('hashchange',()=>{const t=tabFromHash();if(t)showTab(t)});
 (function(){var r=document.querySelector('#canvas-ilave .lv-wrap');function f(){var h=Math.ceil(r.offsetHeight);if(h>1000){boards.ilave.h=h;boards.ilave.el.style.height=h+'px';if(cur==='ilave')fitAll()}}if(window.ResizeObserver)new ResizeObserver(f).observe(r);window.addEventListener('load',f)})();
 const start=tabFromHash();if(start)showTab(start);
