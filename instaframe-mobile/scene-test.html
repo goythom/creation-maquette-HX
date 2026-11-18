@@ -1,0 +1,15 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body class="instaframe-design-mobile"><script type="module">
+import{renderLocalScene}from'./page-host.mjs';
+const q=new URLSearchParams(location.search), state={strip:Number(q.get('strip'))||0,error:q.get('error')==='true',cart:{},sub:q.get('sub')||'Post-it',kind:({'Photo':'Frames','Message':'Post-its'})[q.get('type')]||q.get('type')||'Frames',welcome:q.get('welcome')!=='false'};
+let route=q.get('route')||'/faq',lang=q.get('lang')||'en';
+function draw(){
+const key=route==='/generator'&&state.kind!=='Frames'?'generator-elements':route==='/generator/pro'?'generator-pro':route==='/generator'?'generator':route==='/'?'home':route.startsWith('/shop')?({'/shop':'shop','/shop/notebook':'notebook','/shop/track':'track','/shop/checkout':'checkout'}[route]||'shop'):({'/saved/elements':'elements','/saved/notebooks':'notebooks','/owner':'owner','/admin':'admin','/phone':'phone','/album':'album','/album/local-demo':'album','/video/local-demo':'generator-elements'}[route]||(route.startsWith('/s/')?'share':route.startsWith('/t/')?'transfer':'public'));
+let css=document.querySelector('#scene-styles');if(!css){css=document.createElement('link');css.id='scene-styles';css.rel='stylesheet';document.head.append(css)}css.href='../instaframe-copy/styles/'+key+'.css';
+let tokens=document.querySelector('#mobile-tokens');if(!tokens){tokens=document.createElement('link');tokens.id='mobile-tokens';tokens.rel='stylesheet';tokens.href='./tokens.css';document.head.append(tokens)}
+let mobile=document.querySelector('#mobile-design');if(!mobile){mobile=document.createElement('link');mobile.id='mobile-design';mobile.rel='stylesheet';mobile.href='./design-mobile.css';document.head.append(mobile)}
+document.body.replaceChildren(renderLocalScene({route,lang,state,onNavigate(to){lang=document.querySelector('.local-scene')?.dataset.lang||lang;route=to.split('?')[0];const params=new URLSearchParams(to.split('?')[1]||'');if(params.has('type'))state.kind=({'Photo':'Frames','Message':'Post-its'})[params.get('type')]||params.get('type');state.strip=Number(params.get('strip'))||0;state.sub=params.get('sub')||'Post-it';draw()}}))}
+let modalLocked=false;function syncModalLock(){const lock=!!document.querySelector('.onboard__backdrop');if(lock===modalLocked)return;modalLocked=lock;Object.assign(document.body.style,lock?{position:'fixed',top:'0px',left:'0px',width:'100%',overflow:'hidden'}:{position:'',top:'',left:'',width:'',overflow:''});if(!lock)scrollTo(0,0)}
+new MutationObserver(syncModalLock).observe(document.body,{childList:true,subtree:true});
+draw();syncModalLock();
+if(q.has('preset'))import('../instaframe-copy/visual-presets.mjs').then(m=>m.initializeVisualPreset(q.get('preset')));
+</script></body></html>

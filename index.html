@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><script>if(['#instaframe-pages','#ux-design-figma-pages','#ux-design-figma','#instaframe','#instaframe-copy','#instaframe-mobile'].includes(location.hash))document.documentElement.classList.add('instaframe-loading');</script><style>html.instaframe-loading body{visibility:hidden!important}html.instaframe-loading::after{content:'Chargement InstaFrame...';position:fixed;inset:0;display:grid;place-items:center;background:#efefed;color:#222;font:14px Arial,sans-serif;z-index:2147483647}</style>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <title>RARE EARTH DATA - UX Board</title>
@@ -123,7 +123,12 @@ html[data-start] #hxsub{display:none}
 .skel{background:linear-gradient(90deg,#ddd,#f2f2f2,#ddd);border:1px solid #ddd}
 </style>
 <script>(function(){var h=location.hash,t=h==='#instaframe'?'insta':h==='#instaframe-b'?'instab':h==='#instaframe-b-parcours'?'ibp':h==='#instaframe-b-detail'?'ibd':h==='#instaframe-lave'?'ilave':h==='#ux-design-figma'?'iux':h==='#ux-design-figma-simplifie'?'iuy':null;if(t)document.documentElement.setAttribute('data-start',t)})();</script>
-</head>
+<style>
+#canvas-iux .iup-web-pages{display:grid;grid-template-columns:864px;gap:0;align-items:start;padding:0;background:none}
+#canvas-iux .iup-web-pages .ib6-sh,#canvas-iux .iup-web-pages .ib6-ft,#canvas-iux .iup-web-pages .ib-url{display:none!important}
+#canvas-iux .iup-web-pages .ib6-st{gap:0;margin:0;padding:0;border:0;background:none;box-shadow:none}
+#canvas-iux .iup-web-pages .ib-scr{border:0!important;box-shadow:none!important;margin:0;background:#fff}
+</style></head>
 <body>
 <div id="viewport"><div id="canvas"><!-- SECTION 1 : HOME & SEARCH -->
 <div class="sec-label" style="left:0;top:0;font-size:64px">1 · HOME &amp; SEARCH</div>
@@ -5715,12 +5720,45 @@ fit();window.addEventListener('load',fit);if(window.ResizeObserver){new ResizeOb
 #canvas-iux .gxi-onb .onb-primary{background:#a71d08;color:#fff;font-weight:600;border-radius:8px}
 #canvas-iux .gxi-onb .onb-close{position:absolute;right:18px;top:198px;border:0;background:none;font-size:24px;line-height:24px;color:#222;min-height:32px;min-width:32px;cursor:pointer}
 </style>
+<style>
+#iup-side{position:fixed;left:16px;top:104px;bottom:84px;width:240px;z-index:9;display:none;flex-direction:column;background:#fff;border:2px solid #000;box-sizing:border-box;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}
+#iup-side .iup-h{padding:12px 14px 4px;font-weight:700;font-size:13px;color:#000;letter-spacing:.02em}
+#iup-side .iup-h2{margin-top:10px;border-top:2px solid #000;padding-top:12px}
+#iup-side .iup-list{overflow-y:auto;padding:0 8px 4px;flex:none}
+#iup-side .iup-p{display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;text-align:left;border:0;background:none;padding:6px 8px;font-size:13px;color:#1a1a1a;cursor:pointer;border-radius:4px;font-family:inherit}
+#iup-side .iup-p:hover{background:#f0f0f0}
+#iup-side .iup-p.on{background:#e4e4e4;font-weight:700}
+#iup-side .iup-pc{font-size:11px;color:#888;font-weight:400}
+#iup-side .iup-layers{overflow-y:auto;padding:0 8px 12px;flex:1;min-height:80px}
+#iup-side .iup-l{display:block;width:100%;text-align:left;border:0;background:none;padding:4px 8px;font-size:12px;color:#333;cursor:pointer;border-radius:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:inherit}
+#iup-side .iup-l:hover{background:#f0f0f0}
+#canvas-iux .iup-page{position:absolute;left:0;top:0;box-sizing:border-box}
+#canvas-iux .iup-sec{margin:0}
+#canvas-iux .iup-sec>header{margin:0 0 18px}
+#canvas-iux .iup-sec>header>span{font:700 22px "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.05em;color:#100808;text-transform:uppercase}
+#canvas-iux .iup-sec>header>p{margin:6px 0 0;font:400 15px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#555}
+#canvas-iux .iup-sec-b{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-start}
+#canvas-iux .iup-cell{border:2px dashed #bbb;padding:18px;background:#fff;box-sizing:border-box}
+#canvas-iux .iup-cell>small{display:block;font:700 11px "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.08em;color:#888;text-transform:uppercase;margin:0 0 12px}
+#canvas-iux .iup-sw{display:flex;align-items:center;gap:14px;border:2px solid #100808;background:#fff;padding:10px 16px;min-width:250px;box-sizing:border-box}
+#canvas-iux .iup-sw>i{width:44px;height:44px;border:2px solid #100808;flex:none}
+#canvas-iux .iup-sw>span{font:400 13px "Helvetica Neue",Helvetica,Arial,sans-serif;color:#333;line-height:1.4}
+#canvas-iux .iup-offer{border:2px solid #100808;background:#fff;padding:18px}
+#canvas-iux .iup-offer>b{font:700 18px "Helvetica Neue";display:block;margin-bottom:6px}
+#canvas-iux .iup-offer>p{margin:0;font:400 13px "Helvetica Neue";color:#444}
+#canvas-iux .iup-offer.pro{background:#FFF7DF;border-color:#a71d08}
+#canvas-iux .iup-price{border:2px solid #100808;background:#fff;padding:16px;text-align:center}
+#canvas-iux .iup-price>span{font:800 24px "Helvetica Neue";display:block}
+#canvas-iux .iup-price>small{font:400 12px "Helvetica Neue";color:#666}
+#canvas-iux .iup-panel{border:1.5px solid #c4c5c6;background:#f7f4f1;padding:16px;font:400 13px "Helvetica Neue";color:#333}
+#canvas-iux .iup-cell .gxi-faq{min-height:0!important;padding-bottom:16px}
+</style>
 <div id="canvas-iux" style="position:absolute;transform-origin:0 0;width:8320px;height:19840px;display:none;box-sizing:border-box">
 <div class="if-wrap ib-wrap lv-cb-remap" id="iux-root" style="box-sizing:border-box"></div>
 <div class="if-wrap ib-wrap lv-cb-remap" id="iuy-root" style="box-sizing:border-box"></div>
 <script>
 window.__iuxBuild=function(tab){var wantDetail=tab==='iux'||(!tab&&location.hash==='#ux-design-figma');var needDetail=wantDetail&&!window.__iuxBuilt,needSimple=!window.__iuyBuilt;if(!needDetail&&!needSimple)return;if(needDetail)window.__iuxBuilt=true;if(needSimple)window.__iuyBuilt=true;var u=window.__ib,E=window.__ib6el,K=window.__ib6s,S=window.__ib6map,D=window.__ib6data;var root=document.getElementById('iux-root');if(!u||!E||!K||!S||!D||!root)return;
-D={j:D.j.map(function(j){var rows=j.rows.map(function(r){var o=Object.assign({},r);o.s=r.s.filter(function(x){return['1.1','1.5','1.12','5.6'].indexOf(x[0])<0}).map(function(x){return ['1.4','1.11','4.1','4.2','4.3','4.4','4.6','4.7','4.8','4.9','4.10','4.11','4.12','4.13'].indexOf(x[0])>=0?[x[0],x[1],x[2],x[3],1]:x});return o}).filter(function(r){return r.s.length});var oj=Object.assign({},j);oj.rows=rows;return oj})};
+D={j:D.j.map(function(j){var rows=j.rows.map(function(r){var o=Object.assign({},r);o.s=r.s.map(function(x){return ['1.4','1.11','4.1','4.2','4.3','4.4','4.6','4.7','4.8','4.9','4.10','4.11','4.12','4.13'].indexOf(x[0])>=0?[x[0],x[1],x[2],x[3],1]:x});return o}).filter(function(r){return r.s.length});var oj=Object.assign({},j);oj.rows=rows;return oj})};
 var ic=u.ic,B=u.B,msg=u.msg,v=window.__ib5,PX=v.PX,BX=v.BX,R=v.R,O=K.O,GEN=K.GEN;window.__ib6err=[];
 /* --- UX Design Figma : ecrans repris de la prod instaframe.fr (releve du 08/11/2026) --- */
 var W=u.W,APPX=K.APPX;
@@ -5771,14 +5809,24 @@ MAP.push([id,s[1],s[3],res[0],res[2]]);
 return '<div class="ib6-st" id="iux-'+id.replace('.','-')+'"><div class="ib6-sh"><div class="t"><span class="k">'+id+'</span><b>'+s[1]+'</b>'+(s[4]?'<span class="ib6-new">CONCEPT</span>':'')+'</div><p>'+s[2]+'</p></div>'+SCR(res[0],res[1])+'<div class="ib6-ft"><span>Figma : <code>'+s[3]+'</code></span>'+(res[2]?'<span class="ib6-ru">Repris · '+res[2]+'</span>':'<span class="ib6-ru n">Nouvel écran</span>')+'</div></div>'}
 function row(r){var h='<div class="ib6-rh"><span class="c">'+r.c+'</span><b>'+r.t+'</b><p style="margin:0">'+r.d+'</p>'+(r.l.length?'<ul>'+r.l.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul>':'')+(r.x.length?'<div class="ex">'+r.x.map(function(x){return '<span>'+x+'</span>'}).join('')+'</div>':'')+(r.sim?'<span class="ib6-sim">'+r.sim+' état'+(r.sim>1?'s':'')+' simulé'+(r.sim>1?'s':'')+'</span>':'')+'</div>';
 return '<div class="ib6-row">'+h+r.s.map(function(s,i){return (i?ARW:'')+step(r,s,i)}).join('')+'</div>'}
-/* Vue d'ensemble */
-if(needDetail){var TS=0,TR=0,TN=0;D.j.forEach(function(j){j.rows.forEach(function(r){TR++;TS+=r.s.length;r.s.forEach(function(s){TN+=s[4]})})});
-var ent='<div class="ib6-ov" style="grid-template-columns:repeat(6,1fr)">'+[['Accueil','/'],['Get Inspired','/get-inspired'],['Lien partagé','/s/:id'],['Lien de transfert','/t/:id'],['Admin','/admin'],['Propriétaire','/owner']].map(function(e){return '<div class="ib6-oc en"><small>Entrée</small><b>'+e[0]+'</b><span>'+e[1]+'</span></div>'}).join('')+'</div>';
-var cards='<div class="ib6-ov">'+D.j.map(function(j,k){var ns=0,nn=0;j.rows.forEach(function(r){ns+=r.s.length;r.s.forEach(function(s){nn+=s[4]})});return '<div class="ib6-oc"><span class="n">'+j.n+'</span><b>'+j.t+'</b><span>'+j.rows.length+' rangées · '+ns+' étapes · '+nn+' NEW</span><small>Rangées '+j.rows.map(function(r){return r.c}).join(', ')+'</small></div>'}).join('')+'</div>';
-var leg='<div class="ib6-lg"><span><i></i>Clic, étape suivante</span><span><i class="d"></i>Sortie vers un autre parcours</span><span class="ib6-new">CONCEPT</span><span>Écran proposé, absent d’instaframe.fr</span><span class="ib6-sim">état simulé</span><span class="ib6-ru">Repris · écran ou planche existant</span><span class="ib6-ru n">Nouvel écran</span></div>';
-__iuxRH=[];function JRS(a,m){__iuxRH.push({rows:a,meta:m||null});return a.join('')}
-var BL=[u.board('UX Design Figma','Vue d’ensemble des parcours','Reprise de « Choix B parcours détaillés » dans la DA actuelle d’instaframe.fr (couleurs, placement, composants), sans la page d’accueil déjà présente dans Figma. '+D.j.length+' parcours, '+TR+' rangées, '+TS+' étapes, une étape par écran, une rangée par ligne. Badge CONCEPT : écran proposé, absent de la prod ; les autres écrans reprennent la référence existante du site. Vérifié le 08/11/2026 contre instaframe.fr : palette lave, barre latérale app et nav marketing conformes. Get Inspired reproduit l’étagère de la prod, FAQ sa page minimale sans nav et la popup de bienvenue du générateur le panneau blanc prod (relevé du 08/11/2026, asset étagère hotlinké depuis instaframe.fr). Palette lave appliquée à tout le canvas (remap du thème). Tarifs et Boutique n’ont pas de correspondant réel en prod : parcours conservés, écrans marqués CONCEPT. Offres : Gratuit et Premium 7,99 € (paiement unique, à vie).','<div class="ib6-j">'+JRS(['<div>'+PX('Entrées',24)+ent+PX('Parcours',24)+cards+leg+'</div>'])+'</div>','ib-span')];
-D.j.forEach(function(j){var ns=0;j.rows.forEach(function(r){ns+=r.s.length});BL.push(u.board('Parcours '+j.n,j.n+' · '+j.t,j.rows.length+' rangées · '+ns+' étapes. Chaque carte = un écran 1440 px réduit à 60 %, avec le nom de l’écran Figma correspondant.','<div class="ib6-j">'+JRS(j.rows.map(row),j.rows.map(function(r){return{c:r.c,t:r.t}}))+'</div>','ib-span'))});
+/* --- Pages facon Figma : chaque page = une page web d'instaframe.fr, plus Composants et Couleurs --- */
+if(needDetail){var TR=0;D.j.forEach(function(j){j.rows.forEach(function(r){TR++})});
+var CARDS=[];
+D.j.forEach(function(j){j.rows.forEach(function(r){r.s.forEach(function(s,i){var h=step(r,s,i);var m=MAP[MAP.length-1];CARDS.push({id:s[0],t:s[1],url:m[3],html:h,rw:{c:r.c,t:r.t,d:r.d}})})})});
+function pageOf(u0){var p=String(u0||'').replace(/^instaframe\.fr/,'').replace(/^\/fr(?=\/|$)/,'')||'/';p=p.split('?')[0];
+ if(p=='/'||p=='')return '/';
+ if(p.indexOf('/get-inspired')==0)return '/get-inspired';
+ if(p.indexOf('/faq')==0)return '/faq';
+ if(p.indexOf('/pricing')==0)return '/pricing';
+ if(p.indexOf('/generator-pro')==0)return '/generator-pro';
+ if(p.indexOf('/generator')==0)return '/generator';
+ if(p.indexOf('/t/')==0||p.indexOf('/phone')==0)return '/phone';
+ if(p.indexOf('/album/preview')==0||p.indexOf('/s/')==0)return '/preview';
+ if(p.indexOf('/album')==0)return '/album';
+ if(p.indexOf('/shop')==0)return '/shop';
+ if(p.indexOf('/login')==0||p.indexOf('/compte')==0||p.indexOf('/saved')==0)return '/compte';
+ if(p.indexOf('/admin')==0||p.indexOf('/owner')==0)return '/admin';
+ return '/divers'}
 /* Éléments générables */
 /* Placement de chaque élément sur le carnet (ItemNode) : [type, x, y, zoom, rotation, sélectionné] */
 var PLC={'Photo':[[['photo',30,40,1,-4,1]],[]],'Photo Pro':[[['strip',90,30,1,-3,1]],[]],'Post-it':[[['postit',40,60,1.3,3,1]],[]],'Audio':[[['audio',20,160,.75,0,1]],[]],'Musique':[[['musique',40,40,.75,0,1]],[]],'Timbres':[[['timbre',90,80,1,5,1]],[]],'Stickers':[[['sticker',70,90,1,-6,1]],[]],'Vidéo PRO':[[['video',20,120,.75,0,1]],[]],'Lettre PRO':[[['lettre',20,20,.8,0,1]],[]],'Messages PRO':[[['messages',60,20,.7,0,1]],[]],'Date PRO':[[['date',30,120,.9,0,1]],[]],'Combinaison PRO':[[['combo',10,140,.5,-3,1]],[['billet',10,160,.5,2]]]};
@@ -5795,10 +5843,92 @@ EL('Lettre PRO','Message',1,O.message(0,O.letter()),E.LT({}),[['Calligraphie · 
 EL('Messages PRO','Message',1,O.message(2,O.messages()),E.MS({}),[['Vide',E.MS({e:1})],['Capture importée',E.MS({})]],'old'),
 EL('Date PRO','Message',1,O.message(3,O.date({})),E.DT({w:'Notre jour',d:'14',m:'février 2025'}),[['#A3305F','#A3305F'],['#7A2E2E','#7A2E2E'],['#2E4A7A','#2E4A7A'],['#2E5D3A','#2E5D3A'],['#6B4E8E','#6B4E8E']].map(function(c){return [c[0],E.DT({c:c[1],w:'Notre jour',d:'14',m:'février 2025'})]}),'old'),
 EL('Combinaison PRO','Combinaison',1,O.combo({}),E.PC({}),[['Carte postale · recto',E.PC({})],['Carte postale · verso',E.PC({back:1,msg:'Lisbonne était parfaite.'})],['Billet · recto',E.TK({})],['Billet · verso',E.TK({back:1})]],'new')];
-BL.push(u.board('Éléments générables','Un design par élément','Chaque élément du générateur a son design, dans le même squelette d’écran, avec ses variantes. Vert : design existant étendu (cadres, Lettre, Messages, Date). Rose : nouveau design.','<div class="ib6-j">'+JRS(el)+'</div>','ib-span'));
+var ELBOARD=u.board('Pages','Éléments générables','Un design par élément, dans le même squelette d’écran que le code (CreationWorkspace.tsx), avec ses variantes. Vert : design existant étendu (cadres, Lettre, Messages, Date). Rose : nouveau design.','<div class="ib6-j">'+el.map(function(h,i){return h.replace('<div class="ib6-row">','<div class="ib6-row" id="iup-el-'+i+'">')}).join('')+'</div>','ib-span');
 /* Table de correspondance */
 var q=Math.ceil(MAP.length/4),cols=[];for(var c=0;c<4;c++)cols.push(MAP.slice(c*q,(c+1)*q));
-BL.push(u.board('Correspondance','Figma → HTML',MAP.length+' étapes Figma, '+MAP.length+' écrans HTML. Colonne « Repris » : écran N-xx ou planche existante réutilisée ; sinon nouvel écran.','<div class="ib6-g4" style="gap:28px;align-items:start">'+cols.map(function(cl){return '<table class="ib6-tbl" style="background:#fff;font-size:15px"><tr><th>Étape</th><th>Écran HTML</th><th>Repris</th></tr>'+cl.map(function(m){return '<tr><td><b>'+m[0]+'</b> '+m[1]+'</td><td>'+m[3]+'</td><td>'+(m[4]||'nouveau')+'</td></tr>'}).join('')+'</table>'}).join('')+'</div>','ib-span'));
+var CORR=u.board('Pages','Correspondance · Figma → HTML',MAP.length+' étapes Figma, '+MAP.length+' écrans HTML. Colonne « Repris » : ecran N-xx ou planche existante réutilisée ; sinon nouvel ecran.','<div class="ib6-g4" style="gap:28px;align-items:start">'+cols.map(function(cl){return '<table class="ib6-tbl" style="background:#fff;font-size:15px"><tr><th>Etape</th><th>Écran HTML</th><th>Repris</th></tr>'+cl.map(function(m){return '<tr><td><b>'+m[0]+'</b> '+m[1]+'</td><td>'+m[3]+'</td><td>'+(m[4]||'nouveau')+'</td></tr>'}).join('')+'</table>'}).join('')+'</div>','ib-span');
+/* --- Composants : bibliotheque UI reprise des composants du code --- */
+function KSEC(id,t,d,body){return '<section class="iup-sec" id="'+id+'"><header><span>'+t+'</span><p>'+d+'</p></header><div class="iup-sec-b">'+body+'</div></section>'}
+function KCELL(l,h,css){return '<div class="iup-cell"'+(css?' style="'+css+'"':'')+'><small>'+l+'</small><div class="iup-cell-b">'+h+'</div></div>'}
+function KIT(){var I7=window.__ib7,PC=['#F7C5D8','#F6F48C','#D4E8F7','#CDEBD9','#B59CD2','#FFF7DF','#F4B183','#DD5C95'];
+ var FQ='<svg class="faq__plus" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>';
+ return KSEC('kit-champs','Champs','Champs de formulaire, etats et compteur, repris des reglages du generateur.',
+  KCELL('Défaut',I7.fld('E-mail',''),'width:340px')
+  +KCELL('Rempli',I7.fld('E-mail','nom@example.com'),'width:340px')
+  +KCELL('Erreur',I7.fld('E-mail','nom@example','err','','Adresse incomplete.'),'width:340px')
+  +KCELL('Valide',I7.fld('Lien Drive','drive.google.com/file/d/\u2026','ok','','Lien valide.'),'width:340px')
+  +KCELL('Compteur',I7.fld('Légende','été 2026','','8 / 40'),'width:340px')
+  +KCELL('Trop long',I7.fld('Ta lettre','Ma chère Léa, \u2026','err','1 380 / 1 200','Texte trop long : il sera réduit pour tenir sur le papier.'),'width:340px'))
+ +KSEC('kit-boutons','Boutons','Variantes et etats des boutons produit et marketing.',
+  KCELL('Secondaire',I7.btn('Télécharger','white','telecharger'))
+  +KCELL('Principal',I7.btn('+ Ajouter a la galerie','rose'))
+  +KCELL('Sombre',I7.btn('Continuer avec Google','dark','utilisateur'))
+  +KCELL('Danger',I7.btn('Supprimer','sm danger','corbeille'))
+  +KCELL('Petit',I7.btn('Enregistrer','sm','disquette'))
+  +KCELL('Désactivé',I7.btn('Télécharger','white','telecharger',1))
+  +KCELL('Marketing \u00b7 plein',B('Créer mon carnet','fill'))
+  +KCELL('Marketing \u00b7 contour',B('Découvrir','ghost')))
+ +KSEC('kit-select','Sélecteurs','Interrupteurs de format, puces, cases, curseurs, nuanciers, pagination.',
+  KCELL('Format',I7.sw(['Instax Mini','Polaroid'],0,'fmt'),'width:320px')
+  +KCELL('Sous-onglets PRO',I7.sw(['Post-it','Lettre PRO','Messages PRO','Date PRO'],0,'sub'),'width:480px')
+  +KCELL('Puces',I7.chips(['Calligraphie','Flourish','Gothique','Classique'],0),'width:440px')
+  +KCELL('Cases',I7.ck('Lettrine',1)+I7.ck('Cachet de cire',0),'width:280px')
+  +KCELL('Curseur',I7.sl('Taille du texte','24 px',40),'width:320px')
+  +KCELL('Nuancier',I7.sws(PC,0),'width:340px')
+  +KCELL('Pagination','<div class="ib7-pag"><span class="ib7-sq" aria-label="Precedent">\u2039</span><span>1 / 3</span><span class="ib7-sq" aria-label="Suivant">\u203a</span></div>'))
+ +KSEC('kit-msg','Messages','Bandeaux d\u2019information, de succès et d\u2019erreur.',
+  KCELL('Information',msg('info','Connecte : ton carnet s\u2019enregistre automatiquement dans ton compte.'),'width:440px')
+  +KCELL('Succès',msg('ok','memo-lisbonne.m4a \u00b7 0:42'),'width:440px')
+  +KCELL('Erreur',msg('err','Cette date n\u2019existe pas.'),'width:440px'))
+ +KSEC('kit-faq','Accordéon (FAQ)','\u00c9lément d\u2019accordéon de la FAQ ; textes repris de faq-content.ts.',
+  KCELL('Fermé','<div class="gxi-faq"><div class="faq__list"><details class="faq__item"><summary class="faq__q"><span>'+FAQ_QA[0][0]+'</span>'+FQ+'</summary></details></div></div>','width:600px')
+  +KCELL('Ouvert','<div class="gxi-faq"><div class="faq__list"><details class="faq__item" open><summary class="faq__q"><span>'+FAQ_QA[0][0]+'</span>'+FQ+'</summary><p class="faq__a">'+FAQ_QA[0][1]+'</p></details></div></div>','width:600px'))
+ +KSEC('kit-modales','Fenêtres et modales','Popup de bienvenue du generateur, fenêtre de connexion et squelette générique.',
+  KCELL('Popup de bienvenue',XONBOARD(),'width:400px')
+  +KCELL('Garder ton carnet',W('Garder ton carnet','<p style="margin:0">Pour retrouver \u00ab The Anniversary \u00bb plus tard, connecte-toi avec Google. Tes elements restent lies a ton compte.</p>'+R(B('Continuer avec Google','fill','utilisateur')+B('Plus tard','ghost')),{css:'max-width:640px',ic:'cadenas'}),'width:520px')
+  +KCELL('Squelette',W('\u00c9tape 01','<p style="margin:0">Barre de titre, corps et actions : le squelette de toutes les fenêtres.</p>'+R(B('Continuer','fill')+B('Annuler','ghost')),{deco:1}),'width:520px'))
+ +KSEC('kit-cartes','Cartes et panneaux','Cartes d\u2019offre et de prix, panneau simple.',
+  KCELL('Offre Gratuit','<div class="iup-offer"><b>Gratuit</b><p>Pour commencer, sans compte.</p></div>','width:280px')
+  +KCELL('Offre Premium','<div class="iup-offer pro"><b>Premium</b><p>7,99 \u20ac \u00b7 paiement unique, a vie.</p></div>','width:280px')
+  +KCELL('Prix','<div class="iup-price"><span>7,99 \u20ac</span><small>paiement unique</small></div>','width:220px')
+  +KCELL('Panneau','<div class="iup-panel">Panneau simple pour grouper du contenu.</div>','width:280px'))}
+function SW2(name,hex,note){return '<div class="iup-sw"><i style="background:'+hex+'"></i><span><b>'+name+'</b><br>'+hex+(note?' \u00b7 '+note:'')+'</span></div>'}
+function PALETTE(){
+ return KSEC('pal-lave','Palette produit','Couleurs relevées dans app/src/styles (lava.css, index.css), build vérifié le 17/11/2026.',
+  [['Encre','#100808','texte, bordures'],['Papier','#f7f4f1','fond des pages'],['Surface','#ffffff','panneaux'],['Primaire','#e73b0d','boutons principaux'],['Primaire foncé','#a71d08','survol, danger'],['Accent','#fbc856','sélection, surlignage'],['Texte secondaire','#2b2e33',''],['Gris','#e6e6e7','fonds secondaires'],['Filet','#d9dada','bordures fines']].map(function(c){return SW2(c[0],c[1],c[2])}).join(''))
+ +KSEC('pal-postit','Papiers Post-it','Les 8 couleurs de papier du générateur, plus couleur libre.',
+  [['Rose','#F7C5D8'],['Jaune','#F6F48C'],['Bleu','#D4E8F7'],['Vert','#CDEBD9'],['Violet','#B59CD2'],['Crème','#FFF7DF'],['Orange','#F4B183'],['Framboise','#DD5C95']].map(function(c){return SW2(c[0],c[1])}).join(''))
+ +KSEC('pal-board','Thèmes de la planche','Accents du sélecteur THEME de la maquette (jaune sélectionné).',
+  [['Yellow','#eab308','sélectionné'],['Mono','#000000',''],['Petrol','#0f4c5c',''],['Oxide','#0f6b4f',''],['Terra','#a34a17','']].map(function(c){return SW2(c[0],c[1],c[2])}).join(''))}
+/* --- Definition des pages : chaque page = une page web --- */
+var PD=[['composants','Composants','Bibliothèque UI','Champs, boutons, sélecteurs, accordéons, fenêtres, cartes et panneaux, repris des composants du code d\u2019instaframe.fr, pas de captures d\u2019écran.'],
+['couleurs','Couleurs','Palette','Palette produit relevée dans le code (app/src/styles) et accents de la maquette.'],
+['/','Accueil','instaframe.fr /','Page d\u2019accueil marketing, visite 30 s et accueil connecté.'],
+['/get-inspired','Get Inspired','instaframe.fr/get-inspired','Étagère de carnets modèles, lecture d\u2019un carnet et connexion pour le garder.'],
+['/faq','FAQ','instaframe.fr/faq','Page minimale sans nav ; textes repris de faq-content.ts.'],
+['/pricing','Tarifs','instaframe.fr/pricing','Offres Gratuit et Premium 7,99 \u20ac. CONCEPT : la prod affiche encore des formules de test.'],
+['/generator','Générateur','instaframe.fr/generator','Création d\u2019éléments : cadres, post-it, audio, musique, timbres, stickers, vidéo. Squelette repris de CreationWorkspace.tsx.'],
+['/generator-pro','Générateur Pro','instaframe.fr/generator/pro','Éléments Premium : bandes photo, lettre, messages, date, combinaison.'],
+['/phone','Import téléphone','instaframe.fr/t/:id \u00b7 /phone','Envoi de photos du téléphone vers le générateur.'],
+['/album','Album Studio','instaframe.fr/album','Composition du carnet, apparence, stylet et texte.'],
+['/preview','Aperçu et partage','instaframe.fr/album/preview \u00b7 /s/:id','Lecture du carnet, objet 3D, partage par lien.'],
+['/shop','Boutique','instaframe.fr/shop','Boutique, fiche carnet, panier, paiement test, suivi. CONCEPT : la boutique prod est en construction.'],
+['/compte','Compte et sauvegardes','instaframe.fr/login \u00b7 /compte \u00b7 /saved/*','Connexion Google, menu compte, éléments et carnets sauvegardés, paramètres.'],
+['/admin','Admin et propriétaire','instaframe.fr/admin \u00b7 /owner','Console d\u2019administration et console propriétaire.'],
+['/divers','Pages légales et divers','/privacy \u00b7 /mentions-legales \u00b7 /aide \u00b7 404','Confidentialité, mentions légales, aide, statut et page 404.'],
+['elements','Éléments générables','Un design par élément','Chaque élément du générateur avec ses variantes, dans le squelette du code.'],
+['correspondance','Correspondance','Figma \u2192 HTML','Table de correspondance des étapes Figma vers les écrans HTML.']];
+var PAGES=[];
+PD.forEach(function(pd){var list=CARDS.filter(function(c){return pageOf(c.url)==pd[0]});PAGES.push({key:pd[0],name:pd[1],sub:pd[2],desc:pd[3],list:list,layers:list.map(function(c){return {cid:'iux-'+String(c.id).replace('.','-'),t:c.id+' \u00b7 '+c.t}}),html:null})});
+function pageBody(list){return '<div class="iup-web-pages">'+list.map(function(c){return c.html}).join('')+'</div>'}
+PAGES.forEach(function(p){
+ if(p.key=='composants'){p.html=u.board('Pages','Composants',p.desc,'<div class="ib6-j">'+KIT()+'</div>','ib-span');p.layers=[['kit-champs','Champs'],['kit-boutons','Boutons'],['kit-select','Sélecteurs'],['kit-msg','Messages'],['kit-faq','Accordéon (FAQ)'],['kit-modales','Fenêtres et modales'],['kit-cartes','Cartes et panneaux']].map(function(x){return {cid:x[0],t:x[1]}})}
+ else if(p.key=='couleurs'){p.html=u.board('Pages','Couleurs',p.desc,'<div class="ib6-j">'+PALETTE()+'</div>','ib-span');p.layers=[['pal-lave','Palette produit'],['pal-postit','Papiers Post-it'],['pal-board','Thèmes de la planche']].map(function(x){return {cid:x[0],t:x[1]}})}
+ else if(p.key=='elements'){p.html=ELBOARD;p.layers=el.map(function(h,i){var m=h.match(/font-size:28px">([^<]+)</);return {cid:'iup-el-'+i,t:m?m[1]:'\u00c9l\u00e9ment '+(i+1)}})}
+ else if(p.key=='correspondance')p.html=CORR;
+ else{p.html=pageBody(p.list)}});
+window.__iupPages=PAGES;
+window.__iuxcount={steps:MAP.length,pages:PAGES.length};
 }
 /* --- Design UX Figma simplifie : 20 ecrans cles, memes rendus que l'onglet detaille --- */
 if(needSimple){(function(){var byId={};D.j.forEach(function(j){j.rows.forEach(function(r){r.s.forEach(function(x){byId[x[0]]=x})})});
@@ -5827,72 +5957,57 @@ window.__iuyFit=function(){var h=Math.ceil(rt.offsetHeight);if(h>500){boards.iuy
 })();}
 var __iuxR0=document.getElementById('iux-root');
 if(needDetail){
-window.__iuxB=BL.map(function(h,i){
- var reg=__iuxRH[i];
- return{html:h,rows:reg?reg.rows:null,meta:reg?reg.meta:null,head:'',shell:null,rowsC:null,rowEls:[],rowH:[],rowReal:[]};
-});
-window.__iuxB.forEach(function(b){
- if(!b.rows)b.rows=[bodyInner(b.html)];
- b.head=b.html.slice(0,b.html.indexOf('<div class="if-board-in'));
-});
-var cvd=document.getElementById('canvas-iux');
-var meas=document.createElement('div');
-meas.className='iux-meas';
-meas.style.cssText='position:absolute;left:0;top:0;width:7856px;visibility:hidden;pointer-events:none;box-sizing:border-box';
-cvd.appendChild(meas);
-function measOne(h){meas.innerHTML=h;var e=meas.firstElementChild;var x=e?e.offsetHeight:0;meas.innerHTML='';return x}
-function bodyInner(h){var p=h.indexOf('style="margin-top:24px">')+23;var q=h.lastIndexOf('</div></div>');return h.slice(p,q)}
-function elOf(h){var t=document.createElement('div');t.innerHTML=h;return t.firstElementChild}
-function rowPh(b,j){
- var m=b.meta&&b.meta[j];
- var rh=m?'<div class="ib6-rh"><span class="c">'+m.c+'</span><b>'+m.t+'</b></div>':'';
- return '<div class="ib6-row iux-rph" style="height:'+b.rowH[j]+'px">'+rh+'</div>';
-}
-window.__iuxB.forEach(function(b,i){
- var est=b.meta?1100:(i===0?2400:3600);
- b.rowH=b.rows.map(function(){return est});
- var phs=b.rows.map(function(r,j){return rowPh(b,j)}).join('');
- b.shell=elOf(b.head+'<div class="if-board-in ib-gp" style="margin-top:24px"><div class="ib6-j">'+phs+'</div></div></div>');
- __iuxR0.appendChild(b.shell);
- b.rowsC=b.shell.querySelector('.ib6-j');
- b.rowEls=[].slice.call(b.rowsC.children);
- b.rowReal=b.rows.map(function(){return null});
-});
-var __iuxT=0,__iuxMeasured=false;
-function measureAll(){
- if(__iuxMeasured)return;
- if(!__iuxR0.offsetHeight||__iuxR0.offsetHeight<1000)return;
- __iuxMeasured=true;
- window.__iuxB.forEach(function(b){
-  for(var j=0;j<b.rows.length;j++){var nh=measOne(b.rows[j]);if(nh>100){b.rowH[j]=nh;if(b.rowEls[j]&&!b.rowReal[j])b.rowEls[j].style.height=nh+'px'}}
- });
- if(typeof boards!=='undefined'&&boards.iux)boards.iux.h=Math.ceil(__iuxR0.offsetHeight);
- if(typeof cur!=='undefined'&&cur==='iux'&&typeof fitAll==='function')fitAll();
-}
-window.__iuxVis=function(){
- if(typeof cur==='undefined'||cur!=='iux')return;
- if(!window.__iuxB.length||!window.__iuxB[0].shell)return;
- measureAll();
- if(typeof _gest!=='undefined'&&_gest){clearTimeout(__iuxT);__iuxT=setTimeout(window.__iuxVis,180);return}
- var lo=(typeof s!=='undefined')&&s<0.2;
- var vt=-ty/s,vb=(innerHeight-ty)/s,mg=innerHeight/s*0.5;
- var B=window.__iuxB,i,j,b,st,top;
- for(i=0;i<B.length;i++){b=B[i];st=b.shell.offsetTop;
-  for(j=0;j<b.rows.length;j++){if(b.rowReal[j]){top=st+b.rowReal[j].offsetTop;
-   if(lo||top>vb+mg||top+b.rowH[j]<vt-mg){var h2=b.rowReal[j].offsetHeight;if(h2)b.rowH[j]=h2;
-    var ph=elOf(rowPh(b,j));b.rowsC.replaceChild(ph,b.rowReal[j]);b.rowEls[j]=ph;b.rowReal[j]=null}}}}
- for(i=0;i<B.length;i++){b=B[i];st=b.shell.offsetTop;
-  for(j=0;j<b.rows.length;j++){if(!b.rowReal[j]){top=st+b.rowEls[j].offsetTop;
-   if(!lo&&top<vb+mg&&top+b.rowH[j]>vt-mg){var rl=elOf(b.rows[j]);b.rowsC.replaceChild(rl,b.rowEls[j]);b.rowEls[j]=rl;b.rowReal[j]=rl}}}}
-};
-window.__iuxcount={steps:MAP.length,rows:TR,journeys:D.j.length,reused:MAP.filter(function(m){return m[4]}).length};
-if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){
- if(!__iuxMeasured)return;
- window.__iuxB.forEach(function(b){
-  for(var j=0;j<b.rows.length;j++){if(!b.rowReal[j]){var nh=measOne(b.rows[j]);if(nh>100){b.rowH[j]=nh;b.rowEls[j].style.height=nh+'px'}}else{b.rowH[j]=b.rowReal[j].offsetHeight||b.rowH[j]}}
- });
-});
-
+var PAGES=window.__iupPages||[];
+var side=document.createElement('div');side.id='iup-side';side.style.display='none';
+side.innerHTML='<div class="iup-h"><span>Pages</span></div><div class="iup-list" id="iup-list"></div><div class="iup-h iup-h2"><span>Layers</span></div><div class="iup-layers" id="iup-layers"></div>';
+document.body.appendChild(side);
+function iupId(k){return 'iup-'+String(k).replace(/[^a-z0-9]+/gi,'_')}
+PAGES.forEach(function(p){
+ var b=document.createElement('button');b.type='button';b.className='iup-p';b.id='iup-b-'+iupId(p.key);
+ b.innerHTML='<span class="iup-pn">'+p.name+'</span>'+(p.list&&p.list.length?'<span class="iup-pc">'+p.list.length+'</span>':'');
+ b.onclick=function(){window.__iupShow(p.key)};side.querySelector('#iup-list').appendChild(b);
+ var d=document.createElement('div');d.className='iup-page';d.id=iupId(p.key);d.style.display='none';__iuxR0.appendChild(d)});
+window.__iupShow=function(key){
+ var p=null,i;for(i=0;i<PAGES.length;i++)if(PAGES[i].key==key)p=PAGES[i];if(!p)return;
+ window.__iupCur=key;
+ for(i=0;i<PAGES.length;i++){var x=PAGES[i],el=document.getElementById(iupId(x.key));if(!el)continue;
+  if(x.key==key){if(!el.dataset.b){el.innerHTML=x.html;el.dataset.b='1'}el.style.display='block'}else el.style.display='none'}
+ var sb=document.querySelectorAll('#iup-list .iup-p');
+ for(i=0;i<sb.length;i++)sb[i].classList.toggle('on',sb[i].id=='iup-b-'+iupId(key));
+ var lay=document.getElementById('iup-layers');lay.innerHTML='';
+ (p.layers||[]).forEach(function(l){var b=document.createElement('button');b.type='button';b.className='iup-l';b.textContent=l.t;b.title=l.t;b.onclick=function(){window.__iupZoom(l.cid)};lay.appendChild(b)});
+ var el=document.getElementById(iupId(key)),tries=0;
+ var web=el.querySelector('.iup-web-pages');if(web){var cs=web.querySelectorAll('.ib6-st');for(var z=0;z<cs.length;z++)cs[z].style.display=z?'none':'flex';}
+ side.querySelector('.iup-h2 span').textContent=web?'Pages web':'Layers';
+ var fit=function(){try{var w=el.offsetWidth,h=el.offsetHeight;
+  if(h<200&&tries++<25)return setTimeout(fit,60);
+  var cvd=document.getElementById('canvas-iux');cvd.style.width=w+'px';cvd.style.height=h+'px';
+  if(typeof boards!=='undefined'&&boards.iux){boards.iux.w=w;boards.iux.h=h}
+  if(typeof cur!=='undefined'&&cur==='iux'&&typeof fitAll==='function'){fitAll();
+   try{var ML=280,MT=110;
+    if(w*s<innerWidth-ML)tx=ML+(innerWidth-ML-w*s)/2;else tx=ML;
+    if(h*s<innerHeight-MT)ty=MT+(innerHeight-MT-h*s)/2;else ty=MT;
+    apply()}catch(e){}}}catch(e){}};
+ fit();
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(window.__iupCur==key)setTimeout(fit,30)});
+ var hd=document.getElementById('hudlabel');if(hd)hd.textContent='INSTAFRAME \u00b7 '+p.name.toUpperCase()};
+window.__iupZoom=function(cid){
+ try{
+ var card=document.getElementById(cid),cvd=document.getElementById('canvas-iux');
+ if(!card||!cvd||typeof apply!=='function'||typeof s==='undefined')return;
+ var web=card.closest('.iup-web-pages');if(web){var cs=web.querySelectorAll('.ib6-st');for(var z=0;z<cs.length;z++)cs[z].style.display=cs[z]===card?'flex':'none';document.querySelectorAll('#iup-layers .iup-l').forEach(function(b){b.classList.toggle('on',b.textContent.indexOf(card.id.replace('iux-','').replace('-','.'))===0)});}
+ var cr=cvd.getBoundingClientRect(),fr=card.getBoundingClientRect();
+ var x=(fr.left-cr.left)/s,y=(fr.top-cr.top)/s,w=fr.width/s,h=fr.height/s;
+ var ns=Math.min((innerWidth-320)/w,(innerHeight-200)/h,1.5);
+ tx=280+(innerWidth-280-w*ns)/2-x*ns;ty=(innerHeight-h*ns)/2-y*ns;s=ns;apply()}catch(e){}};
+window.__iuxVis=function(){};
+window.__iupShow('/');
+var iupHook=function(){
+ try{
+ if(typeof showTab!=='function')return setTimeout(iupHook,60);
+ if(!window.__iupHooked){window.__iupHooked=1;var _st=window.showTab;window.showTab=function(t){_st(t);var sd=document.getElementById('iup-side');if(sd)sd.style.display=(t==='iux')?'flex':'none'}}
+ if(typeof cur!=='undefined'&&cur==='iux'){var sd=document.getElementById('iup-side');if(sd)sd.style.display='flex'}}catch(e){setTimeout(iupHook,60)}};
+iupHook();
 }
 };
 if(location.hash==='#ux-design-figma')window.__iuxBuild('iux');
@@ -6908,5 +7023,10 @@ document.documentElement.removeAttribute('data-start');
 </script>
 <style id="perf-cv">#canvas-ibd.lowfi *,#canvas-instab.lowfi *,#canvas-iux.lowfi *{filter:none!important;box-shadow:none!important}#canvas-ibd.lowfi .if-m3d,#canvas-iux.lowfi .if-m3d{transform:matrix(.970,-.0747,0,.951,0,0)!important}#canvas-ibd.lowfi .if-m3d-b,#canvas-iux.lowfi .if-m3d-b{transform:matrix(.9848,0,0,1,0,0)!important}#canvas-ibd,#canvas-instab{will-change:auto}</style>
 
+<script src="code-on-screen-os.design-test.js"></script>
+<script>
+window.maquetteCOS=CodeOnScreenOS.mount({language:'fr', appName:'Maquette InstaFrame - test local', storageKey:'maquette-cos-test',enabled:true,canUseAdmin:false,dockBottom:20,privacyNotice:'Test local : aucun envoi externe configuré. Les notes restent sur cet appareil.',onDesignRequest:function(){window.__cosDesign.activate()}});
+</script>
+<script src="instaframe-pages.js"></script>
 </body>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 </html>

@@ -1,0 +1,410 @@
+[
+  {
+    "id": "photo",
+    "label": "Photo - photo cadrée",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/photo-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/photo-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "photo-gallery",
+    "label": "Photo - galerie remplie",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/photo-gallery-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/photo-gallery-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "upload",
+    "label": "Modale - choix de photo",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/upload-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/upload-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "download",
+    "label": "Modale - téléchargement",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/download-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/download-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "message",
+    "label": "Message - texte rempli",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/message-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/message-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "letter",
+    "label": "Lettre - galerie remplie",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/letter-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/letter-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "conversation",
+    "label": "Conversation - image importée",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/conversation-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/conversation-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "stamp",
+    "label": "Timbre - gravure",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/stamp-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/stamp-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "stamp-gallery",
+    "label": "Timbre - galerie",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/stamp-gallery-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/stamp-gallery-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "strip3",
+    "label": "Photo Pro - bande de 3",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/strip3-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/strip3-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "strip5",
+    "label": "Photo Pro - bande de 5",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/strip5-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/strip5-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "postcard",
+    "label": "Combinaison - carte recto",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/postcard-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/postcard-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "postcard-back",
+    "label": "Combinaison - carte verso",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/postcard-back-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/postcard-back-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "ticket",
+    "label": "Combinaison - ticket",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/ticket-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/ticket-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "notebook",
+    "label": "Modale - composer un carnet",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/notebook-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/notebook-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "notebook-open",
+    "label": "Modale - aperçu du carnet",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/notebook-open-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/notebook-open-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "slideshow",
+    "label": "Diaporama - Instagram",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/slideshow-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/slideshow-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "slideshow-tiktok",
+    "label": "Diaporama - TikTok",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/slideshow-tiktok-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/slideshow-tiktok-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "reuse",
+    "label": "Modale - photos disponibles",
+    "type": "compared",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/reuse-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/reuse-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "studio-cover",
+    "label": "Studio - couverture",
+    "type": "source-local",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/studio-cover-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/studio-cover-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "studio-open",
+    "label": "Studio - carnet ouvert",
+    "type": "source-local",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/studio-open-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/studio-open-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "studio-text",
+    "label": "Studio - texte et forme",
+    "type": "source-local",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/studio-text-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/studio-text-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "video-film",
+    "label": "Vidéo - pellicule",
+    "type": "source-local",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/video-film-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/video-film-768.webp"
+      }
+    ]
+  },
+  {
+    "id": "video-vhs",
+    "label": "Vidéo - cassette",
+    "type": "source-local",
+    "variants": [
+      {
+        "width": 1440,
+        "language": "en",
+        "src": "visual-states/video-vhs-1440.webp"
+      },
+      {
+        "width": 768,
+        "language": "fr",
+        "src": "visual-states/video-vhs-768.webp"
+      }
+    ]
+  }
+]
