@@ -1,0 +1,951 @@
+/* design-mobile.css — mobile design layer for the InstaFrame mobile tab.
+   Every rule is scoped under body.instaframe-design-mobile so it cannot leak.
+   All values come from tokens.css (--if-*).
+   Selectors target the real classes emitted by the copy renderers. */
+
+body.instaframe-design-mobile {
+  --if-mobile-max: 390px;
+  background: var(--if-color-paper);
+  color: var(--if-color-ink);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: var(--if-fs-16);
+  line-height: var(--if-lh-1-5);
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+body.instaframe-design-mobile *,
+body.instaframe-design-mobile *::before,
+body.instaframe-design-mobile *::after { box-sizing: border-box; }
+
+body.instaframe-design-mobile img,
+body.instaframe-design-mobile svg { max-width: 100%; }
+
+body.instaframe-design-mobile .local-scene {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  padding-bottom: var(--if-app-bottom-pad);
+}
+
+/* ---------- Shared: primary fill ---------- */
+body.instaframe-design-mobile .hv-btn-fill,
+body.instaframe-design-mobile a.hx-primary,
+body.instaframe-design-mobile .btn--rose,
+body.instaframe-design-mobile .shop-primary,
+body.instaframe-design-mobile .not-found__back,
+body.instaframe-design-mobile .gbtn,
+body.instaframe-design-mobile .gbtn--login,
+body.instaframe-design-mobile .album-mobile__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--if-space-8);
+  min-height: var(--if-btn-h);
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-btn-primary-border);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-btn-primary-bg);
+  color: var(--if-btn-primary-fg);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  box-shadow: var(--if-btn-shadow);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background .15s ease, box-shadow .15s ease, transform .1s ease;
+}
+body.instaframe-design-mobile .hv-btn-fill:hover,
+body.instaframe-design-mobile a.hx-primary:hover,
+body.instaframe-design-mobile .btn--rose:hover,
+body.instaframe-design-mobile .shop-primary:hover,
+body.instaframe-design-mobile .not-found__back:hover,
+body.instaframe-design-mobile .gbtn:hover,
+body.instaframe-design-mobile .gbtn--login:hover,
+body.instaframe-design-mobile .album-mobile__cta:hover {
+  background: var(--if-btn-primary-bg-hover);
+  box-shadow: var(--if-btn-shadow-hover);
+}
+body.instaframe-design-mobile .hv-btn-fill:active,
+body.instaframe-design-mobile a.hx-primary:active,
+body.instaframe-design-mobile .btn--rose:active,
+body.instaframe-design-mobile .shop-primary:active,
+body.instaframe-design-mobile .not-found__back:active,
+body.instaframe-design-mobile .gbtn:active,
+body.instaframe-design-mobile .gbtn--login:active,
+body.instaframe-design-mobile .album-mobile__cta:active { transform: var(--if-btn-press); }
+body.instaframe-design-mobile .hv-btn-fill:disabled,
+body.instaframe-design-mobile a.hx-primary:disabled,
+body.instaframe-design-mobile .btn--rose:disabled,
+body.instaframe-design-mobile .shop-primary:disabled,
+body.instaframe-design-mobile .not-found__back:disabled,
+body.instaframe-design-mobile .gbtn:disabled,
+body.instaframe-design-mobile .gbtn--login:disabled,
+body.instaframe-design-mobile .album-mobile__cta:disabled {
+  background: var(--if-btn-disabled-bg);
+  color: var(--if-btn-disabled-fg);
+  border-color: var(--if-btn-disabled-bg);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* ---------- Shared: ghost / outline ---------- */
+body.instaframe-design-mobile .hv-btn-out,
+body.instaframe-design-mobile .hv-account,
+body.instaframe-design-mobile .btn,
+body.instaframe-design-mobile .btn--white,
+body.instaframe-design-mobile .btn--ghost,
+body.instaframe-design-mobile .album-mobile__ghost,
+body.instaframe-design-mobile .album-mobile__menu,
+body.instaframe-design-mobile .onboard__btn,
+body.instaframe-design-mobile .pcard__btn,
+body.instaframe-design-mobile .reader-error a,
+body.instaframe-design-mobile .reader-error button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--if-space-8);
+  min-height: var(--if-btn-h);
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+body.instaframe-design-mobile .btn--dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--if-btn-h);
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-ink);
+  color: var(--if-color-white);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+body.instaframe-design-mobile :focus-visible {
+  outline: var(--if-focus-ring-width) solid var(--if-focus-ring-color);
+  outline-offset: var(--if-focus-ring-offset);
+}
+
+/* ---------- Shared: language toggle ---------- */
+body.instaframe-design-mobile .lang-toggle,
+body.instaframe-design-mobile .lang-toggle--inline {
+  position: fixed;
+  left: var(--if-page-inset-sm);
+  bottom: calc(var(--if-app-bottom-pad) + var(--if-space-8));
+  z-index: 40;
+  display: inline-flex;
+  gap: var(--if-gap-group);
+  padding: var(--if-space-4);
+  background: var(--if-color-white);
+  border: 1px solid var(--if-color-cccccc);
+  border-radius: var(--if-btn-radius);
+  box-shadow: 0 2px 6px var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .lang-toggle button,
+body.instaframe-design-mobile .lang-toggle--inline button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--if-space-8);
+  border: 0;
+  border-radius: var(--if-btn-radius);
+  background: transparent;
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-13);
+  font-weight: var(--if-fw-semibold);
+  cursor: pointer;
+}
+body.instaframe-design-mobile .lang-toggle button[aria-pressed="true"],
+body.instaframe-design-mobile .lang-toggle--inline button[aria-pressed="true"] {
+  background: var(--if-color-ink);
+  color: var(--if-color-white);
+}
+
+/* ---------- Shared: PageArrow ---------- */
+body.instaframe-design-mobile .page-arrow,
+body.instaframe-design-mobile .arrow,
+body.instaframe-design-mobile .arrows button {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+body.instaframe-design-mobile .arrows button {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--if-color-cccccc);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  cursor: pointer;
+}
+
+/* ---------- Shared: injected mobile topbar (pages without a header) ---------- */
+body.instaframe-design-mobile .mobile-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-header);
+  min-height: 56px;
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+  background: var(--if-color-paper);
+  border-bottom: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .mobile-topbar__brand {
+  font-weight: var(--if-fw-bold);
+  font-size: var(--if-fs-16);
+  color: var(--if-color-ink);
+}
+
+/* ---------- Shared: injected mobile Menu ---------- */
+body.instaframe-design-mobile details.mobile-nav {
+  position: relative;
+  margin-left: auto;
+}
+body.instaframe-design-mobile details.mobile-nav > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-14);
+  font-weight: var(--if-fw-semibold);
+  cursor: pointer;
+}
+body.instaframe-design-mobile details.mobile-nav > summary::-webkit-details-marker { display: none; }
+body.instaframe-design-mobile details.mobile-nav[open] > summary {
+  background: var(--if-color-ink);
+  color: var(--if-color-white);
+}
+body.instaframe-design-mobile details.mobile-nav .mobile-nav__panel {
+  position: absolute;
+  right: 0;
+  top: calc(100% + var(--if-space-8));
+  z-index: 50;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-gap-group);
+  padding: var(--if-space-8);
+  background: var(--if-color-white);
+  border: 1px solid var(--if-color-000000-a14);
+  border-radius: var(--if-btn-radius);
+  box-shadow: 0 4px 12px var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile details.mobile-nav .mobile-nav__panel a,
+body.instaframe-design-mobile details.mobile-nav .mobile-nav__panel button {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--if-space-12);
+  border: 0;
+  border-radius: var(--if-btn-radius);
+  background: transparent;
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-16);
+  font-weight: var(--if-fw-semibold);
+  text-decoration: none;
+  text-align: left;
+  cursor: pointer;
+}
+body.instaframe-design-mobile details.mobile-nav .mobile-nav__panel a:hover,
+body.instaframe-design-mobile details.mobile-nav .mobile-nav__panel button:hover {
+  background: var(--if-color-f2efe9);
+}
+
+/* ---------- Home (div.home-v2) ---------- */
+body.instaframe-design-mobile .home-v2 { overflow-x: hidden; }
+
+body.instaframe-design-mobile header.hv-nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-header);
+  min-height: 56px;
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+  background: var(--if-color-paper);
+  border-bottom: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile header.hv-nav a.hv-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: var(--if-fw-bold);
+  font-size: var(--if-fs-16);
+  color: var(--if-color-ink);
+  text-decoration: none;
+}
+body.instaframe-design-mobile header.hv-nav nav,
+body.instaframe-design-mobile header.hv-nav .hv-nav__links { display: none; }
+/* « Open the app » lives inside the Menu (enhance-mobile.mjs collects it) */
+body.instaframe-design-mobile header.hv-nav > a.hv-btn-fill,
+body.instaframe-design-mobile header.hv-nav > a.hv-btn { display: none; }
+body.instaframe-design-mobile header.hv-nav a.hv-account {
+  margin-left: auto;
+  min-height: 44px;
+  padding: 0 var(--if-space-12);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-14);
+  font-weight: var(--if-fw-semibold);
+  text-decoration: none;
+}
+body.instaframe-design-mobile header.hv-nav details.mobile-nav { margin-left: 0; }
+
+body.instaframe-design-mobile section.hv-hero {
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile section.hv-hero .hv-hero-copy h1 {
+  font-size: var(--if-fs-28);
+  line-height: var(--if-lh-1-2);
+  margin: 0 0 var(--if-space-16);
+}
+body.instaframe-design-mobile section.hv-hero .hv-mark {
+  display: block;
+  margin-bottom: var(--if-space-8);
+}
+body.instaframe-design-mobile section.hv-hero .hv-lead {
+  font-size: var(--if-fs-16);
+  line-height: var(--if-lh-1-5);
+  margin: 0 0 var(--if-space-16);
+}
+body.instaframe-design-mobile section.hv-hero .hv-row.hv-hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-8);
+}
+body.instaframe-design-mobile section.hv-hero .hv-row.hv-hero-actions > * { width: 100%; }
+body.instaframe-design-mobile section.hv-hero .hv-bev.hv-bev-big {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--if-btn-h);
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+body.instaframe-design-mobile section.hv-hero .hv-hero-chips,
+body.instaframe-design-mobile section.hv-hero .hv-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--if-gap-group);
+  margin-top: var(--if-space-16);
+}
+
+/* Try it cards: single column, no x-overflow */
+body.instaframe-design-mobile .hv-show-track,
+body.instaframe-design-mobile .hv-show-lane {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-16);
+  overflow: visible;
+  padding: 0 var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile .hv-show-track > *,
+body.instaframe-design-mobile .hv-show-lane > * {
+  width: 100%;
+  flex: 0 0 auto;
+}
+body.instaframe-design-mobile .hv-card,
+body.instaframe-design-mobile .hv-card-try {
+  width: 100%;
+  max-width: 100%;
+}
+body.instaframe-design-mobile .hv-card-try .hv-btn-fill,
+body.instaframe-design-mobile .hv-card-try a.hv-btn {
+  width: 100%;
+}
+
+/* Sticky bottom bar for Start free (injected by enhance-mobile.mjs) */
+body.instaframe-design-mobile .home-sticky-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 35;
+  padding: var(--if-space-8) var(--if-page-inset-sm) calc(var(--if-space-8) + env(safe-area-inset-bottom, 0px));
+  background: var(--if-color-paper);
+  border-top: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .home-sticky-cta .hv-btn-fill { width: 100%; }
+body.instaframe-design-mobile .home-sticky-cta[hidden] { display: none; }
+
+/* Footer */
+body.instaframe-design-mobile .hv-footer {
+  padding: var(--if-space-24) var(--if-page-inset-sm) calc(var(--if-app-bottom-pad) + var(--if-space-24));
+}
+body.instaframe-design-mobile .hv-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--if-space-8);
+}
+
+/* ---------- Generator ---------- */
+body.instaframe-design-mobile header.creator-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--if-color-paper);
+  border-bottom: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .creator-header__top {
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-header);
+  min-height: 56px;
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile .creator-header__title,
+body.instaframe-design-mobile .creator-header__top h1,
+body.instaframe-design-mobile .creator-header__top h2 {
+  font-size: var(--if-fs-18);
+  line-height: var(--if-lh-1-2);
+  margin: 0;
+}
+body.instaframe-design-mobile .creator-header__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--if-gap-group);
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile .creator-header__tabs > * {
+  flex: 1 1 calc(33.333% - var(--if-gap-group));
+  min-height: 44px;
+  padding: 0 var(--if-space-8);
+  border: 1px solid var(--if-color-cccccc);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-13);
+  font-weight: var(--if-fw-semibold);
+  text-align: center;
+  cursor: pointer;
+}
+body.instaframe-design-mobile .creator-header__tabs > *[aria-selected="true"],
+body.instaframe-design-mobile .creator-header__tabs > *.is-active {
+  background: var(--if-color-ink);
+  color: var(--if-color-white);
+  border-color: var(--if-color-ink);
+}
+body.instaframe-design-mobile details.creator-header__menu {
+  margin-left: auto;
+}
+body.instaframe-design-mobile details.creator-header__menu > summary {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  font-size: var(--if-fs-14);
+  font-weight: var(--if-fw-semibold);
+  cursor: pointer;
+}
+body.instaframe-design-mobile details.creator-header__menu > summary::-webkit-details-marker { display: none; }
+
+body.instaframe-design-mobile .creation-workspace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-16);
+  padding: var(--if-space-16) var(--if-page-inset-sm) calc(var(--if-app-bottom-pad) + var(--if-space-24));
+}
+body.instaframe-design-mobile .creation-preview {
+  order: 1;
+  width: 100%;
+}
+body.instaframe-design-mobile .creation-preview__stage {
+  width: 100%;
+  overflow: hidden;
+}
+body.instaframe-design-mobile .creation-preview__footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--if-gap-group);
+  margin-top: var(--if-space-8);
+}
+body.instaframe-design-mobile .creation-preview__footer button,
+body.instaframe-design-mobile .creation-preview__footer a {
+  min-width: 44px;
+  min-height: 44px;
+}
+body.instaframe-design-mobile .creation-settings {
+  order: 2;
+  width: 100%;
+}
+body.instaframe-design-mobile .creation-settings__head {
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-group);
+  min-height: 44px;
+}
+body.instaframe-design-mobile .creation-settings__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-8);
+}
+body.instaframe-design-mobile .creation-settings__body button,
+body.instaframe-design-mobile .creation-settings__body a,
+body.instaframe-design-mobile .creation-settings__body input,
+body.instaframe-design-mobile .creation-settings__body select {
+  min-height: 44px;
+}
+body.instaframe-design-mobile .creation-settings__actions {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 35;
+  display: flex;
+  gap: var(--if-space-8);
+  padding: var(--if-space-8) var(--if-page-inset-sm) calc(var(--if-space-8) + env(safe-area-inset-bottom, 0px));
+  background: var(--if-color-paper);
+  border-top: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .creation-settings__actions > * { flex: 1 1 0; }
+body.instaframe-design-mobile .creation-settings__actions .hv-btn-fill { flex: 2 1 0; }
+body.instaframe-design-mobile .creation-toolbar,
+body.instaframe-design-mobile .creation-gallery,
+body.instaframe-design-mobile .creation-panel {
+  width: 100%;
+}
+body.instaframe-design-mobile .creation-toolbar button,
+body.instaframe-design-mobile .creation-gallery button,
+body.instaframe-design-mobile .creation-panel button,
+body.instaframe-design-mobile .creation-preview__footer button,
+body.instaframe-design-mobile .creation-preview__footer a {
+  min-width: 44px;
+  min-height: 44px;
+}
+/* Keep the sticky action bar clear of the fixed lang toggle */
+body.instaframe-design-mobile .creation-settings__actions {
+  padding-left: calc(var(--if-page-inset-sm) + 96px);
+}
+
+/* Welcome modal */
+body.instaframe-design-mobile .onboard__backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--if-space-16);
+  background: var(--if-color-000000-a80);
+}
+body.instaframe-design-mobile .onboard__welcome {
+  width: 100%;
+  max-width: var(--if-mobile-max);
+  max-height: calc(100vh - var(--if-space-24));
+  overflow-y: auto;
+  padding: var(--if-space-24) var(--if-space-16);
+  background: var(--if-color-paper);
+  border-radius: var(--if-btn-radius);
+}
+body.instaframe-design-mobile .onboard__close {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  font-size: var(--if-fs-24);
+  cursor: pointer;
+}
+body.instaframe-design-mobile .onboard__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-8);
+  margin-top: var(--if-space-16);
+}
+body.instaframe-design-mobile .onboard__row > * { width: 100%; }
+body.instaframe-design-mobile .onboard__btn--primary {
+  background: var(--if-btn-primary-bg);
+  color: var(--if-btn-primary-fg);
+  border-color: var(--if-btn-primary-border);
+  box-shadow: var(--if-btn-shadow);
+}
+
+/* ---------- Album mobile ---------- */
+body.instaframe-design-mobile .album-mobile {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-bottom: calc(var(--if-app-bottom-pad) + var(--if-space-24));
+}
+body.instaframe-design-mobile .album-mobile__header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-header);
+  min-height: 56px;
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+  background: var(--if-color-paper);
+  border-bottom: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .album-mobile__logo {
+  width: 24px;
+  height: 24px;
+  background: var(--if-color-ink);
+  border-radius: 2px;
+}
+body.instaframe-design-mobile .album-mobile__brand {
+  font-weight: var(--if-fw-bold);
+  font-size: var(--if-fs-16);
+}
+body.instaframe-design-mobile .album-mobile__menu { margin-left: auto; }
+body.instaframe-design-mobile .album-mobile__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-16);
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile .album-mobile__title {
+  margin: 0;
+  font-size: var(--if-fs-28);
+  line-height: var(--if-lh-1-2);
+}
+body.instaframe-design-mobile .album-mobile__lead {
+  margin: 0;
+  font-size: var(--if-fs-16);
+  line-height: var(--if-lh-1-5);
+}
+body.instaframe-design-mobile .album-mobile__note {
+  margin: 0;
+  font-size: var(--if-fs-14);
+  color: var(--if-color-text-muted);
+}
+body.instaframe-design-mobile .album-mobile__preview {
+  display: flex;
+  gap: var(--if-space-16);
+  align-items: center;
+  justify-content: center;
+  padding: var(--if-space-16);
+  background: var(--if-color-f2efe9);
+  border-radius: var(--if-btn-radius);
+}
+body.instaframe-design-mobile .album-mobile__cover {
+  position: relative;
+  width: 120px;
+  height: 160px;
+  background: var(--if-color-6d1308);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 var(--if-color-000000-a33);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--if-space-8);
+}
+body.instaframe-design-mobile .album-mobile__cover-band {
+  position: absolute;
+  inset: 12px;
+  border: 1px solid var(--if-color-fbc856);
+  border-radius: 1px;
+}
+body.instaframe-design-mobile .album-mobile__cover-title {
+  color: var(--if-color-fbc856);
+  font-size: var(--if-fs-12);
+  font-weight: var(--if-fw-bold);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+body.instaframe-design-mobile .album-mobile__open {
+  display: flex;
+  width: 160px;
+  height: 120px;
+  background: var(--if-color-f7f4f1);
+  border-radius: 2px;
+  box-shadow: 3px 3px 0 var(--if-color-000000-a33);
+  overflow: hidden;
+}
+body.instaframe-design-mobile .album-mobile__open-page {
+  flex: 1;
+  border-right: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .album-mobile__open-page--right { border-right: 0; }
+body.instaframe-design-mobile .album-mobile__cta { width: 100%; }
+body.instaframe-design-mobile .album-mobile__signin {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-8);
+  padding-top: var(--if-space-16);
+  border-top: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .album-mobile__signin-body {
+  margin: 0;
+  font-size: var(--if-fs-14);
+  color: var(--if-color-text-muted);
+}
+
+/* ---------- Get Inspired ---------- */
+body.instaframe-design-mobile .inspired-page,
+body.instaframe-design-mobile .inspired-app,
+body.instaframe-design-mobile .app.app--navigation {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .side,
+body.instaframe-design-mobile .side__nav,
+body.instaframe-design-mobile .side__foot { display: none; }
+body.instaframe-design-mobile .library,
+body.instaframe-design-mobile .shelf-view,
+body.instaframe-design-mobile .choice,
+body.instaframe-design-mobile .heading,
+body.instaframe-design-mobile .choose {
+  padding: var(--if-space-16) var(--if-page-inset-sm);
+}
+body.instaframe-design-mobile .library,
+body.instaframe-design-mobile .shelf-view { overflow-x: hidden; }
+body.instaframe-design-mobile .arrows {
+  display: flex;
+  gap: var(--if-gap-group);
+}
+body.instaframe-design-mobile .choose .hv-btn-fill,
+body.instaframe-design-mobile .choose a.hx-primary,
+body.instaframe-design-mobile .choose .btn--rose {
+  width: 100%;
+}
+
+/* ---------- Shop ---------- */
+body.instaframe-design-mobile .shop-window,
+body.instaframe-design-mobile .shop-product,
+body.instaframe-design-mobile .shop-flow__header,
+body.instaframe-design-mobile .shop-checkout,
+body.instaframe-design-mobile .shop-track {
+  padding: var(--if-space-16) var(--if-page-inset-sm);
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .shop-window .btn,
+body.instaframe-design-mobile .shop-product .btn,
+body.instaframe-design-mobile .shop-checkout .btn,
+body.instaframe-design-mobile .shop-track .btn { min-height: var(--if-btn-h); }
+
+/* ---------- Public / login / faq / aide / pricing / 404 ---------- */
+body.instaframe-design-mobile .hx-public__nav {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-header);
+  min-height: 56px;
+  padding: var(--if-space-8) var(--if-page-inset-sm);
+  background: var(--if-color-paper);
+  border-bottom: 1px solid var(--if-color-000000-a14);
+}
+body.instaframe-design-mobile .hx-public__nav nav { display: none; }
+/* Header « Open app » demoted to ghost so the page primary stays unique */
+body.instaframe-design-mobile .hx-public__nav a.hx-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--if-space-12);
+  border: var(--if-btn-border) solid var(--if-color-ink);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  box-shadow: none;
+  font-size: var(--if-fs-14);
+  font-weight: var(--if-fw-semibold);
+  text-decoration: none;
+}
+body.instaframe-design-mobile .hx-public__nav a.hx-primary:hover {
+  background: var(--if-color-f2efe9);
+  box-shadow: none;
+}
+body.instaframe-design-mobile .hx-brand {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: var(--if-fw-bold);
+  font-size: var(--if-fs-16);
+  color: var(--if-color-ink);
+  text-decoration: none;
+}
+body.instaframe-design-mobile .hx-public__content {
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .hx-public__content h1 {
+  font-size: var(--if-fs-28);
+  line-height: var(--if-lh-1-2);
+  margin: 0 0 var(--if-space-16);
+}
+body.instaframe-design-mobile .hx-public__content p,
+body.instaframe-design-mobile .hx-public__content li {
+  font-size: var(--if-fs-16);
+  line-height: var(--if-lh-1-5);
+}
+body.instaframe-design-mobile .hx-public__content a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+body.instaframe-design-mobile .hx-public__footer {
+  padding: var(--if-space-24) var(--if-page-inset-sm) calc(var(--if-app-bottom-pad) + var(--if-space-24));
+}
+body.instaframe-design-mobile .hx-public__footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--if-space-8);
+}
+body.instaframe-design-mobile .hx-panel {
+  padding: var(--if-space-16);
+  border: 1px solid var(--if-color-000000-a14);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+}
+body.instaframe-design-mobile .hx-help {
+  margin-top: var(--if-space-16);
+  font-size: var(--if-fs-14);
+}
+body.instaframe-design-mobile .login {
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-16);
+}
+body.instaframe-design-mobile .login .gbtn--login { width: 100%; }
+body.instaframe-design-mobile .not-found__back { width: 100%; }
+body.instaframe-design-mobile .pricingpage {
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .pcard {
+  padding: var(--if-space-16);
+  border: 1px solid var(--if-color-000000-a14);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-color-white);
+}
+body.instaframe-design-mobile .pcard__btn { width: 100%; }
+
+/* ---------- Account / saved ---------- */
+body.instaframe-design-mobile .app,
+body.instaframe-design-mobile .saved-page,
+body.instaframe-design-mobile .account-hub,
+body.instaframe-design-mobile .hx-account {
+  padding: var(--if-space-16) var(--if-page-inset-sm);
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .gallery__head {
+  display: flex;
+  align-items: center;
+  gap: var(--if-gap-group);
+  min-height: 44px;
+}
+body.instaframe-design-mobile .saved-page .btn,
+body.instaframe-design-mobile .account-hub .btn,
+body.instaframe-design-mobile .hx-account .btn { min-height: var(--if-btn-h); }
+
+/* ---------- Phone / transfer / share ---------- */
+body.instaframe-design-mobile .phone {
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+body.instaframe-design-mobile .phone__pick {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--if-btn-h);
+  padding: 0 var(--if-space-16);
+  border: var(--if-btn-border) solid var(--if-btn-primary-border);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-btn-primary-bg);
+  color: var(--if-btn-primary-fg);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  box-shadow: var(--if-btn-shadow);
+  text-decoration: none;
+}
+body.instaframe-design-mobile .phone__content h1 {
+  font-size: var(--if-fs-28);
+  line-height: var(--if-lh-1-2);
+  margin: 0 0 var(--if-space-16);
+}
+body.instaframe-design-mobile .reader-error {
+  display: flex;
+  flex-direction: column;
+  gap: var(--if-space-16);
+  padding: var(--if-space-24) var(--if-page-inset-sm);
+  font-size: var(--if-fs-16);
+  line-height: var(--if-lh-1-5);
+  color: var(--if-color-ink);
+}
+body.instaframe-design-mobile .reader-error a,
+body.instaframe-design-mobile .reader-error button {
+  width: 100%;
+  min-height: var(--if-btn-h);
+  border: var(--if-btn-border) solid var(--if-btn-primary-border);
+  border-radius: var(--if-btn-radius);
+  background: var(--if-btn-primary-bg);
+  color: var(--if-btn-primary-fg);
+  font-size: var(--if-btn-font-size);
+  font-weight: var(--if-btn-font-weight);
+  box-shadow: var(--if-btn-shadow);
+  text-decoration: none;
+}
+body.instaframe-design-mobile .reader-error a:hover,
+body.instaframe-design-mobile .reader-error button:hover {
+  background: var(--if-btn-primary-bg-hover);
+  box-shadow: var(--if-btn-shadow-hover);
+}
+
+/* ---------- 320px tightening ---------- */
+@media (max-width: 340px) {
+  body.instaframe-design-mobile {
+    --if-page-inset-sm: 16px;
+  }
+  body.instaframe-design-mobile section.hv-hero .hv-hero-copy h1,
+  body.instaframe-design-mobile .album-mobile__title,
+  body.instaframe-design-mobile .hx-public__content h1,
+  body.instaframe-design-mobile .phone__content h1 { font-size: var(--if-fs-26); }
+  body.instaframe-design-mobile .creator-header__tabs > * {
+    flex-basis: calc(50% - var(--if-gap-group));
+  }
+  body.instaframe-design-mobile .album-mobile__preview { flex-direction: column; }
+  body.instaframe-design-mobile .hv-btn-fill,
+  body.instaframe-design-mobile a.hx-primary,
+  body.instaframe-design-mobile .btn--rose,
+  body.instaframe-design-mobile .shop-primary,
+  body.instaframe-design-mobile .not-found__back,
+  body.instaframe-design-mobile .gbtn,
+  body.instaframe-design-mobile .gbtn--login,
+  body.instaframe-design-mobile .album-mobile__cta { width: 100%; }
+}

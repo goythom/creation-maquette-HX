@@ -1,0 +1,810 @@
+/* Slideshow composer: one window (approved mockup chrome), editor on the left,
+   live post preview on the right. Uses the app's real elements and palette.
+   Opened as a popup above the generator from the gallery's "Create slideshow"
+   button (Louis, 14 nov: a popup window, not an element tab). The popup shell
+   reuses .proposals-backdrop; .ss__popup is the hook class for tweaks. */
+
+.ss__win {
+  margin: 0;
+  width: min(1140px, 100%);
+  max-height: calc(100dvh - 32px);
+  background: #fff;
+  border: 3px solid #141312;
+  border-radius: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  box-shadow: 0 18px 40px rgba(20, 19, 18, 0.12);
+}
+.ss__win:focus {
+  outline: none;
+}
+.ss__win-title {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #2b2e33;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+.ss__grip {
+  color: #c9cdd2;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-right: 10px;
+}
+.ss__win-name {
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: 4px;
+}
+.ss__win-ctrl {
+  margin-left: auto;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ss__win-close {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+  line-height: 1;
+}
+.ss__win-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 1px;
+  border-radius: 4px;
+}
+.ss {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  /* Generous bottom padding: the app-wide language toggle is position:fixed at
+     the viewport's bottom right; end-of-scroll safe space keeps every control
+     reachable clear of it. */
+  padding: 22px 26px 96px;
+}
+.ss__left {
+  width: 472px;
+  flex: none;
+  min-width: 0;
+}
+.ss__right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ss__hint {
+  font-size: 12px;
+  color: #8a857e;
+  margin: 0 0 10px;
+}
+
+/* --- slides row --- */
+.ss__slides {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.ss__slide-wrap {
+  position: relative;
+  width: 64px;
+}
+.ss__slide {
+  display: block;
+  width: 100%;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: grab;
+  text-align: center;
+}
+.ss__slide:focus-visible {
+  outline: 2px solid #141312;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+.ss__slide .frame {
+  pointer-events: none;
+}
+.ss__num {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #141312;
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.ss__x {
+  position: absolute;
+  right: -6px;
+  top: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1.5px solid #141312;
+  color: #141312;
+  font-size: 10px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0;
+}
+.ss__cover {
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #e73b0d;
+  margin-top: 5px;
+}
+.ss__slide--drop {
+  width: 30px;
+  height: 64px;
+  border: 2px dashed #c7c2bb;
+  border-radius: 9px;
+  cursor: default;
+}
+.ss__slide--dragover {
+  outline: 2px dashed #e73b0d;
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+/* --- gallery picker --- */
+.ss__picker {
+  margin-top: 14px;
+}
+.ss__picker-title {
+  font-size: 12px;
+  font-weight: 700;
+  margin: 0 0 7px;
+}
+.ss__picker-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.ss__pick {
+  width: 48px;
+  border: 1.5px dashed #c7c2bb;
+  border-radius: 10px;
+  background: #fff;
+  padding: 3px;
+  cursor: pointer;
+}
+.ss__pick:hover,
+.ss__pick:focus-visible {
+  border-color: #141312;
+  border-style: solid;
+  outline: none;
+}
+.ss__pick .frame {
+  pointer-events: none;
+}
+
+/* --- settings --- */
+.ss__label {
+  font-size: 12.5px;
+  font-weight: 700;
+  margin: 18px 0 7px;
+}
+.ss__seg {
+  display: inline-flex;
+  border: 2.5px solid #141312;
+  border-radius: 11px;
+  overflow: hidden;
+}
+.ss__seg button {
+  border: 0;
+  background: #fff;
+  color: #141312;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+.ss__seg button[aria-pressed='true'] {
+  background: #141312;
+  color: #fff;
+}
+.ss__seg button:disabled {
+  color: #a8a29a;
+  cursor: not-allowed;
+}
+.ss__sub {
+  font-size: 10.5px;
+  color: #9a958e;
+  margin-top: 7px;
+}
+.ss__caption {
+  border: 1.5px solid #d8d3cc;
+  border-radius: 10px;
+  padding: 9px 13px;
+  font-size: 12.5px;
+  color: #3a3733;
+  width: 100%;
+  max-width: 360px;
+  font-family: inherit;
+  background: #fff;
+}
+.ss__caption:focus-visible {
+  outline: 2px solid #141312;
+  outline-offset: 1px;
+}
+.ss__sound {
+  border: 1.5px dashed #cfcac3;
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 10.5px;
+  color: #8a857e;
+  max-width: 385px;
+  margin-top: 10px;
+  line-height: 1.45;
+}
+.ss__live {
+  font-size: 10.5px;
+  color: #9a958e;
+  margin-top: 10px;
+}
+
+/* --- export --- */
+.ss__export-title {
+  font-size: 13px;
+  font-weight: 800;
+  margin: 20px 0 9px;
+}
+.ss__download {
+  width: 100%;
+  max-width: 410px;
+  border: 2.5px solid #141312;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 11px 0;
+  background: #fff;
+  color: #141312;
+  cursor: pointer;
+}
+.ss__download:hover:not(:disabled) {
+  background: #f2eee9;
+}
+.ss__download:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ss__story {
+  max-width: 410px;
+  border: 1.5px solid #ddd8d1;
+  border-radius: 14px;
+  padding: 13px 15px;
+  margin-top: 12px;
+  background: #fff;
+}
+.ss__story-head {
+  display: flex;
+  gap: 11px;
+  align-items: flex-start;
+}
+.ss__story-icon {
+  width: 31px;
+  height: 31px;
+  flex: none;
+  border-radius: 9px;
+  background: #fbc856;
+  border: 2px solid #141312;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+.ss__story-title {
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.ss__story-desc {
+  font-size: 10.5px;
+  color: #8a857e;
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.ss__story-btns {
+  display: flex;
+  gap: 10px;
+  margin-top: 11px;
+  flex-wrap: wrap;
+}
+.ss__story-btns button {
+  border: 1.5px solid #141312;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 8px 14px;
+  background: #fff;
+  color: #141312;
+  cursor: pointer;
+}
+.ss__story-btns button:hover:not(:disabled) {
+  background: #f2eee9;
+}
+.ss__story-btns button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.ss__fineprint {
+  max-width: 410px;
+  font-size: 9.5px;
+  color: #b0aba3;
+  margin-top: 9px;
+  line-height: 1.5;
+}
+.ss__note {
+  font-size: 11px;
+  color: #8a857e;
+  margin-top: 9px;
+  max-width: 410px;
+}
+.ss__error {
+  color: #b3261e;
+  font-size: 12px;
+  margin-top: 10px;
+  max-width: 410px;
+}
+
+/* --- empty state --- */
+.ss__empty {
+  border: 1.5px dashed #cfcac3;
+  border-radius: 14px;
+  padding: 18px;
+  max-width: 410px;
+  font-size: 12.5px;
+  color: #6d6862;
+  line-height: 1.5;
+  background: #fff;
+}
+.ss__empty button {
+  margin-top: 10px;
+}
+
+/* --- right column --- */
+.ss__r-title {
+  font-size: 13px;
+  font-weight: 800;
+  align-self: flex-start;
+}
+.ss__toggle {
+  display: inline-flex;
+  border: 2.5px solid #141312;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.ss__toggle button {
+  border: 0;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 26px;
+  color: #141312;
+  background: #fff;
+  cursor: pointer;
+}
+.ss__toggle button[aria-pressed='true'] {
+  background: #141312;
+  color: #fff;
+}
+
+/* --- phone --- */
+.ss__phone {
+  width: 280px;
+  height: 544px;
+  background: #050505;
+  border-radius: 42px;
+  margin-top: 16px;
+  position: relative;
+  border: 2.5px solid #1e1e20;
+  box-shadow: 0 10px 26px rgba(20, 19, 18, 0.25);
+  overflow: hidden;
+  flex: none;
+}
+.ss__content {
+  position: absolute;
+  top: 36px;
+  bottom: 148px;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Louis, 15 nov (Slack) : le cadre du apercu doit avoir le meme rendu que les
+   elements (brillance) et tenir plus bas dans le phone mock. La zone media
+   s'etend sous la barre haute (36px) jusqu'aux pastilles IG (top 396 ->
+   bottom 148) et le cadre s'y centre verticalement : il descend nettement
+   quel que soit le format (instax, polaroid, strip). */
+.ss__content {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: grab;
+}
+.ss__content:active {
+  cursor: grabbing;
+}
+.ss__content .frame {
+  flex: none;
+}
+/* Brillance : meme recette en trois couches que .frame:after (styles/index.css)
+   - point chaud radial haut-gauche, reflet 115 deg, lumiere verticale - avec
+   des alphas renforces : a ~170px de large dans le phone mock, les valeurs
+   d'origine se lisaient a plat. */
+.ss__content .frame:after {
+  background:
+    radial-gradient(circle at var(--gx) var(--gy), #ffffff8f 0%, #fff0 42%),
+    linear-gradient(115deg, #fff0 24%, #ffffff6b 38%, #ffffff17 47%, #fff0 58%),
+    linear-gradient(180deg, #ffffff4d, #fff0 38%, #00000014);
+}
+.ss__pill {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(88, 88, 90, 0.66);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  z-index: 3;
+}
+.ss__dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+  z-index: 3;
+}
+.ss__dots button {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ss__dots i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.42);
+  display: block;
+}
+.ss__dots button[aria-current='true'] i {
+  background: #fff;
+}
+.ss__rail {
+  position: absolute;
+  right: 11px;
+  top: 160px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  z-index: 3;
+}
+.ss__rail-it {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+.ss__rail-it b {
+  font-size: 9.5px;
+  color: #fff;
+  font-weight: 600;
+}
+.ss__ig-bottom {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  bottom: 22px;
+  z-index: 3;
+}
+.ss__ig-idrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.ss__avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a2a, #e73b0d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  font-style: italic;
+  flex: none;
+}
+.ss__ig-user {
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+.ss__follow {
+  margin-left: auto;
+  border: 1.5px solid rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 13px;
+  white-space: nowrap;
+}
+.ss__ig-cap {
+  color: #fff;
+  font-size: 11.5px;
+  margin-top: 9px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.ss__more {
+  color: rgba(255, 255, 255, 0.6);
+}
+.ss__homebar {
+  position: absolute;
+  bottom: 7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92px;
+  height: 3.5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.55);
+  z-index: 3;
+}
+
+/* TikTok state */
+.ss__tt-top {
+  position: absolute;
+  top: 11px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 4;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.55);
+  font-weight: 600;
+}
+.ss__tt-top b {
+  color: #fff;
+  font-weight: 700;
+  position: relative;
+  padding: 0 2px;
+}
+.ss__tt-top b i {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 18px;
+  height: 2.5px;
+  border-radius: 999px;
+  background: #fff;
+}
+.ss__tt-sep {
+  display: inline-block;
+  width: 14px;
+}
+.ss__tt-search {
+  position: absolute;
+  right: 13px;
+  top: 10px;
+  z-index: 4;
+}
+.ss__tt-rail {
+  position: absolute;
+  right: 9px;
+  top: 126px;
+  width: 38px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  z-index: 3;
+}
+.ss__tt-ava {
+  position: relative;
+  margin-bottom: 6px;
+}
+.ss__tt-ava .ss__avatar-pic {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a2a, #e73b0d);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  font-style: italic;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+}
+.ss__tt-plus {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #fe2c55;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 13px;
+  text-align: center;
+}
+.ss__tt-meta {
+  position: absolute;
+  left: 12px;
+  right: 52px;
+  bottom: 52px;
+  z-index: 3;
+}
+.ss__tt-user {
+  color: #fff;
+  font-size: 12.5px;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+.ss__tt-cap {
+  color: #fff;
+  font-size: 11.5px;
+  margin-top: 7px;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+  word-break: break-word;
+}
+.ss__tt-music {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 9px;
+  color: #fff;
+  font-size: 10.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+.ss__tt-disc {
+  position: absolute;
+  right: 10px;
+  bottom: 17px;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  z-index: 3;
+  background: repeating-radial-gradient(circle at 50% 50%, #1b1b1d 0 2px, #0c0c0d 2px 4px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ss__tt-disc i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6a2a, #e73b0d);
+}
+.ss__tt-shadow {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+}
+
+.ss__approx {
+  font-size: 10px;
+  color: #9a958e;
+  margin-top: 12px;
+  line-height: 1.5;
+  max-width: 480px;
+}
+
+/* --- QR dialog --- */
+.ss__qr-img {
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 10px;
+}
+.ss__qr-link {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+/* Short landscape screens (iPad landscape, small laptops): shrink the phone a
+   touch so its bottom edge starts clear of the fixed language toggle zone even
+   before any scroll; the window still scrolls for the rest of the column. */
+@media (min-width: 1024px) and (max-height: 900px) {
+  .ss__phone {
+    transform: scale(0.92);
+    transform-origin: top center;
+    margin-bottom: -40px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .ss__win {
+    max-height: calc(100dvh - 24px);
+  }
+  /* The Code-on-Screen feedback bubble sits at the top-right corner above
+     every dialog on the site (existing rule, untouched): keep the window
+     controls clear of it on touch screens. */
+  .ss__win-ctrl {
+    margin-right: 56px;
+  }
+  .ss {
+    flex-direction: column;
+    padding: 14px 16px 88px;
+  }
+  .ss__left {
+    width: 100%;
+  }
+  .ss__right {
+    align-self: center;
+  }
+}
+
+/* Louis, 15 nov (Slack, capture de reference, valide le jour meme) : fenetre
+   Slideshow compacte, taille voisine de la fenetre "Compose my notebook"
+   (environ 2/3 de la largeur et 3/4 de la hauteur de l'ecran), centree avec
+   des marges tout autour. Le telephone est reduit par mise a l'echelle
+   globale pour garder tous ses elements internes proportionnels ; les marges
+   negatives compensent l'encombrement du conteneur mis a l'echelle. */
+.ss__win {
+  width: min(800px, calc(100% - 48px));
+  max-height: min(640px, calc(100dvh - 110px));
+}
+.ss {
+  gap: 20px;
+  padding: 18px 22px 56px;
+}
+.ss__left {
+  width: 400px;
+}
+.ss__phone {
+  transform: scale(0.82);
+  transform-origin: top left;
+  margin-right: -50px;
+  margin-bottom: -98px;
+}
+
+/* Deployed app reset loads after this component stylesheet. */
+.ss p { margin: 0; }
