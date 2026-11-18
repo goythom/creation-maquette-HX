@@ -19,10 +19,17 @@
   ['Références source locales',[["Studio - couverture", "@visual/studio-cover"], ["Studio - carnet ouvert", "@visual/studio-open"], ["Studio - texte et forme", "@visual/studio-text"], ["Vidéo - pellicule", "@visual/video-film"], ["Vidéo - cassette", "@visual/video-vhs"]]]
  ];
  const mobileGroups=[
-  ['Les éléments',[['Les éléments','@elements/overview'],['Instax Mini','@elements/instax'],['Polaroid','@elements/polaroid'],['Message','@elements/message'],['Audio','@elements/audio'],['Music','@elements/music'],['Stamps','@elements/stamps'],['Stickers','@elements/stickers'],['Video','@elements/video'],['Letter','@elements/letter'],['Messages','@elements/messages'],['Date','@elements/date'],['Postcard','@elements/postcard'],['Concert Ticket','@elements/ticket'],['Photo strip','@elements/strip']]],
   ['Parcours',[['Accueil','@journey/home'],['Choisir un élément','@journey/type'],['Créer','@journey/create'],['Résultat','@journey/result'],['Sauvegarder','@journey/save'],['Continuer le carnet','@journey/handoff']]],
+  ['Les éléments',[['Les éléments','@elements/overview'],['Instax Mini','@elements/instax'],['Polaroid','@elements/polaroid'],['Message','@elements/message'],['Audio','@elements/audio'],['Music','@elements/music'],['Stamps','@elements/stamps'],['Stickers','@elements/stickers'],['Video','@elements/video'],['Letter','@elements/letter'],['Messages','@elements/messages'],['Date','@elements/date'],['Postcard','@elements/postcard'],['Concert Ticket','@elements/ticket'],['Photo strip','@elements/strip']]],
   ['Autour',[['Get Inspired','@journey/inspired'],['Album Studio','@journey/album'],['Éléments créés','@journey/gallery'],['Envoi de photos','@journey/phone'],['Lien de carnet','@journey/share'],['FAQ','@journey/faq'],['Connexion','@journey/login'],['Boutique','@journey/shop'],['Confidentialité','@journey/legal-privacy'],['Mentions légales','@journey/legal-mentions']]]
  ];
+ window.addEventListener('message', (e) => {
+  if (edition !== 'mobile') return;
+  const page = e.data && e.data.type === 'if-mobile-go' && e.data.page;
+  if (!page) return;
+  const item = mobileGroups.flatMap(g => g[1]).find(i => i[1] === page);
+  if (item) show(item);
+ });
  const groups=desktopGroups;
  function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e}
  function activeGroups(){return edition==='mobile'?mobileGroups:groups}

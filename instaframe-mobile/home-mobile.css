@@ -1,0 +1,433 @@
+/* home-mobile.css — reflow layer for the mobile home page.
+ *
+ * The desktop home.css is loaded at runtime by home-site.mjs; this file only
+ * reflows it for a phone viewport. Nothing here duplicates home.css rules:
+ * every selector below either overrides a layout property (grid, width,
+ * position) or adds a mobile-only affordance (sticky CTA, larger tap targets).
+ */
+
+/* The mobile shell owns the page scroll; the home page must not fight it. */
+body.if-m-site-home .if-m-app {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100dvh;
+  background: #fff;
+}
+
+.if-home {
+  --if-home-gutter: 16px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Header: logo + EN/FR + Menu button on one row. */
+.if-home .hv-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px var(--if-home-gutter);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--if-color-paper, #f7f4f1);
+  border-bottom: 2px solid var(--if-color-ink, #100808);
+}
+.if-home .hv-nav-sp { flex: 1 1 auto; }
+.if-home .hv-navbadge { display: none; }
+.if-home .hv-nav > nav { display: none; }
+.if-home .hv-nav > .hv-account { display: none; }
+.if-home .hv-nav > .hv-btn-fill { display: none; }
+.if-home .hv-nav .lang-toggle button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 8px;
+}
+.if-home .hv-menu-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0 12px;
+  border: 2px solid var(--if-color-ink, #100808);
+  background: var(--if-color-paper, #f7f4f1);
+  color: var(--if-color-ink, #100808);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+.if-home .hv-menu-icon {
+  display: inline-block;
+  width: 18px;
+  height: 12px;
+  position: relative;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+}
+.if-home .hv-menu-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  border-top: 2px solid currentColor;
+  transform: translateY(-1px);
+}
+.if-home .hv-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(16, 8, 8, 0.35);
+}
+.if-home .hv-nav-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 41;
+  width: min(320px, 86vw);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px;
+  background: var(--if-color-paper, #f7f4f1);
+  border-left: 2px solid var(--if-color-ink, #100808);
+  overflow-y: auto;
+}
+.if-home .hv-nav-menu[hidden],
+.if-home .hv-nav-backdrop[hidden] { display: none; }
+.if-home .hv-nav-menu a,
+.if-home .hv-nav-menu button {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  font: inherit;
+  font-size: 16px;
+  text-align: left;
+  color: var(--if-color-ink, #100808);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+.if-home .hv-nav-menu .hv-btn-fill {
+  justify-content: center;
+  margin-top: 8px;
+  border: 2px solid var(--if-color-ink, #100808);
+}
+.if-home .hv-nav-note {
+  margin-top: 12px;
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+/* Hero: single column, copy first, notebook below. */
+.if-home .hv-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px var(--if-home-gutter);
+}
+.if-home .hv-hero-copy { max-width: 100%; }
+.if-home .hv-hero h1 {
+  font-size: clamp(28px, 8vw, 40px);
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+.if-home .hv-lead {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0 0 16px;
+}
+.if-home .hv-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.if-home .hv-hero-actions .hv-btn-fill,
+.if-home .hv-hero-actions .hv-bev-big {
+  min-height: 48px;
+  padding: 12px 18px;
+  font-size: 16px;
+}
+.if-home .hv-hero-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.if-home .hv-chip {
+  font-size: 13px;
+  padding: 6px 10px;
+}
+
+/* Notebook demo: full width, capped height so it never pushes the CTA off. */
+.if-home .hv-scene {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+.if-home .hv-scene-stage--notebook {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
+  max-height: 60vh;
+  overflow: hidden;
+}
+.if-home .if-home-notebook-host {
+  width: 100%;
+  height: 100%;
+}
+.if-home .if-home-notebook-host .notebook-preview {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ticker: keep the marquee but shrink the type. */
+.if-home .hv-tick {
+  overflow: hidden;
+  font-size: 13px;
+}
+.if-home .hv-tick-track span {
+  gap: 6px;
+  padding: 0 12px;
+}
+
+/* Sections: full-bleed gutters, no fixed widths. */
+.if-home .hv-sec {
+  padding: 32px var(--if-home-gutter);
+}
+.if-home .hv-sec-w { max-width: 100%; }
+.if-home .hv-sectitle {
+  font-size: clamp(22px, 6vw, 30px);
+  line-height: 1.2;
+  margin: 8px 0 20px;
+}
+.if-home .hv-sechead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Steps: stack vertically. */
+.if-home .hv-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.if-home .hv-step-cell { width: 100%; }
+.if-home .hv-step-ic {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Create: window then side note, stacked. */
+.if-home .hv-create {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.if-home .hv-create-win { width: 100%; }
+.if-home .hv-desk {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.if-home .hv-desk > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  text-align: center;
+}
+.if-home .hv-create-side {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.if-home .hv-create-side p { margin: 0; font-size: 14px; }
+
+/* Window chrome: hide the decorative _, □, × buttons so the title gets the
+ * full toolbar width and is never clipped ("Mes éléments", "Pour toi ♡"). */
+.if-home .hv-tb .hv-bev,
+.if-home .hv-tb .hv-xb {
+  display: none;
+}
+.if-home .hv-tb {
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
+.if-home .hv-tb > span {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: visible;
+  white-space: normal;
+  text-overflow: clip;
+}
+
+/* Showcase: single vertical column of the 9 official cards. */
+.if-home .hv-sec-show { padding-left: var(--if-home-gutter); padding-right: var(--if-home-gutter); }
+.if-home .hv-show-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.if-home .hv-show-pause { display: none; }
+.if-home .hv-show-lane {
+  overflow: visible;
+  padding: 8px 0 16px;
+}
+.if-home .hv-show-track {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transform: none !important;
+  will-change: auto;
+}
+.if-home .hv-card {
+  flex: 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+}
+.if-home .hv-card-body {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.if-home .hv-card-art,
+.if-home .if-home-frame-host {
+  max-width: 100%;
+  max-height: 100%;
+}
+.if-home .hv-card-try {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Card caption: wrap the full official description, never clip it. */
+.if-home .hv-card-cap p {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  max-height: none;
+  -webkit-line-clamp: unset;
+  display: block;
+}
+
+/* Plans: stack. */
+.if-home .hv-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.if-home .hv-plan { width: 100%; }
+.if-home .hv-plan .hv-btn-fill,
+.if-home .hv-plan .hv-btn-out {
+  min-height: 44px;
+}
+.if-home .hv-coming {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+/* FAQ: comfortable tap targets. */
+.if-home .hv-faq details {
+  border-bottom: 1px solid var(--if-color-000000-a14, rgba(0, 0, 0, 0.08));
+}
+.if-home .hv-faq summary {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 16px;
+  cursor: pointer;
+}
+.if-home .hv-faq p {
+  margin: 0 0 16px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Final CTA: hide the floating stickers that would overflow on a phone. */
+.if-home .hv-final { position: relative; }
+.if-home .hv-final > .hv-stk { display: none; }
+.if-home .hv-final-win { width: 100%; }
+.if-home .hv-final-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.if-home .hv-final-actions .hv-btn-fill,
+.if-home .hv-final-actions .hv-btn-out {
+  min-height: 48px;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+
+/* Footer: wrap links, comfortable targets. */
+.if-home .hv-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 24px var(--if-home-gutter) calc(24px + env(safe-area-inset-bottom, 0px));
+}
+.if-home .hv-footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 14px;
+}
+.if-home .hv-footer nav a,
+.if-home .hv-footer nav button {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 4px;
+}
+
+/* Focus ring: keep it visible on touch and keyboard. */
+.if-home :focus-visible {
+  outline: var(--if-focus-ring-width, 2px) solid var(--if-focus-ring-color, #100808);
+  outline-offset: var(--if-focus-ring-offset, 3px);
+}
+
+/* Reduced motion: no marquee, no lane animation. */
+@media (prefers-reduced-motion: reduce) {
+  .if-home .hv-tick-track,
+  .if-home .hv-show-track {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Very small phones: tighten gutters and type. */
+@media (max-width: 360px) {
+  .if-home {
+    --if-home-gutter: 12px;
+  }
+  .if-home .hv-hero h1 {
+    font-size: 26px;
+  }
+  .if-home .hv-card {
+    width: 100%;
+  }
+}

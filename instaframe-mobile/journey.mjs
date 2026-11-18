@@ -243,6 +243,90 @@ const typeLabel = (type) => {
 
 const app = document.getElementById('if-m-app');
 
+/* ---------- Home site bridge ----------
+ * The mobile home page is rendered by home-site.mjs, which reuses the real
+ * desktop visuals. It calls onNavigate(href, { source }) and we map that to
+ * the mobile journey:
+ *   - source 'start-free'  -> go('create', { type: 'Photo' })
+ *   - '/generator?tour=1'  -> openSheet('tour')
+ *   - other '/generator'   -> go('type')
+ *   - '/get-inspired'      -> go('inspired')
+ *   - '/album'             -> go('album')
+ *   - '/shop'              -> go('shop')
+ *   - '/faq'               -> go('faq')
+ *   - '/privacy'           -> go('legal-privacy')
+ *   - '/mentions-legales'  -> go('legal-mentions')
+ *   - '/'                  -> go('home')
+ *   - anything else        -> go('home') (mobile has no full editor)
+ */
+function navigateFromHome(href, meta) {
+  const source = meta && meta.source;
+  if (source === 'start-free') {
+    go('create', { type: 'Photo' });
+    return;
+  }
+  if (href === '/generator?tour=1') {
+    openSheet('tour');
+    return;
+  }
+  if (href === '/generator' || href.startsWith('/generator?')) {
+    go('type');
+    return;
+  }
+  if (href === '/get-inspired') {
+    go('inspired');
+    return;
+  }
+  if (href === '/album') {
+    go('album');
+    return;
+  }
+  if (href === '/shop') {
+    go('shop');
+    return;
+  }
+  if (href === '/faq') {
+    go('faq');
+    return;
+  }
+  if (href === '/privacy') {
+    go('legal-privacy');
+    return;
+  }
+  if (href === '/mentions-legales') {
+    go('legal-mentions');
+    return;
+  }
+  if (href === '/') {
+    go('home');
+    return;
+  }
+  if (href.startsWith('/elements/')) {
+    openElementScreen(href.slice('/elements/'.length));
+    return;
+  }
+  if (href === '/login') {
+    go('login');
+    return;
+  }
+  /* /llms.txt, /status, Feedback, unknown: no-op on mobile. */
+}
+
+function openElementScreen(id) {
+  const page = '@elements/' + id;
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({ type: 'if-mobile-go', page }, '*');
+    return;
+  }
+  location.href = './elements.html?screen=' + encodeURIComponent(id) + '&lang=' + encodeURIComponent(state.lang);
+}
+
+let homeSitePromise = null;
+function loadHomeSite() {
+  if (!homeSitePromise) homeSitePromise = import('./home-site.mjs');
+  return homeSitePromise;
+}
+
 function el(tag, attrs = {}, children = []) {
   const node = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
@@ -338,30 +422,29 @@ function sticky(children, withThumbs = true) {
 /* ---------- Screens ---------- */
 
 function screenHome() {
-  const title = el('h1', { html: t('homeTitle') });
-  const lead = el('p', { class: 'if-m-lead', text: t('homeLead') });
-  const start = el('button', { class: 'hv-btn-fill', type: 'button', onclick: () => go('create', { type: 'Photo' }) }, [t('startFree')]);
-  const tour = el('button', { class: 'hv-btn-ghost', type: 'button', onclick: () => openSheet('tour') }, [t('tour')]);
-  const chips = el('div', { class: 'if-m-chips' }, [
-    el('span', { class: 'if-m-chip', text: t('noAccount') }),
-    el('span', { class: 'if-m-chip', text: t('importQr') }),
+  /* The mobile home is the real home page, reflowed by home-mobile.css.
+   * home-site.mjs is loaded lazily so the journey screens stay light. */
+  const host = el('div', { class: 'if-m-home-host' });
+  const fallback = el('main', { class: 'if-m-main' }, [
+    el('h1', { html: t('homeTitle') }),
+    el('p', { class: 'if-m-lead', text: t('homeLead') }),
+    el('button', { class: 'hv-btn-fill', type: 'button', onclick: () => go('create', { type: 'Photo' }) }, [t('startFree')]),
   ]);
-  const tryList = el('div', { class: 'if-m-list' }, TYPES.filter((x) => !x.pro).map((x) =>
-    el('button', { class: 'if-m-list-item', type: 'button', onclick: () => go('create', { type: x.id }) }, [
-      el('span', { text: `${t('tryIt')} – ${x.label[state.lang] || x.label.en}` }),
-      el('span', { 'aria-hidden': 'true', text: '→' }),
-    ])
-  ));
-  const footer = el('div', { class: 'if-m-footer' }, [
-    el('button', { type: 'button', onclick: () => go('faq') }, [t('faq')]),
-    el('button', { type: 'button', onclick: () => go('shop') }, [t('shop')]),
-    el('button', { type: 'button', onclick: () => go('legal-privacy') }, [t('privacy')]),
-    el('button', { type: 'button', onclick: () => go('legal-mentions') }, [t('legal')]),
-  ]);
-  return {
-    main: el('main', { class: 'if-m-main' }, [title, lead, chips, tour, el('h2', { text: t('tryIt') }), tryList, footer]),
-    sticky: sticky([start]),
-  };
+  host.appendChild(fallback);
+  loadHomeSite()
+    .then(({ renderHomeSite }) => {
+      if (!host.isConnected) return;
+      const homeRoot = renderHomeSite({ lang: state.lang, onNavigate: navigateFromHome });
+      homeRoot.addEventListener('if-m-set-lang', (e) => {
+        const value = e.detail === 'fr' ? 'fr' : 'en';
+        if (value !== state.lang) setLang(value);
+      });
+      host.replaceChildren(homeRoot);
+    })
+    .catch(() => {
+      /* keep the fallback: a missing home module must not blank the app */
+    });
+  return { main: host, sticky: null };
 }
 
 function screenType() {
@@ -887,12 +970,17 @@ function render() {
   const fn = screens[state.screen] || screenHome;
   const { main, sticky: stickyBar } = fn();
   const sheet = currentSheet();
+  const isHome = state.screen === 'home';
   app.replaceChildren(
-    header(),
+    isHome ? document.createComment('no-header') : header(),
     main,
-    stickyBar,
+    stickyBar || document.createComment('no-sticky'),
     sheet ? el('div', { class: 'if-m-scrim', onclick: (e) => { if (e.target === e.currentTarget) closeSheet(); } }, [sheet]) : document.createComment('no-sheet')
   );
+  app.classList.toggle('if-m-app--home', isHome);
+  document.body.classList.toggle('if-m-site-home', isHome);
+  const homeCss = document.querySelector('link[data-if-home-css]');
+  if (homeCss) homeCss.disabled = !isHome;
   document.documentElement.lang = state.lang;
 }
 
