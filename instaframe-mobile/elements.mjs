@@ -28,7 +28,9 @@ const STR = {
     options: 'Options',
     close: 'Close',
     reset: 'Reset',
-    upload: 'Upload image',
+    upload: 'Replace photo',
+    addPhoto: 'Add your photo',
+    example: 'Example',
     caption: 'Caption',
     captionSize: 'Caption size',
     format: 'Format',
@@ -48,7 +50,9 @@ const STR = {
     options: 'Options',
     close: 'Fermer',
     reset: 'Réinitialiser',
-    upload: 'Importer une photo',
+    upload: 'Remplacer la photo',
+    addPhoto: 'Ajouter ta photo',
+    example: 'Exemple',
     caption: 'Légende',
     captionSize: 'Taille de la légende',
     format: 'Format',
@@ -72,6 +76,9 @@ const state = {
 };
 
 const app = document.getElementById('if-el-app');
+
+// Types that render a photo area (get the on-preview "Add your photo" chip).
+const PHOTO_TYPES = new Set(['instax', 'polaroid', 'strip', 'stamps', 'stickers', 'video', 'postcard', 'ticket']);
 
 function t(key) { return (STR[state.lang] || STR.en)[key] || key; }
 function typeLabel(type) { return state.lang === 'fr' ? type.fr : type.en; }
@@ -534,8 +541,7 @@ function fillSheet() {
   const upload = el('button', '', t('upload'));
   upload.type = 'button';
   upload.onclick = () => {
-    upload.textContent = state.lang === 'fr' ? 'Déjà rempli' : 'Already filled';
-    setTimeout(() => { upload.textContent = t('upload'); }, 900);
+    // Maquette: no-op. The example stays filled; label never changes.
   };
   actions.append(reset, upload);
   body.append(actions);
@@ -583,7 +589,23 @@ function renderTypeScreen() {
   const frag = document.createDocumentFragment();
   const stage = el('main', 'if-el-stage');
   const preview = el('div', 'if-el-preview');
-  preview.append(renderElement(type.id));
+  const wrap = el('div', 'if-el-preview-wrap');
+  wrap.append(renderElement(type.id));
+
+  const badge = el('div', 'if-el-example-badge', t('example'));
+  badge.setAttribute('aria-hidden', 'true');
+  wrap.append(badge);
+
+  if (PHOTO_TYPES.has(type.id)) {
+    const chip = el('button', 'if-el-upload-chip', t('addPhoto'));
+    chip.type = 'button';
+    chip.onclick = () => {
+      // Maquette: no-op. The example stays filled.
+    };
+    wrap.append(chip);
+  }
+
+  preview.append(wrap);
   stage.append(preview);
   frag.append(stage);
   frag.append(renderBar());

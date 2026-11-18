@@ -139,6 +139,55 @@ body.if-el .if-el-preview {
   overflow: visible;
 }
 
+/* Preview wrap: holds the rendered element + Exemple badge + upload chip */
+body.if-el .if-el-preview-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 100%;
+}
+
+/* Exemple / Example badge */
+body.if-el .if-el-example-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  z-index: 5;
+  pointer-events: none;
+  padding: 3px 8px;
+  background: var(--if-color-white);
+  border: 2px solid #100808;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: var(--if-fw-bold);
+  letter-spacing: .02em;
+  color: #100808;
+  line-height: 1.2;
+  box-shadow: 0 2px 4px #10080826;
+}
+
+/* On-preview upload chip */
+body.if-el .if-el-upload-chip {
+  flex: none;
+  height: 44px;
+  padding: 0 16px;
+  border: var(--if-border-2) solid var(--if-color-ink);
+  background: var(--if-color-white);
+  color: var(--if-color-ink);
+  border-radius: var(--if-radius);
+  font-weight: var(--if-fw-semibold);
+  font-size: var(--if-fs-13);
+  cursor: pointer;
+  white-space: nowrap;
+}
+body.if-el .if-el-upload-chip:active { transform: translate(1px, 1px); }
+body.if-el .if-el-upload-chip:focus-visible {
+  outline: var(--if-focus-ring-width) solid var(--if-focus-ring-color);
+  outline-offset: var(--if-focus-ring-offset);
+}
+
 /* ---------- Sticky bottom bar ---------- */
 
 body.if-el .if-el-bar {
@@ -449,7 +498,7 @@ body.if-el .frame::after {
 body.if-el .frame__photo {
   position: absolute;
   overflow: hidden;
-  background: #e6e6e7;
+  background: linear-gradient(160deg, #c4b8a8 0%, #8a7a68 45%, #5c5348 100%);
   box-shadow: 0 0 0 1px #6b7280;
 }
 body.if-el .frame__photo.if-el-photo {
@@ -1298,7 +1347,8 @@ body.if-el .if-el-letter-sign {
   font-family: "Pinyon Script", cursive;
   font-size: 18px;
   color: #2b1d10;
-  text-align: right;
+  text-align: left;
+  padding-right: 52px;
   position: relative;
   z-index: 1;
 }
@@ -1532,13 +1582,12 @@ body.if-el .if-el-ticket-presenter {
   font-weight: 700;
 }
 body.if-el .if-el-ticket-event {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #1A1A1A;
   line-height: 1.15;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 body.if-el .if-el-ticket-meta {
   font-size: 10px;
@@ -1602,5 +1651,7 @@ body.if-el .if-el-ticket-serial {
   body.if-el .if-el-letter-body { font-size: 15px; }
   body.if-el .if-el-letter-body .dropcap { font-size: 34px; }
   body.if-el .if-el-postcard-caption { font-size: 16px; }
-  body.if-el .if-el-ticket-event { font-size: 13px; }
+  body.if-el .if-el-ticket-event { font-size: 12px; }
+  body.if-el .if-el-example-badge { font-size: 10px; padding: 2px 7px; }
+  body.if-el .if-el-upload-chip { font-size: var(--if-fs-12); padding: 0 12px; }
 }
