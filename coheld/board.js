@@ -39,7 +39,10 @@
   shell._ext.href=base+(id||current)+'.html';
   show(id||current);history.replaceState(null,'','#coheld');document.documentElement.classList.remove('instaframe-loading')}
  function closeCoheld(){if(!open)return;open=false;if(shell)shell.hidden=true;document.body.removeAttribute('data-coheld');document.querySelectorAll('[data-code-on-screen-os]').forEach(e=>e.style.display='');document.querySelectorAll('[data-ch-hidden]').forEach(e=>{e.style.display='';e.removeAttribute('data-ch-hidden')});const t=document.getElementById('tab-coheld');t&&t.classList.remove('on')}
- function leave(id){closeCoheld();if(id==='tab-hx'){if(typeof window.showTab==='function')window.showTab('hx');return}const b=document.getElementById(id);b&&b.click()}
+ function leave(id){closeCoheld();if(id==='tab-hx'){if(typeof window.showTab==='function')window.showTab('hx');return}const b=document.getElementById(id);b&&b.click();if(/^tab-insta/.test(id))setTimeout(()=>{typeof window.openFreshInsta==='function'&&window.openFreshInsta();addBtn()},0)}
+ /* Le cadre InstaFrame a sa propre barre du haut : on y ajoute l'onglet Coheld pour revenir. */
+ function addBtn(){const h=document.querySelector('#fresh-instaframe .fresh-global');if(!h||h.querySelector('[data-ch]'))return;const b=document.createElement('button');b.dataset.ch='1';b.textContent='Coheld';b.onclick=()=>openCoheld();h.append(b)}
+ new MutationObserver(addBtn).observe(document.body,{childList:true});addBtn();
  window.openCoheld=openCoheld;
  const tab=document.getElementById('tab-coheld');if(tab){tab.removeAttribute('onclick');tab.onclick=()=>openCoheld();tabbar.append(tab)}
  /* Un clic sur un autre onglet referme Coheld, puis laisse l'onglet choisi faire son travail. */
