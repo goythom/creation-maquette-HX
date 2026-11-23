@@ -20,3 +20,7 @@ Aucune nouvelle maquette ni publication du site ne fait partie de cette mise en 
 ## Consigne pour Claude
 
 Lis ce README, COHELD-REPRISE.md et INSPIRATIONS.md, puis examine les sources locales de l'archive et le code existant. Reprends le contexte sans demander de tout réexpliquer. Avant de coder, distingue les exigences validées des pistes de composition. Commence par une ouverture et une scène produit convaincantes, montre le résultat sur ordinateur et téléphone, puis étends après validation. Préserve les autres projets, les 16 pages et les parcours FR/EN. La maquette reste illustrative, pas un produit connecté.
+
+## Sources directement lisibles
+
+Le dossier `sources-locales/` contient aussi le contenu extrait de l'archive originale, sans modification, pour permettre à Claude de lire les fichiers HTML, CSS, JavaScript et Markdown directement. Les fichiers de la maquette à la racine du dépôt ne sont pas remplacés.

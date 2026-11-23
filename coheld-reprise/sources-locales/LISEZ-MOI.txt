@@ -1,0 +1,12 @@
+Coheld, étude locale du 23 novembre 2026
+
+Ouvrir coheld/home.html dans un navigateur récent. Les bibliothèques, polices et images sont locales. Si le navigateur bloque les fichiers locaux : lancer python3 -m http.server 8080 dans ce dossier et ouvrir http://localhost:8080/coheld/home.html
+Version anglaise : home.html?lang=en
+
+Seuls l’accueil et ses nouveaux fichiers ont changé. Les autres pages sont conservées. Aucun push ni déploiement. Le site distant reste inchangé.
+
+La démo est illustrative. Elle ne prouve pas des connexions réelles aux assistants.
+
+Outils intégrés : Motion 14.14.0 et Lucide 1.78.0. Notices de droits dans coheld/vendor. Recherche et liens dans OUTILS-ET-SOURCES.md.
+
+Fichiers de reprise : coheld/home.html, coheld/coheld-refined.css, coheld/coheld-refined.js, coheld/vendor. Les autres projets du dépôt ne sont pas inclus dans cette archive autonome et ne doivent pas être supprimés lors d’une éventuelle intégration.
