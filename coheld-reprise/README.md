@@ -8,6 +8,7 @@ Dossier du 23 novembre 2026 à transmettre à Claude ou à un développeur.
 2. [INSPIRATIONS.md](INSPIRATIONS.md) : dix captures, sept sites de référence, provenance et idées à reprendre ou à éviter.
 3. [Coheld-dossier-reprise.pdf](Coheld-dossier-reprise.pdf) : version de lecture du dossier initial.
 4. [Coheld-markdown-sources-bd65b9f2.zip](Coheld-markdown-sources-bd65b9f2.zip) : dernières sources locales, conservées sans modification.
+5. [SKILLS-UI-UX.md](SKILLS-UI-UX.md) : ressources skills UI/UX publiques fournies par Louis, ajoutées le 24 novembre 2026.
 
 ## Important
 
