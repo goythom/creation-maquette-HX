@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="theme-color" content="#ffffff"/>
+<title>Coheld · Le dossier qui fait passer le contexte</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div class="page">
+
+  <header class="top frame">
+    <a class="brand" href="#top" aria-label="Coheld — accueil">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l1.8 2h8.2A1.5 1.5 0 0 1 20 9.5v8A1.5 1.5 0 0 1 18.5 19h-14A1.5 1.5 0 0 1 3 17.5z"/><path d="M3 11h17"/></svg>
+      </span>
+      <span class="brand-name">Coheld</span>
+    </a>
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="#demo" data-i18n="nav.demo">La démonstration</a>
+      <a href="#dossier" data-i18n="nav.folder">Le dossier</a>
+      <a href="#assistants" data-i18n="nav.assistants">Vos assistants</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Langue">
+      <a href="?lang=fr" hreflang="fr" lang="fr" aria-current="true">FR</a>
+      <a href="?lang=en" hreflang="en" lang="en">EN</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero frame" aria-labelledby="hero-title">
+      <div class="grid-overlay" aria-hidden="true"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-i18n="hero.eyebrow">Mémoire de travail d'équipe</span></p>
+        <h1 id="hero-title">
+          <span class="h1-line h1-ink" data-i18n="hero.h1.a">Le contexte passe.</span>
+          <span class="h1-line h1-grey" data-i18n="hero.h1.b">Vos assistants restent.</span>
+        </h1>
+        <p class="lead" data-i18n="hero.lead">Coheld garde, structure et transmet la mémoire de travail de l'équipe. Chacun continue dans son assistant habituel.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#demo">
+            <span data-i18n="hero.cta.primary">Voir le dossier circuler</span>
+          </a>
+          <a class="btn btn-ghost" href="#dossier">
+            <span data-i18n="hero.cta.secondary">Découvrir le dossier</span>
+          </a>
+        </div>
+        <p class="disclosure" data-i18n="hero.disclosure">Aperçu d'interface · scénario fictif</p>
+      </div>
+
+      <div class="hero-object" role="img" aria-label="Un dossier de projet ouvert avec des fiches Markdown, et les notes privées mises de côté">
+        <div class="folder-scene">
+          <div class="folder">
+            <div class="folder-tab">
+              <span class="tab-dot" aria-hidden="true"></span>
+              <span data-i18n="folder.project">Refonte du site</span>
+            </div>
+            <div class="folder-pocket">
+              <span class="pocket-label" data-i18n="folder.projectSub">Projet partagé</span>
+
+              <article class="fiche fiche-brief">
+                <div class="fiche-head">
+                  <span class="md-badge" aria-hidden="true">md</span>
+                  <b>brief.md</b>
+                  <span class="fiche-ver">v4</span>
+                </div>
+                <div class="fiche-render">
+                  <img class="fiche-thumb" src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="" loading="lazy"/>
+                  <div class="fiche-copy">
+                    <span class="md-h" data-i18n="folder.brief.title">Le site de demain</span>
+                    <span class="md-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+                  </div>
+                </div>
+                <div class="fiche-foot">
+                  <span class="md-src" aria-hidden="true">#</span>
+                  <span data-i18n="folder.brief.meta">Camille · v4 · 12:42</span>
+                </div>
+              </article>
+
+              <article class="fiche fiche-decision">
+                <div class="fiche-head">
+                  <span class="md-badge" aria-hidden="true">md</span>
+                  <b>decision.md</b>
+                </div>
+                <div class="decision-choice" aria-hidden="true">
+                  <span class="choice choice-a">A</span>
+                  <span class="choice choice-b">B<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4 4 10-10"/></svg></span>
+                </div>
+                <div class="fiche-foot">
+                  <span class="md-src" aria-hidden="true">##</span>
+                  <span data-i18n="folder.decision.title">Hébergeur B retenu</span>
+                </div>
+              </article>
+
+              <article class="fiche fiche-plan">
+                <div class="fiche-head">
+                  <span class="md-badge" aria-hidden="true">md</span>
+                  <b>plan-accueil.md</b>
+                </div>
+                <ol class="plan-list" aria-hidden="true">
+                  <li><i>01</i><span data-i18n="output.plan.1">Promesse</span></li>
+                  <li><i>02</i><span data-i18n="output.plan.2">Démonstration</span></li>
+                  <li><i>03</i><span data-i18n="output.plan.3">Dossier</span></li>
+                </ol>
+                <div class="fiche-foot">
+                  <span class="md-src" aria-hidden="true">→</span>
+                  <span data-i18n="folder.plan.meta">Sortie · à partir du brief</span>
+                </div>
+              </article>
+
+            </div>
+
+            <aside class="notes-privees" aria-label="Notes privées, non partagées">
+              <article class="fiche fiche-notes">
+                <div class="fiche-head">
+                  <span class="md-badge" aria-hidden="true">md</span>
+                  <b>notes-privees.md</b>
+                </div>
+                <div class="stamp" aria-hidden="true">
+                  <span data-i18n="folder.notes.stamp">Privé</span>
+                </div>
+                <div class="notes-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="fiche-foot"><span data-i18n="folder.notes.excluded">Non partagé</span></div>
+              </article>
+            </aside>
+          </div>
+        </div>
+
+        <!-- mobile swipe stack -->
+        <div class="fiche-stack" aria-label="Pile de fiches du dossier">
+          <div class="stack-track">
+            <article class="fiche fiche-brief">
+              <div class="fiche-head"><span class="md-badge">md</span><b>brief.md</b><span class="fiche-ver">v4</span></div>
+              <div class="fiche-render"><img class="fiche-thumb" src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="" loading="lazy"/><div class="fiche-copy"><span class="md-h" data-i18n="folder.brief.title">Le site de demain</span></div></div>
+              <div class="fiche-foot"><span data-i18n="folder.brief.meta">Camille · v4 · 12:42</span></div>
+            </article>
+            <article class="fiche fiche-decision">
+              <div class="fiche-head"><span class="md-badge">md</span><b>decision.md</b></div>
+              <div class="decision-choice" aria-hidden="true"><span class="choice choice-a">A</span><span class="choice choice-b">B<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 12 4 4 10-10"/></svg></span></div>
+              <div class="fiche-foot"><span data-i18n="folder.decision.title">Hébergeur B retenu</span></div>
+            </article>
+            <article class="fiche fiche-plan">
+              <div class="fiche-head"><span class="md-badge">md</span><b>plan-accueil.md</b></div>
+              <ol class="plan-list" aria-hidden="true"><li><i>01</i><span data-i18n="output.plan.1">Promesse</span></li><li><i>02</i><span data-i18n="output.plan.2">Démonstration</span></li><li><i>03</i><span data-i18n="output.plan.3">Dossier</span></li></ol>
+              <div class="fiche-foot"><span data-i18n="folder.plan.meta">Sortie · à partir du brief</span></div>
+            </article>
+            <article class="fiche fiche-notes fiche-notes-stack">
+              <div class="fiche-head"><span class="md-badge">md</span><b>notes-privees.md</b></div>
+              <div class="stamp" aria-hidden="true"><span data-i18n="folder.notes.stamp">Privé</span></div>
+              <div class="notes-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="fiche-foot"><span data-i18n="folder.notes.excluded">Non partagé</span></div>
+            </article>
+          </div>
+          <div class="stack-hint" aria-hidden="true"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DÉMO PRODUIT ============ -->
+    <section class="demo frame" id="demo" aria-labelledby="demo-title">
+      <div class="grid-overlay" aria-hidden="true"></div>
+
+      <div class="demo-head">
+        <div class="demo-title-block">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-i18n="demo.eyebrow">La démonstration</span></p>
+          <h2 id="demo-title" data-i18n="demo.label">De « partage » à « on avance ».</h2>
+        </div>
+        <span class="sim-badge" data-i18n="demo.sim">Simulation</span>
+      </div>
+
+      <div class="demo-controls">
+        <div class="steps" role="group" aria-label="Étapes de la démonstration">
+          <button type="button" data-scene="0" aria-pressed="true">
+            <span class="step-num">01</span><span data-i18n="demo.step1">Choisir</span>
+          </button>
+          <button type="button" data-scene="1" aria-pressed="false">
+            <span class="step-num">02</span><span data-i18n="demo.step2">Transmettre</span>
+          </button>
+          <button type="button" data-scene="2" aria-pressed="false">
+            <span class="step-num">03</span><span data-i18n="demo.step3">Reprendre</span>
+          </button>
+        </div>
+        <div class="play-controls">
+          <button type="button" class="btn-play" data-pause aria-pressed="false">
+            <svg class="ico-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            <svg class="ico-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 5.5v13l11-6.5z"/></svg>
+            <span data-pause-label>Pause</span>
+          </button>
+          <button type="button" data-replay>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4v6h6"/><path d="M5.5 15a8 8 0 1 0 1.3-7.2L4 10"/></svg>
+            <span data-i18n="demo.replay">Rejouer</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="demo-stage" data-step="0">
+        <!-- Camille -->
+        <article class="chat chat-a" aria-label="Conversation de Camille avec son assistant">
+          <header class="chat-head">
+            <span class="avatar avatar-ink">C</span>
+            <div class="chat-who">
+              <b>Camille</b>
+              <small data-i18n="chat.a.sub">Son assistant · A</small>
+            </div>
+            <span class="chat-status" aria-hidden="true"><i></i></span>
+          </header>
+          <div class="chat-body">
+            <p class="bubble bubble-user" data-i18n="chat.a.bubble1">Partage brief.md et decision.md avec Karim. Pas mes notes-privees.md.</p>
+            <p class="bubble bubble-assistant" data-i18n="chat.a.bubble2">Ces deux éléments, rien de plus.</p>
+
+            <div class="selection">
+              <div class="file-row selected">
+                <span class="file-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m5 12 4 4 10-10"/></svg></span>
+                <span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"/><path d="M13 3v5h5"/></svg></span>
+                <span class="file-meta">
+                  <b>brief.md</b>
+                  <small data-i18n="file.brief.meta">Markdown · v4 · Camille</small>
+                </span>
+              </div>
+              <div class="file-row selected">
+                <span class="file-check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m5 12 4 4 10-10"/></svg></span>
+                <span class="file-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3h8l4 4v14H6z"/><path d="M13 3v5h5"/></svg></span>
+                <span class="file-meta">
+                  <b>decision.md</b>
+                  <small data-i18n="file.decision.meta">Markdown · Camille</small>
+                </span>
+              </div>
+              <div class="file-row file-private">
+                <span class="file-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+                <span class="file-meta">
+                  <b>notes-privees.md</b>
+                  <small data-i18n="file.private.sub">Non partagé</small>
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Pont / objet -->
+        <div class="bridge" aria-hidden="false">
+          <span class="bridge-tag" data-i18n="bridge.tag">2 fichiers .md choisis</span>
+          <div class="bridge-track">
+            <span class="trace-seg seg-left" aria-hidden="true"></span>
+            <span class="trace-seg seg-right" aria-hidden="true"></span>
+            <span class="bridge-end bridge-from" data-i18n="bridge.from">Camille</span>
+            <span class="bridge-end bridge-to" data-i18n="bridge.to">Karim</span>
+            <div class="bridge-node">
+              <span class="node-folder" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l1.8 2h8.2A1.5 1.5 0 0 1 20 9.5v8A1.5 1.5 0 0 1 18.5 19h-14A1.5 1.5 0 0 1 3 17.5z"/><path d="M3 11h17"/></svg>
+              </span>
+              <span class="node-label">Coheld</span>
+              <span class="node-sub" data-i18n="bridge.node.sub">Le contexte partagé</span>
+            </div>
+            <div class="packet" data-packet aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 3h8l4 4v14H6z"/><path d="M13 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+              <span><b data-i18n="bridge.packet.b">2 .md</b><small data-i18n="bridge.packet.s">source : Camille</small></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Karim -->
+        <article class="chat chat-b" aria-label="Conversation de Karim avec son assistant">
+          <header class="chat-head">
+            <span class="avatar avatar-light">K</span>
+            <div class="chat-who">
+              <b>Karim</b>
+              <small data-i18n="chat.b.sub">Son assistant · B</small>
+            </div>
+            <span class="chat-status" aria-hidden="true"><i></i></span>
+          </header>
+          <div class="chat-body">
+            <div class="waiting">
+              <p class="bubble bubble-user" data-i18n="chat.b.waiting.msg1">Tu as les retours de Louis sur l'accueil ?</p>
+              <p class="bubble bubble-assistant" data-i18n="chat.b.waiting.msg2">Pas encore. Camille prépare quelque chose, je te tiens au courant.</p>
+              <div class="arrival-hint" role="status">
+                <span class="arrival-dot" aria-hidden="true"></span>
+                <span data-i18n="chat.b.arrival">Contexte de Camille en approche…</span>
+              </div>
+            </div>
+
+            <div class="announce">
+              <span class="speaker" data-i18n="chat.b.announce.speaker">Assistant de Karim</span>
+              <p class="announce-text"><b data-i18n="chat.b.announce.text">Camille m'a partagé des documents.</b></p>
+              <span class="announce-meta" data-i18n="chat.b.announce.meta">brief.md et decision.md · source : Camille</span>
+            </div>
+
+            <p class="bubble bubble-assistant question" data-i18n="chat.b.question">Veux-tu que je les ajoute au contexte de ce projet ?</p>
+            <p class="bubble bubble-user accept" data-i18n="chat.b.accept">Oui. Crée plan-accueil.md à partir de ces fichiers.</p>
+
+            <div class="output">
+              <span class="output-label" data-i18n="chat.b.output.label">À partir du brief de Camille</span>
+              <b class="output-title">plan-accueil.md</b>
+              <ol class="output-plan" aria-hidden="true">
+                <li><i>01</i><span data-i18n="output.plan.1">Promesse</span></li>
+                <li><i>02</i><span data-i18n="output.plan.2">Démonstration</span></li>
+                <li><i>03</i><span data-i18n="output.plan.3">Dossier</span></li>
+                <li><i>04</i><span data-i18n="output.plan.4">Assistants</span></li>
+              </ol>
+              <span class="output-meta" data-i18n="chat.b.output.meta">Sources : brief.md + decision.md · Camille. Notes privées exclues.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="demo-foot">
+        <p class="caption" aria-live="polite" data-i18n="demo.caption.0">Camille choisit deux éléments. Ses notes personnelles restent privées.</p>
+        <p class="limit" data-i18n="demo.limit">Scénario fictif · connexions aux assistants non validées.</p>
+      </div>
+    </section>
+
+    <!-- ============ SCÈNE 1 : LE DOSSIER / REGISTRE ============ -->
+    <section class="scene scene-ledger frame" id="dossier" aria-labelledby="ledger-title">
+      <div class="scene-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-i18n="ledger.label">Le dossier</span></p>
+        <h2 id="ledger-title" data-i18n="ledger.h2">Ce qui circule reste consultable.</h2>
+        <p class="scene-lead" data-i18n="ledger.lead">Les documents restent des fichiers Markdown, avec leur auteur, leur date et leur source. Les notes privées ne quittent pas leur place.</p>
+      </div>
+
+      <div class="ledger-wrap">
+        <div class="ledger" role="table" aria-label="Fichiers Markdown du projet">
+          <div class="ledger-head" role="row">
+            <span role="columnheader" data-i18n="ledger.col.file">Fichier</span>
+            <span role="columnheader" data-i18n="ledger.col.source">Source</span>
+            <span role="columnheader" data-i18n="ledger.col.date">Date</span>
+            <span role="columnheader" data-i18n="ledger.col.state">État</span>
+          </div>
+          <div class="ledger-row" role="row">
+            <span class="cell-file"><span class="md-badge" aria-hidden="true">md</span><span><b>brief.md</b><small data-i18n="ledger.brief.desc">Brief de la refonte</small></span></span>
+            <span class="cell-source">Camille</span>
+            <span class="cell-date">12:42</span>
+            <span class="cell-state state-shared" data-i18n="ledger.state.shared">Partagé</span>
+          </div>
+          <div class="ledger-row" role="row">
+            <span class="cell-file"><span class="md-badge" aria-hidden="true">md</span><span><b>decision.md</b><small data-i18n="ledger.decision.desc">Choix d'hébergement</small></span></span>
+            <span class="cell-source">Camille</span>
+            <span class="cell-date">12:44</span>
+            <span class="cell-state state-shared" data-i18n="ledger.state.shared">Partagé</span>
+          </div>
+          <div class="ledger-row" role="row">
+            <span class="cell-file"><span class="md-badge" aria-hidden="true">md</span><span><b>plan-accueil.md</b><small data-i18n="ledger.plan.desc">Structure de l'accueil</small></span></span>
+            <span class="cell-source">Karim</span>
+            <span class="cell-date">12:48</span>
+            <span class="cell-state state-output" data-i18n="ledger.state.output">En sortie</span>
+          </div>
+          <div class="ledger-row row-excluded" role="row">
+            <span class="cell-file"><span class="md-badge" aria-hidden="true">md</span><span><b>notes-privees.md</b><small data-i18n="ledger.notes.desc">Notes personnelles</small></span></span>
+            <span class="cell-source">Camille</span>
+            <span class="cell-date">—</span>
+            <span class="cell-state state-private" data-i18n="ledger.state.private">Privé · exclu</span>
+          </div>
+        </div>
+
+        <div class="md-preview" aria-label="Aperçu rendu du fichier brief.md">
+          <div class="md-preview-head">
+            <span class="md-preview-tabs" role="tablist" aria-label="Affichage du fichier">
+              <button type="button" role="tab" aria-selected="true" data-i18n="ledger.preview.tab">Aperçu rendu</button>
+              <button type="button" role="tab" aria-selected="false" data-i18n="ledger.preview.raw">Source .md</button>
+            </span>
+            <span class="md-file-name">brief.md</span>
+          </div>
+          <div class="md-preview-body">
+            <pre class="md-raw" data-i18n="md.brief.raw"># Refonte du site
+
+## Objectif
+Présenter la promesse et le parcours.
+
+## Source
+Camille · version 4
+
+![Direction visuelle](../img/worktable.webp)</pre>
+            <div class="md-rendered">
+              <h3 data-i18n="md.brief.h">Refonte du site</h3>
+              <p class="md-sub" data-i18n="md.brief.sub">Objectif</p>
+              <p class="md-p" data-i18n="md.brief.p">Présenter la promesse et le parcours.</p>
+              <p class="md-sub" data-i18n="md.brief.sub2">Source</p>
+              <p class="md-p" data-i18n="md.brief.src">Camille · version 4</p>
+              <figure class="md-img">
+                <img src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="" loading="lazy"/>
+                <figcaption data-i18n="md.brief.img">Direction visuelle liée dans brief.md</figcaption>
+              </figure>
+            </div>
+          </div>
+          <a class="md-download" download="brief.md" href="../../coheld-reprise/sources-locales/coheld/examples/brief.md" data-i18n="ledger.preview.download">Télécharger brief.md</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCÈNE 2 : CHACUN SON ASSISTANT ============ -->
+    <section class="scene scene-editorial frame" id="assistants" aria-labelledby="editorial-title">
+      <div class="editorial-copy">
+        <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span><span data-i18n="editorial.label">Vos assistants</span></p>
+        <h2 id="editorial-title" data-i18n="editorial.h2">Chacun garde son assistant.</h2>
+        <p class="scene-lead" data-i18n="editorial.lead">Camille et Karim ne changent pas d'outil. Le contexte voyage avec sa source, chacun garde sa copie et peut l'exporter.</p>
+        <ul class="editorial-points">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="editorial.point1">La source reste liée au contexte</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="editorial.point2">Chacun garde sa copie</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m5 12 4 4 10-10"/></svg><span data-i18n="editorial.point3">Export Markdown à tout moment</span></li>
+        </ul>
+      </div>
+
+      <figure class="editorial-media">
+        <div class="media-frame">
+          <img src="../../coheld-reprise/sources-locales/coheld/img/collaboration.webp" alt="" loading="lazy"/>
+          <span class="media-caption" data-i18n="editorial.caption">Le contexte circule. Pas vos notes privées.</span>
+        </div>
+        <div class="output-chip">
+          <span class="md-badge" aria-hidden="true">md</span>
+          <span><b>plan-accueil.md</b><small data-i18n="editorial.chip">Transmis avec sa source</small></span>
+        </div>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer class="footer frame">
+    <div class="footer-brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l1.8 2h8.2A1.5 1.5 0 0 1 20 9.5v8A1.5 1.5 0 0 1 18.5 19h-14A1.5 1.5 0 0 1 3 17.5z"/><path d="M3 11h17"/></svg>
+      </span>
+      <span class="brand-name">Coheld</span>
+    </div>
+    <div class="footer-notes">
+      <span data-i18n="footer.disclaimer">Maquette · exemples fictifs</span>
+      <span data-i18n="footer.images">Images illustratives générées</span>
+      <a href="../../coheld-reprise/sources-locales/coheld/examples/brief.md" data-i18n="footer.explore">Sources .md</a>
+    </div>
+  </footer>
+
+</div>
+
+<script src="../../coheld-reprise/sources-locales/coheld/vendor/motion.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
