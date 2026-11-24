@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#F6F5F1" />
+<title>Coheld — Éditorial</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="grid-lines" aria-hidden="true"><div class="grid-lines-inner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+
+<div class="page">
+
+  <!-- ══════════ MASTHEAD ══════════ -->
+  <header class="masthead">
+    <a class="wordmark" href="#top" aria-label="Coheld — retour en haut">
+      <span class="wordmark-mark" aria-hidden="true"><i></i></span>
+      <span class="wordmark-name">Coheld</span>
+    </a>
+    <nav class="masthead-nav" aria-label="Navigation principale">
+      <a href="#demo" data-i18n="nav_demo">La démonstration</a>
+      <a href="#markdown" data-i18n="nav_md">Le fichier .md</a>
+      <a href="#prive" data-i18n="nav_private">Le privé</a>
+    </nav>
+    <div class="masthead-side">
+      <div class="lang" role="group" aria-label="Langue">
+        <a href="?lang=fr" hreflang="fr" lang="fr" data-lang="fr" aria-label="Français">FR</a>
+        <a href="?lang=en" hreflang="en" lang="en" data-lang="en" aria-label="English">EN</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════ HERO ══════════ -->
+  <section class="hero" id="top">
+    <div class="hero-folio" aria-hidden="true">
+      <span class="hero-folio-item hero-folio-brand">Coheld</span>
+      <span class="hero-folio-item" data-i18n="meta_line">Mémoire de travail partagée</span>
+      <span class="hero-folio-rule"></span>
+      <span class="hero-folio-item" data-i18n="meta_date">Novembre 2026</span>
+    </div>
+
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p class="kicker" data-i18n="hero_kicker">Une mémoire de travail. Pour toute l’équipe.</p>
+        <h1 class="display">
+          <span class="display-l1" data-i18n="hero_l1">Partagez le contexte.</span>
+          <span class="display-l2" data-i18n="hero_l2">Gardez vos assistants.</span>
+        </h1>
+        <p class="hero-sub" data-i18n="hero_sub">Le contexte circule entre vos assistants. Chacun garde le sien.</p>
+        <div class="hero-actions">
+          <a class="btn btn-solid" href="#demo">
+            <span data-i18n="hero_cta1">Voir la démonstration</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#markdown">
+            <span data-i18n="hero_cta2">Découvrir un fichier .md</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <p class="hero-note" data-i18n="hero_note">Maquette illustrative · scénario fictif, exemples fictifs</p>
+      </div>
+
+      <div class="hero-preview" aria-hidden="true">
+        <div class="preview-window">
+          <div class="window-bar">
+            <span class="window-dots"><i></i><i></i><i></i></span>
+            <span class="window-title">Coheld — <span data-i18n="win_project">Refonte du site</span></span>
+            <span class="window-badges"><span class="badge badge-ghost" data-i18n="win_shared">Projet partagé</span></span>
+          </div>
+          <div class="preview-tabs">
+            <span class="preview-tab is-active"><span class="tab-num">01</span><span data-i18n="tab_choose">Choisir</span></span>
+            <span class="preview-tab"><span class="tab-num">02</span><span data-i18n="tab_share">Transmettre</span></span>
+            <span class="preview-tab"><span class="tab-num">03</span><span data-i18n="tab_resume">Reprendre</span></span>
+          </div>
+          <div class="preview-body">
+            <div class="preview-chat">
+              <div class="msg msg-user"><p data-i18n="msg_choose_user">Partage brief.md et decision.md avec Karim. Pas mes notes-privees.md.</p></div>
+              <div class="msg msg-assistant"><p data-i18n="msg_choose_asst">Deux éléments, rien de plus.</p></div>
+            </div>
+            <div class="picker preview-picker">
+              <div class="picker-head">
+                <span data-i18n="picker_title">Éléments choisis</span>
+                <span class="picker-count">2 .md</span>
+              </div>
+              <div class="picker-row">
+                <span class="picker-check"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                <span class="picker-thumb"><img src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="" /></span>
+                <span class="picker-filetype md">MD</span>
+                <span class="picker-name"><b>brief.md</b><small>Markdown · v4 · Camille</small></span>
+              </div>
+              <div class="picker-row">
+                <span class="picker-check"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                <span class="picker-thumb picker-thumb-doc"><svg viewBox="0 0 16 16"><path d="M4 2h6l3 3v9H4z"/></svg></span>
+                <span class="picker-filetype md">MD</span>
+                <span class="picker-name"><b>decision.md</b><small>Markdown · Camille</small></span>
+              </div>
+              <div class="picker-row is-excluded">
+                <span class="picker-lock"><svg viewBox="0 0 16 16"><rect x="4" y="7" width="8" height="6" rx="1.5"/><path d="M6 7V5a2 2 0 0 1 4 0v2"/></svg></span>
+                <span class="picker-thumb picker-thumb-doc"><svg viewBox="0 0 16 16"><path d="M4 2h6l3 3v9H4z"/></svg></span>
+                <span class="picker-filetype md">MD</span>
+                <span class="picker-name"><b>notes-privees.md</b><small data-i18n="picker_excluded">Privé · non partagé</small></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SCÈNE PRODUIT ══════════ -->
+  <section class="product" id="demo">
+    <div class="section-rule"><span class="rule-index">01</span></div>
+    <div class="product-head">
+      <div class="product-head-copy">
+        <p class="kicker" data-i18n="demo_kicker">La démonstration</p>
+        <h2 class="section-title" data-i18n="demo_title">Une mémoire.<br>Trois gestes.</h2>
+        <p class="section-sub" data-i18n="demo_sub">Choisir, transmettre, reprendre — sans quitter son assistant.</p>
+      </div>
+      <div class="player-controls" role="group" data-i18n-aria="demo_controls">
+        <button class="icon-btn" type="button" data-pause aria-pressed="false" aria-label="Pause">
+          <svg class="ic-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3v10M11 3v10"/></svg>
+          <svg class="ic-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 3l8 5-8 5z"/></svg>
+        </button>
+        <button class="icon-btn" type="button" data-replay aria-label="Rejouer">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8a5 5 0 1 1-1.5-3.5M13 3v2.5h-2.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="scene" data-step="0">
+      <div class="scene-window">
+        <div class="window-bar">
+          <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="window-title">Coheld — <span data-i18n="win_project">Refonte du site</span></span>
+          <span class="window-badges">
+            <span class="badge badge-ghost" data-i18n="win_shared">Projet partagé</span>
+          </span>
+        </div>
+
+        <div class="scene-tabs" role="tablist" aria-label="Étapes de la démonstration" data-i18n-aria="demo_steps">
+          <button class="tab" role="tab" type="button" data-step="0" aria-selected="true" aria-controls="panel-choose">
+            <span class="tab-num">01</span><span data-i18n="tab_choose">Choisir</span>
+          </button>
+          <button class="tab" role="tab" type="button" data-step="1" aria-selected="false" aria-controls="panel-transmit">
+            <span class="tab-num">02</span><span data-i18n="tab_share">Transmettre</span>
+          </button>
+          <button class="tab" role="tab" type="button" data-step="2" aria-selected="false" aria-controls="panel-resume">
+            <span class="tab-num">03</span><span data-i18n="tab_resume">Reprendre</span>
+          </button>
+          <span class="tab-pill" aria-hidden="true"></span>
+          <span class="tab-progress" aria-hidden="true"></span>
+        </div>
+
+        <div class="scene-body">
+          <aside class="scene-rail">
+            <div class="rail-project">
+              <span class="rail-folder" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>
+              <span class="rail-project-name">
+                <b data-i18n="win_project">Refonte du site</b>
+                <small data-i18n="rail_shared">Projet partagé</small>
+              </span>
+            </div>
+            <div class="rail-people" aria-hidden="true">
+              <span class="rail-person p-c">C</span>
+              <span class="rail-person p-k">K</span>
+              <span class="rail-person p-more">+1</span>
+            </div>
+            <div class="rail-docs">
+              <div class="rail-docs-head">
+                <span data-i18n="rail_docs">Documents</span>
+                <span class="rail-count">4</span>
+              </div>
+              <ul class="rail-list">
+                <li class="rail-item is-selected">
+                  <span class="rail-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                  <span class="rail-filetype md">MD</span>
+                  <span class="rail-item-name"><b>brief.md</b><small>Markdown · v4</small></span>
+                </li>
+                <li class="rail-item is-selected">
+                  <span class="rail-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                  <span class="rail-filetype md">MD</span>
+                  <span class="rail-item-name"><b>decision.md</b><small>Markdown</small></span>
+                </li>
+                <li class="rail-item is-private">
+                  <span class="rail-lock" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="4" y="7" width="8" height="6" rx="1.5"/><path d="M6 7V5a2 2 0 0 1 4 0v2"/></svg></span>
+                  <span class="rail-filetype md">MD</span>
+                  <span class="rail-item-name"><b>notes-privees.md</b><small data-i18n="rail_private_tag">Privé · non partagé</small></span>
+                </li>
+                <li class="rail-item is-output">
+                  <span class="rail-out" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M8 10V3M5 6l3-3 3 3M4 13h8"/></svg></span>
+                  <span class="rail-filetype md">MD</span>
+                  <span class="rail-item-name"><b>plan-accueil.md</b><small data-i18n="rail_output_tag">Sortie</small></span>
+                </li>
+              </ul>
+            </div>
+            <div class="rail-foot" data-i18n="rail_foot">2 fichiers .md partagés · source conservée</div>
+          </aside>
+
+          <div class="scene-main">
+            <!-- PANEL 01 · CHOISIR -->
+            <div class="scene-panel" id="panel-choose" role="tabpanel" data-panel="0">
+              <div class="panel-chat">
+                <header class="chat-head">
+                  <span class="avatar av-c">C</span>
+                  <span class="chat-who"><b>Camille</b><small data-i18n="her_assistant">Son assistant</small></span>
+                  <span class="chat-more" aria-hidden="true">···</span>
+                </header>
+                <div class="chat-thread">
+                  <div class="msg msg-user"><p data-i18n="msg_choose_user">Partage brief.md et decision.md avec Karim. Pas mes notes-privees.md.</p></div>
+                  <div class="msg msg-assistant"><p data-i18n="msg_choose_asst">Deux éléments, rien de plus.</p></div>
+                </div>
+                <div class="picker">
+                  <div class="picker-head">
+                    <span data-i18n="picker_title">Éléments choisis</span>
+                    <span class="picker-count">2 .md</span>
+                  </div>
+                  <div class="picker-row">
+                    <span class="picker-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                    <span class="picker-thumb"><img src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="" /></span>
+                    <span class="picker-filetype md">MD</span>
+                    <span class="picker-name"><b>brief.md</b><small>Markdown · v4 · Camille</small></span>
+                  </div>
+                  <div class="picker-row">
+                    <span class="picker-check" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m3.5 8.5 3 3 6-7"/></svg></span>
+                    <span class="picker-thumb picker-thumb-doc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4z"/></svg></span>
+                    <span class="picker-filetype md">MD</span>
+                    <span class="picker-name"><b>decision.md</b><small>Markdown · Camille</small></span>
+                  </div>
+                  <div class="picker-row is-excluded">
+                    <span class="picker-lock" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="4" y="7" width="8" height="6" rx="1.5"/><path d="M6 7V5a2 2 0 0 1 4 0v2"/></svg></span>
+                    <span class="picker-thumb picker-thumb-doc"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h6l3 3v9H4z"/></svg></span>
+                    <span class="picker-filetype md">MD</span>
+                    <span class="picker-name"><b>notes-privees.md</b><small data-i18n="picker_excluded">Privé · non partagé</small></span>
+                  </div>
+                  <div class="picker-note" data-i18n="picker_note">La source reste visible.</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 02 · TRANSMETTRE -->
+            <div class="scene-panel" id="panel-transmit" role="tabpanel" data-panel="1" hidden>
+              <div class="panel-transmit">
+                <div class="transmit-flow" aria-hidden="true">
+                  <div class="flow-node"><span class="flow-avatar">C</span><span data-i18n="flow_camille">Camille</span></div>
+                  <div class="flow-connector"><span class="flow-packet"><svg viewBox="0 0 16 16"><path d="M4 2h6l3 3v9H4z"/></svg><span><b>2 .md</b><small>brief.md · decision.md</small></span></span></div>
+                  <div class="flow-node flow-node-brand"><span class="flow-brand-mark"><i></i></span><span>Coheld</span></div>
+                  <div class="flow-connector"></div>
+                  <div class="flow-node"><span class="flow-avatar">K</span><span data-i18n="flow_karim">Karim</span></div>
+                </div>
+                <div class="panel-chat">
+                  <header class="chat-head">
+                    <span class="avatar av-k">K</span>
+                    <span class="chat-who"><b>Karim</b><small data-i18n="his_assistant">Son assistant</small></span>
+                    <span class="chat-more" aria-hidden="true">···</span>
+                  </header>
+                  <div class="chat-thread">
+                    <div class="msg msg-announce">
+                      <span class="announce-bell" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 13h8l-1.5-2.5V8a3 3 0 0 0-5 0v2.5zM6.5 15h3"/></svg></span>
+                      <span class="announce-body">
+                        <small data-i18n="announce_speaker">Assistant de Karim</small>
+                        <b data-i18n="announce_text">Camille m’a partagé des documents.</b>
+                        <small data-i18n="announce_files">brief.md et decision.md · source : Camille</small>
+                      </span>
+                    </div>
+                    <div class="msg msg-assistant"><p data-i18n="msg_transmit_q">Veux-tu que je les ajoute au contexte de ce projet ?</p></div>
+                  </div>
+                  <div class="receive">
+                    <div class="receive-head"><span data-i18n="receive_title">Documents reçus</span><span class="receive-count">2</span></div>
+                    <div class="receive-row">
+                      <span class="picker-filetype md">MD</span>
+                      <span class="picker-name"><b>brief.md</b><small data-i18n="source_from">source : Camille</small></span>
+                      <span class="receive-tag" data-i18n="tag_md">Markdown</span>
+                    </div>
+                    <div class="receive-row">
+                      <span class="picker-filetype md">MD</span>
+                      <span class="picker-name"><b>decision.md</b><small data-i18n="source_from">source : Camille</small></span>
+                      <span class="receive-tag" data-i18n="tag_md">Markdown</span>
+                    </div>
+                    <div class="receive-actions">
+                      <button class="btn btn-solid btn-sm" type="button" data-i18n="add_ctx">Ajouter au contexte</button>
+                      <button class="btn btn-ghost btn-sm" type="button" data-i18n="not_now">Pas maintenant</button>
+                    </div>
+                    <div class="receive-note" data-i18n="receive_note">Rien n’est ajouté sans ton accord.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 03 · REPRENDRE -->
+            <div class="scene-panel" id="panel-resume" role="tabpanel" data-panel="2" hidden>
+              <div class="panel-resume">
+                <header class="resume-head">
+                  <span class="resume-title"><b data-i18n="win_project">Refonte du site</b><small data-i18n="resume_docs">3 documents · contexte partagé</small></span>
+                  <span class="badge badge-ghost" data-i18n="resume_out_badge">plan-accueil.md · en sortie</span>
+                </header>
+                <div class="resume-md">
+                  <div class="resume-md-head">
+                    <span class="picker-filetype md">MD</span>
+                    <b>plan-accueil.md</b>
+                    <span class="resume-gen" data-i18n="resume_gen">généré à partir du contexte partagé</span>
+                  </div>
+                  <div class="resume-md-body">
+                    <h3 data-i18n="plan_h1">Plan de la page d’accueil</h3>
+                    <blockquote data-i18n="plan_q">Structure illustrative proposée à partir du contexte partagé.</blockquote>
+                    <h4><span class="md-hash">##</span> <span data-i18n="plan_a_title">La promesse</span></h4>
+                    <p data-i18n="plan_a_body">Dire ce que le produit change pour l’équipe.</p>
+                    <h4><span class="md-hash">##</span> <span data-i18n="plan_b_title">Le fonctionnement</span></h4>
+                    <p data-i18n="plan_b_body">Choisir, transmettre, reprendre.</p>
+                    <h4><span class="md-hash">##</span> <span data-i18n="plan_c_title">La confiance</span></h4>
+                    <p data-i18n="plan_c_body">Ce qui est partagé, ce qui reste privé.</p>
+                    <h4><span class="md-hash">##</span> <span data-i18n="plan_sources">Sources</span></h4>
+                    <ul class="resume-sources">
+                      <li><a href="../../coheld-reprise/sources-locales/coheld/examples/brief.md">brief.md</a><span> · Camille v4</span></li>
+                      <li><a href="../../coheld-reprise/sources-locales/coheld/examples/decision.md">decision.md</a><span> · Camille</span></li>
+                    </ul>
+                    <p class="resume-md-note" data-i18n="plan_note">Les notes personnelles sont exclues.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="scene-caption-row">
+        <p class="scene-caption" aria-live="polite" data-i18n="caption_0">Camille choisit deux fichiers. Ses notes personnelles restent privées.</p>
+        <p class="scene-limit" data-i18n="scene_limit">Scénario fictif · connexions aux assistants non validées.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ LE FICHIER .MD RENDU ET SOURCE ══════════ -->
+  <section class="markdown-section" id="markdown">
+    <div class="section-rule"><span class="rule-index">02</span></div>
+    <div class="md-head">
+      <div class="md-head-copy">
+        <p class="kicker" data-i18n="md_kicker">Le fichier .md</p>
+        <h2 class="section-title" data-i18n="md_title">Rendu,<br>et source.</h2>
+        <p class="section-sub" data-i18n="md_sub">Le même document, lu comme une page, gardé comme un fichier Markdown.</p>
+      </div>
+      <a class="btn btn-ghost" href="../../coheld-reprise/sources-locales/coheld/examples/brief.md" download>
+        <span data-i18n="md_download">Télécharger brief.md</span>
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg>
+      </a>
+    </div>
+
+    <div class="md-layout">
+      <figure class="md-card md-rendered">
+        <figcaption class="md-tab"><span class="picker-filetype md">MD</span><b>brief.md</b><span class="md-tab-label" data-i18n="md_rendered_label">rendu</span></figcaption>
+        <div class="md-rendered-body">
+          <h3 data-i18n="brief_h1">Refonte du site</h3>
+          <blockquote data-i18n="brief_q">Exemple fictif de la maquette Coheld.</blockquote>
+          <h4><span class="md-hash">##</span> <span data-i18n="brief_obj_title">Objectif</span></h4>
+          <p data-i18n="brief_obj_body">Présenter la promesse et le parcours.</p>
+          <h4><span class="md-hash">##</span> <span data-i18n="brief_src_title">Source</span></h4>
+          <ul class="md-plain-list">
+            <li><span data-i18n="brief_src_1">Camille · version 4</span></li>
+            <li><span data-i18n="brief_src_2">Partage choisi dans le scénario de démonstration</span></li>
+          </ul>
+          <h4><span class="md-hash">##</span> <span data-i18n="brief_img_title">Direction visuelle</span></h4>
+          <figure class="md-image">
+            <img src="../../coheld-reprise/sources-locales/coheld/img/worktable.webp" alt="Image illustrative générée pour la maquette" />
+            <figcaption data-i18n="brief_img_cap">Image illustrative générée pour la maquette</figcaption>
+          </figure>
+          <h4><span class="md-hash">##</span> <span data-i18n="brief_links_title">Fichiers liés</span></h4>
+          <ul class="md-plain-list md-links">
+            <li><a href="../../coheld-reprise/sources-locales/coheld/examples/decision.md">decision.md</a></li>
+            <li><a href="../../coheld-reprise/sources-locales/coheld/examples/plan-accueil.md">plan-accueil.md</a></li>
+          </ul>
+          <p class="md-foot" data-i18n="brief_foot">Les notes privées ne font pas partie du partage.</p>
+        </div>
+      </figure>
+
+      <div class="md-annotation" aria-hidden="true">
+        <span class="md-annotation-word" data-i18n="md_rendered_word">rendu</span>
+        <svg viewBox="0 0 24 24"><path d="M4 12h12M12 8l4 4-4 4"/></svg>
+        <span class="md-annotation-word" data-i18n="md_source_word">source</span>
+      </div>
+
+      <figure class="md-card md-source">
+        <figcaption class="md-tab"><span class="md-tab-dot" aria-hidden="true"></span><b>brief.md</b><span class="md-tab-label" data-i18n="md_source_label">source</span></figcaption>
+        <pre class="md-source-pre"><code id="md-source"></code></pre>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ══════════ CE QUI CIRCULE / CE QUI RESTE ══════════ -->
+  <section class="privacy" id="prive">
+    <div class="section-rule"><span class="rule-index">03</span></div>
+    <div class="privacy-head">
+      <p class="kicker" data-i18n="privacy_kicker">Le partage choisi</p>
+      <h2 class="section-title" data-i18n="privacy_title">Ce qui circule.<br>Ce qui reste.</h2>
+      <p class="section-sub" data-i18n="privacy_sub">Le choix se fait dans le chat. Rien n’est transmis automatiquement.</p>
+    </div>
+    <div class="privacy-cols">
+      <div class="privacy-col col-shared">
+        <div class="privacy-col-head"><span data-i18n="privacy_shared">Ce qui circule</span></div>
+        <ul class="privacy-list">
+          <li>
+            <span class="picker-filetype md">MD</span>
+            <span class="privacy-name"><b>brief.md</b><small>Markdown · v4 · source Camille</small></span>
+            <span class="privacy-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M9 5l3 3-3 3"/></svg></span>
+          </li>
+          <li>
+            <span class="picker-filetype md">MD</span>
+            <span class="privacy-name"><b>decision.md</b><small>Markdown · source Camille</small></span>
+            <span class="privacy-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M3 8h9M9 5l3 3-3 3"/></svg></span>
+          </li>
+        </ul>
+      </div>
+      <div class="privacy-col col-private">
+        <div class="privacy-col-head"><span data-i18n="privacy_private">Ce qui reste</span></div>
+        <ul class="privacy-list">
+          <li class="is-excluded">
+            <span class="privacy-lock" aria-hidden="true"><svg viewBox="0 0 16 16"><rect x="4" y="7" width="8" height="6" rx="1.5"/><path d="M6 7V5a2 2 0 0 1 4 0v2"/></svg></span>
+            <span class="privacy-name"><b>notes-privees.md</b><small data-i18n="privacy_private_meta">Markdown · privé · reste chez Camille</small></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="privacy-foot" data-i18n="privacy_foot">La source suit le document. Les notes personnelles restent exclues.</p>
+  </section>
+
+  <!-- ══════════ COLOPHON ══════════ -->
+  <footer class="colophon">
+    <div class="colophon-inner">
+      <span class="colophon-brand">Coheld</span>
+      <span class="colophon-note" data-i18n="colophon_note">Maquette illustrative · exemples fictifs · images générées</span>
+      <span class="colophon-folio" data-i18n="colophon_folio">N° 01 · Novembre 2026</span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
