@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#FCFCFB" />
+<meta name="color-scheme" content="light" />
+<title>Coheld — Propositions d’accueil</title>
+<style>
+  /* ============ Polices locales (Geist) ============ */
+  @font-face {
+    font-family: "Geist";
+    src: url("../coheld-reprise/sources-locales/fonts/geist-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist";
+    src: url("../coheld-reprise/sources-locales/fonts/geist-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist";
+    src: url("../coheld-reprise/sources-locales/fonts/geist-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist";
+    src: url("../coheld-reprise/sources-locales/fonts/geist-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root {
+    --paper: #FCFCFB;
+    --surface: #F5F5F3;
+    --ink: #141414;
+    --ink-2: #3B3B39;
+    --muted: #6E6E6B;
+    --hairline: #E4E4E0;
+    --hairline-strong: #C9C9C3;
+    --sans: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  /* ============ Header ============ */
+  .topbar {
+    border-bottom: 1px solid var(--hairline);
+    background: var(--paper);
+  }
+  .topbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    height: 68px;
+  }
+  .wordmark { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+  .wm-mark { width: 22px; height: 22px; color: var(--ink); }
+  .wm-name { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
+  .topbar-links { display: flex; align-items: center; gap: 18px; }
+  .link-current {
+    font-size: 14px;
+    color: var(--ink-2);
+    text-decoration: none;
+    border-bottom: 1px solid var(--hairline-strong);
+    padding-bottom: 2px;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+  .link-current:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ============ Intro ============ */
+  .intro { padding: clamp(48px, 8vh, 88px) 0 clamp(40px, 6vh, 64px); border-bottom: 1px solid var(--hairline); }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 22px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--ink); }
+  .intro h1 {
+    margin: 0;
+    font-size: clamp(36px, 5.4vw, 68px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+  .intro .lede {
+    margin: 24px 0 0;
+    max-width: 62ch;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-2);
+  }
+  .intro .scope {
+    margin: 18px 0 0;
+    font-size: 13.5px;
+    color: var(--muted);
+  }
+
+  /* ============ Cartes de direction ============ */
+  .dirs { padding: 8px 0 clamp(56px, 8vh, 96px); }
+  .dir {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: clamp(28px, 4vw, 56px);
+    align-items: start;
+    padding: clamp(40px, 6vh, 64px) 0;
+  }
+  .dir + .dir { border-top: 1px solid var(--hairline); }
+
+  .dir-head { min-width: 0; }
+  .dir-num {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .dir h2 {
+    margin: 0 0 12px;
+    font-size: clamp(30px, 3.4vw, 44px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+  .dir .concept {
+    margin: 0 0 14px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 40ch;
+  }
+  .dir .accent {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+  }
+  .swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--hairline-strong);
+    flex: none;
+  }
+  .swatch--none { background: var(--ink); }
+
+  .dir-actions { margin-top: 22px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-solid { background: var(--ink); color: #fff; border: 1px solid var(--ink); padding: 12px 20px; font-size: 14px; }
+  .btn-solid:hover { background: #2a2a28; border-color: #2a2a28; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1px solid var(--hairline-strong); padding: 12px 18px; font-size: 13.5px; font-family: var(--mono); }
+  .btn-ghost:hover { border-color: var(--ink); }
+  .btn svg { width: 15px; height: 15px; }
+
+  /* Captures */
+  .dir-shots {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(150px, 22%, 240px);
+    gap: 16px;
+    align-items: start;
+    min-width: 0;
+  }
+  .shot { margin: 0; min-width: 0; }
+  .shot img {
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--hairline);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(20,20,20,0.04), 0 24px 60px -48px rgba(20,20,20,0.4);
+  }
+  .shot--mobile img { border-radius: 16px; }
+  .shot figcaption {
+    margin-top: 9px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+  }
+
+  /* ============ Footer ============ */
+  .footer { border-top: 1px solid var(--hairline); padding: 36px 0 48px; }
+  .footer-inner { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .footer-note { margin: 0; font-size: 13px; color: var(--muted); max-width: 60ch; }
+  .footer-link { font-size: 14px; color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--hairline-strong); }
+  .footer-link:hover { color: var(--ink); border-color: var(--ink); }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 900px) {
+    .dir { grid-template-columns: 1fr; gap: 24px; }
+    .dir-shots { grid-template-columns: minmax(0, 1fr) clamp(140px, 26%, 200px); }
+  }
+  @media (max-width: 560px) {
+    .wrap { padding-left: 20px; padding-right: 20px; }
+    .topbar-inner { height: 60px; }
+    .intro h1 { font-size: clamp(32px, 10vw, 44px); }
+    .dir-shots { grid-template-columns: 1fr; }
+    .shot--mobile { max-width: 220px; }
+    .shot--mobile img { width: 100%; }
+    .dir-actions { align-items: stretch; flex-direction: column; }
+    .dir-actions .btn { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="wordmark" href="#top" aria-label="Coheld — propositions d’accueil">
+      <svg class="wm-mark" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="6" cy="12" r="2.7" fill="currentColor"/>
+        <circle cx="18" cy="12" r="2.7" fill="currentColor"/>
+        <path d="M8.8 12h6.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="12" cy="12" r="1.3" fill="none" stroke="currentColor" stroke-width="1.2"/>
+      </svg>
+      <span class="wm-name">Coheld</span>
+    </a>
+    <div class="topbar-links">
+      <a class="link-current" href="../coheld/home.html">Version actuelle ↗</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="intro">
+    <div class="wrap">
+      <p class="eyebrow">Étude d’accueil · maquettes</p>
+      <h1>Trois propositions<br>pour l’accueil Coheld.</h1>
+      <p class="lede">Trois directions de design, au même niveau de soin, pour ouvrir Coheld différemment. Chacune couvre uniquement la page d’accueil et sa démonstration produit.</p>
+      <p class="scope">Maquettes illustratives · scénario fictif · noms fictifs · aucune connexion réelle aux assistants. Aucune direction n’est choisie : elles sont à valider par Louis.</p>
+    </div>
+  </section>
+
+  <section class="dirs" aria-label="Propositions d’accueil">
+    <div class="wrap">
+
+      <article class="dir">
+        <div class="dir-head">
+          <span class="dir-num">01 / 03</span>
+          <h2>Éditorial</h2>
+          <p class="concept">L’accueil comme un numéro de revue de design : grille éditoriale, typographie massive et scène produit pilotée par onglets.</p>
+          <p class="accent"><span class="swatch swatch--none" aria-hidden="true"></span>Accent : aucun — noir &amp; blanc strict (hérité)</p>
+          <div class="dir-actions">
+            <a class="btn btn-solid" href="direction-a-editorial/index.html">Ouvrir la proposition<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost" href="direction-a-editorial/index.html?lang=en" lang="en" hreflang="en">EN</a>
+          </div>
+        </div>
+        <div class="dir-shots">
+          <figure class="shot shot--desktop">
+            <img src="direction-a-editorial/captures/desktop-1440.png" alt="Capture bureau de la proposition Éditorial" loading="lazy" />
+            <figcaption>Bureau · 1440</figcaption>
+          </figure>
+          <figure class="shot shot--mobile">
+            <img src="direction-a-editorial/captures/mobile-390.png" alt="Capture mobile de la proposition Éditorial" loading="lazy" />
+            <figcaption>Mobile · 390</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="dir">
+        <div class="dir-head">
+          <span class="dir-num">02 / 03</span>
+          <h2>Dossier</h2>
+          <p class="concept">Le contexte Markdown comme un objet : un dossier de projet ouvert, des fiches .md lisibles, transmises de Camille à Karim.</p>
+          <p class="accent"><span class="swatch" style="background:#2340C8" aria-hidden="true"></span>Accent proposé : bille bleue #2340C8</p>
+          <div class="dir-actions">
+            <a class="btn btn-solid" href="direction-b-dossier/index.html">Ouvrir la proposition<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost" href="direction-b-dossier/index.html?lang=en" lang="en" hreflang="en">EN</a>
+          </div>
+        </div>
+        <div class="dir-shots">
+          <figure class="shot shot--desktop">
+            <img src="direction-b-dossier/captures/desktop-1440.png" alt="Capture bureau de la proposition Dossier" loading="lazy" />
+            <figcaption>Bureau · 1440</figcaption>
+          </figure>
+          <figure class="shot shot--mobile">
+            <img src="direction-b-dossier/captures/mobile-390.png" alt="Capture mobile de la proposition Dossier" loading="lazy" />
+            <figcaption>Mobile · 390</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="dir">
+        <div class="dir-head">
+          <span class="dir-num">03 / 03</span>
+          <h2>Conversation</h2>
+          <p class="concept">Deux assistants, une couche de contexte : les conversations restent privées, le contexte circule et devient une sortie .md.</p>
+          <p class="accent"><span class="swatch" style="background:#B98A2F" aria-hidden="true"></span>Accent proposé : or d’encre #B98A2F</p>
+          <div class="dir-actions">
+            <a class="btn btn-solid" href="direction-c-conversation/index.html">Ouvrir la proposition<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <a class="btn btn-ghost" href="direction-c-conversation/index.html?lang=en" lang="en" hreflang="en">EN</a>
+          </div>
+        </div>
+        <div class="dir-shots">
+          <figure class="shot shot--desktop">
+            <img src="direction-c-conversation/captures/desktop-1440.png" alt="Capture bureau de la proposition Conversation" loading="lazy" />
+            <figcaption>Bureau · 1440</figcaption>
+          </figure>
+          <figure class="shot shot--mobile">
+            <img src="direction-c-conversation/captures/mobile-390.png" alt="Capture mobile de la proposition Conversation" loading="lazy" />
+            <figcaption>Mobile · 390</figcaption>
+          </figure>
+        </div>
+      </article>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <p class="footer-note">Maquettes illustratives — aucune connexion réelle aux assistants, aucun stockage ni transfert opérationnel. Les propositions sont à valider par Louis ; aucune n’est choisie.</p>
+    <a class="footer-link" href="../coheld/home.html">Comparer avec la version actuelle ↗</a>
+  </div>
+</footer>
+
+</body>
+</html>
