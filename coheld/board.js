@@ -3,6 +3,7 @@
 (function(){
  const tabbar=document.getElementById('tabbar');if(!tabbar)return;
  const groups=[
+  ['Propositions',[['Accueil · « L’intersection »','accueil-intersection']]],
   ['Présentation',[["Page d'accueil",'home'],['Connexion','login'],['Direction artistique','marque']]],
   ["Application",[['Tableau de bord','dashboard'],['Mes projets (grille)','projects'],['Mes projets (liste)','projects-list'],['Mon équipe','team'],['Ma mémoire','memory'],['Mes connexions IA','connections'],['Boîte de réception','inbox'],['Partages et transferts','shares'],['Partagés avec moi','shares-with-me'],['Recherche globale','search'],['Exports et sauvegardes','exports'],['Paramètres','settings']]],
   ['Projet : Refonte du site',[["Vue d'ensemble",'project'],['Brief','project-brief'],['Décisions','project-decisions'],['Documents','project-docs'],['Un document','artifact']]],

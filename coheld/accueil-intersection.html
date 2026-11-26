@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Coheld · Accueil · proposition « L’intersection »</title>
+<style>
+/* Proposition de direction artistique « L’intersection » (maquette, 26/11/2026).
+   Idée : le logo de Coheld, deux carrés arrondis qui se chevauchent, devient tout le langage visuel.
+   Corail = l’un (Camille, son agent), bleu = l’autre (Karim, son agent), noir = ce qui est commun.
+   Mise en page éditoriale, alignée à gauche, asymétrique. Copywriting identique à l’accueil actuel. */
+@font-face { font-family: 'SG'; src: url(site-assets/assets/space-grotesk-latin-wght-normal-BhU9QXUp.woff2) format('woff2'); font-weight: 300 700; font-display: swap; }
+@font-face { font-family: 'IS'; src: url(site-assets/assets/instrument-sans-latin-400-normal-DRC__1Mx.woff2) format('woff2'); font-weight: 400; font-display: swap; }
+@font-face { font-family: 'IS'; src: url(site-assets/assets/instrument-sans-latin-500-normal-Dk9ku72i.woff2) format('woff2'); font-weight: 500; font-display: swap; }
+@font-face { font-family: 'IS'; src: url(site-assets/assets/instrument-sans-latin-600-normal-B7fBEWYG.woff2) format('woff2'); font-weight: 600; font-display: swap; }
+:root {
+  --ink: #111110; --ink-2: #3a3936; --muted: #6b6a65; --line: #e7e6e2; --soft: #f6f6f4; --paper: #ffffff;
+  --coral: #ff5c39; --coral-t: #ffe5dd; --coral-d: #c8381a;
+  --blue: #2f5bff; --blue-t: #e0e7ff; --blue-d: #1d3fd1;
+  --display: 'SG', 'Space Grotesk', system-ui, sans-serif; --body: 'IS', 'Instrument Sans', system-ui, sans-serif;
+  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --r: 22px; --wrap: 1240px;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--body); -webkit-font-smoothing: antialiased; }
+a { color: inherit; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 32px; }
+.mono { font-family: var(--mono); }
+.k { font: 500 12px/1 var(--mono); letter-spacing: .04em; text-transform: uppercase; color: var(--muted); display: inline-flex; align-items: center; gap: 10px; }
+.k::before { content: ''; width: 18px; height: 10px; background: linear-gradient(90deg, var(--coral) 0 40%, var(--ink) 40% 60%, var(--blue) 60%); border-radius: 3px; }
+
+/* ---------- navigation ---------- */
+.nav { border-bottom: 1px solid var(--line); background: rgba(255,255,255,.9); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 10; }
+.nav .wrap { display: flex; align-items: center; height: 64px; gap: 32px; }
+.brand { display: flex; align-items: center; gap: 10px; font: 600 19px/1 var(--display); letter-spacing: -.03em; text-decoration: none; }
+.nav-links { display: flex; gap: 26px; font-size: 14.5px; color: var(--ink-2); }
+.nav-links a { text-decoration: none; }
+.nav-links a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 6px; }
+.nav-end { margin-left: auto; display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.lang b { font-weight: 600; } .lang span { color: var(--muted); }
+.btn { display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 22px; border-radius: 12px; background: var(--ink); color: #fff; font: 600 15.5px/1 var(--body); text-decoration: none; border: 0; }
+.btn:hover { background: #2a2a28; }
+.btn.sm { height: 38px; padding: 0 16px; font-size: 14px; border-radius: 10px; }
+.btn.line { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--ink); }
+.link { font-weight: 600; text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 6px; }
+
+/* ---------- héros ---------- */
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; padding-top: 72px; padding-bottom: 88px; }
+.hero h1 { margin: 22px 0 26px; font: 600 clamp(44px, 6.2vw, 84px)/.98 var(--display); letter-spacing: -.045em; }
+.hero h1 .l2 { display: block; margin-top: 10px; }
+.mark { position: relative; white-space: nowrap; }
+.mark::after { content: ''; position: absolute; left: -.06em; right: -.06em; bottom: .04em; height: .32em; border-radius: 6px; z-index: -1; }
+.mark.c::after { background: var(--coral-t); } .mark.b::after { background: var(--blue-t); }
+.hero h1 .mark { isolation: isolate; }
+.lede { max-width: 540px; font-size: 19px; line-height: 1.55; color: var(--ink-2); margin: 0 0 32px; }
+.cta { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+.note { margin-top: 22px; font-size: 13.5px; color: var(--muted); }
+
+/* L’intersection : deux carrés arrondis, la lentille commune au milieu */
+.inter { position: relative; width: 100%; aspect-ratio: 460 / 440; }
+.inter svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.sq-label { position: absolute; display: flex; align-items: center; gap: 10px; font-size: 13px; line-height: 1.25; }
+.sq-label b { display: block; font: 600 14.5px/1.2 var(--display); letter-spacing: -.01em; }
+.sq-label img { width: 30px; height: 30px; padding: 6px; background: #fff; border-radius: 9px; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.sq-label.a { left: 5%; top: 14%; color: #5a1a0b; } .sq-label.b { right: 12%; bottom: 9%; color: #0f2382; flex-direction: row-reverse; text-align: right; }
+.lens-files { position: absolute; left: 31%; top: 37%; width: 32%; display: flex; flex-direction: column; gap: 8px; }
+.lens-files .chip { display: flex; justify-content: space-between; align-items: center; gap: 6px; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.1); box-shadow: inset 0 0 0 1px rgba(255,255,255,.16); color: #fff; font: 500 12.5px/1.2 var(--mono); }
+.lens-files .chip small { opacity: .6; }
+.lens-files .cap { margin-top: 4px; color: rgba(255,255,255,.66); font: 500 11px/1.3 var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+
+/* ---------- sections ---------- */
+section { padding: 96px 0; }
+.sec-head { display: grid; grid-template-columns: 280px 1fr; gap: 48px; margin-bottom: 48px; align-items: start; }
+.sec-head h2 { margin: 0; font: 600 clamp(30px, 3.6vw, 46px)/1.05 var(--display); letter-spacing: -.035em; max-width: 760px; }
+.rule { border-top: 1px solid var(--line); }
+
+/* Le relais en quatre temps */
+.relay { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.step { position: relative; padding: 26px 22px 24px; min-height: 420px; display: flex; flex-direction: column; gap: 14px; }
+.step + .step { border-left: 1px solid var(--line); }
+.step .n { font: 600 56px/1 var(--display); letter-spacing: -.05em; }
+.step h3 { margin: 0; font: 600 20px/1.1 var(--display); letter-spacing: -.02em; }
+.step.s1 { background: linear-gradient(180deg, var(--coral-t), #fff 70%); } .step.s1 .n { color: var(--coral); }
+.step.s2 { background: var(--ink); color: #fff; } .step.s2 .n { color: #fff; }
+.step.s3 { background: linear-gradient(180deg, var(--blue-t), #fff 70%); } .step.s3 .n { color: var(--blue); }
+.step.s4 .n { background: linear-gradient(90deg, var(--coral), var(--blue)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.who { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.who i { width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; font: 600 11px/1 var(--body); font-style: normal; color: #fff; }
+.who i.c { background: var(--coral); } .who i.b { background: var(--blue); }
+.msg { padding: 10px 12px; border-radius: 12px; font-size: 13.5px; line-height: 1.4; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.msg.me { align-self: flex-end; background: var(--ink); color: #fff; box-shadow: none; max-width: 92%; }
+.msg time { display: block; margin-top: 4px; font: 500 10.5px/1 var(--mono); opacity: .55; }
+.files { display: flex; flex-direction: column; gap: 6px; font: 500 12.5px/1.2 var(--mono); }
+.files div { display: flex; justify-content: space-between; padding: 8px 10px; border-radius: 9px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
+.files .off { color: var(--muted); text-decoration: line-through; }
+.s2 .files div { background: rgba(255,255,255,.08); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14); color: #fff; }
+.s2 .files .off { color: rgba(255,255,255,.5); }
+.s2 .who { color: rgba(255,255,255,.6); }
+.tagline { margin-top: auto; font-size: 13px; color: var(--muted); }
+.s2 .tagline { color: rgba(255,255,255,.66); }
+.btns { display: flex; gap: 8px; } .btns span { padding: 7px 10px; border-radius: 9px; font-size: 12.5px; font-weight: 600; box-shadow: inset 0 0 0 1px var(--line); background: #fff; }
+.btns span:first-child { background: var(--blue); color: #fff; box-shadow: none; }
+.doc { padding: 12px; border-radius: 12px; background: var(--soft); font: 500 12.5px/1.55 var(--mono); }
+.doc b { display: flex; justify-content: space-between; margin-bottom: 6px; font-family: var(--body); font-size: 13px; }
+.doc b em { font-style: normal; font: 600 11px/1 var(--body); padding: 3px 7px; border-radius: 6px; background: var(--ink); color: #fff; }
+.relay-cap { margin-top: 18px; font-size: 15px; color: var(--ink-2); }
+
+/* Manifeste en registre */
+.ledger { list-style: none; margin: 0; padding: 0; counter-reset: l; }
+.ledger li { counter-increment: l; display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding: 30px 0; border-top: 1px solid var(--line); align-items: baseline; }
+.ledger li:last-child { border-bottom: 1px solid var(--line); }
+.ledger li::before { content: counter(l, decimal-leading-zero); font: 500 13px/1 var(--mono); color: var(--muted); }
+.ledger p { margin: 0; font: 600 clamp(26px, 3.4vw, 44px)/1.12 var(--display); letter-spacing: -.035em; }
+.u { text-decoration: underline; text-decoration-thickness: .12em; text-underline-offset: .14em; }
+.u.c { text-decoration-color: var(--coral); } .u.b { text-decoration-color: var(--blue); }
+.inv { background: var(--ink); color: #fff; padding: 0 .16em; border-radius: .18em; }
+
+/* Formats : fiches */
+.exts { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 18px; }
+.exts span { font: 600 13px/1 var(--mono); padding: 8px 11px; border-radius: 8px; color: #fff; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.card { position: relative; border-radius: 18px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); padding: 20px 18px 16px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; }
+.card::before { content: ''; position: absolute; left: 18px; top: -1px; width: 56px; height: 5px; border-radius: 0 0 5px 5px; background: var(--tab, var(--ink)); }
+.card header { display: flex; justify-content: space-between; align-items: center; font: 600 14px/1 var(--mono); }
+.card header small { font: 500 11px/1 var(--mono); color: var(--muted); padding: 4px 7px; border-radius: 6px; background: var(--soft); }
+.card pre { margin: 0; font: 500 12.5px/1.6 var(--mono); color: var(--ink-2); white-space: pre-wrap; flex: 1; }
+.card footer { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); }
+.card footer b { color: var(--ink); font-weight: 600; }
+.cards-cap { margin-top: 22px; font-size: 15px; color: var(--ink-2); }
+
+/* Trois piliers */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pillar { padding: 28px 24px; border-radius: var(--r); background: var(--soft); }
+.pillar svg { width: 56px; height: 44px; margin-bottom: 26px; }
+.pillar p { margin: 0; font-size: 17px; line-height: 1.5; color: var(--ink-2); }
+.pillar p b { display: block; margin-bottom: 6px; font: 600 24px/1.1 var(--display); letter-spacing: -.025em; color: var(--ink); }
+
+/* Agents */
+.agents { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; }
+.agents div { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 28px 10px; font: 600 14px/1 var(--display); }
+.agents div + div { border-left: 1px solid var(--line); }
+.agents img { width: 34px; height: 34px; }
+.agents .more { color: var(--muted); font-family: var(--body); font-weight: 500; font-size: 13px; background: var(--soft); }
+.agents-cap { margin-top: 20px; max-width: 820px; font-size: 15px; color: var(--ink-2); }
+
+/* Export : la lentille noire */
+.dark { background: var(--ink); color: #fff; border-radius: 32px; margin: 0 16px; }
+.dark .sec-head h2 { color: #fff; }
+.dark .k { color: rgba(255,255,255,.6); }
+.export { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.export p { margin: 0 0 20px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,.78); }
+.tree { border-radius: 20px; background: rgba(255,255,255,.05); box-shadow: inset 0 0 0 1px rgba(255,255,255,.12); padding: 22px; font: 500 14px/1.9 var(--mono); }
+.tree .root { color: #fff; font-weight: 600; } .tree .root small { margin-left: 10px; color: rgba(255,255,255,.5); font-weight: 500; }
+.tree div { display: flex; justify-content: space-between; padding-left: 18px; color: rgba(255,255,255,.86); }
+.tree div small { color: rgba(255,255,255,.45); }
+.give { margin-top: 18px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,.6); }
+.give span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 9px; background: #fff; color: var(--ink); font-weight: 600; }
+.give img { width: 16px; height: 16px; }
+
+/* Ce que Coheld fait */
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.feat { border-radius: var(--r); box-shadow: inset 0 0 0 1px var(--line); padding: 22px; display: flex; flex-direction: column; gap: 18px; }
+.feat .art { border-radius: 14px; background: var(--soft); padding: 16px; font: 500 13px/1.7 var(--mono); min-height: 170px; }
+.feat .art div { display: flex; gap: 10px; align-items: center; }
+.feat .art small { color: var(--muted); }
+.feat p { margin: 0; font-size: 15.5px; color: var(--ink-2); }
+.feat p b { color: var(--ink); font: 600 18px/1.2 var(--display); display: block; margin-bottom: 4px; letter-spacing: -.02em; }
+.v { width: 30px; text-align: center; border-radius: 6px; background: #fff; box-shadow: inset 0 0 0 1px var(--line); font-size: 11.5px; }
+.v.on { background: var(--ink); color: #fff; box-shadow: none; }
+.st { width: 9px; height: 9px; border-radius: 3px; flex: none; }
+
+/* Vos données */
+.own { display: grid; grid-template-columns: 1.2fr .8fr; gap: 48px; align-items: end; }
+.own h2 { margin: 0 0 18px; font: 600 clamp(34px, 4.4vw, 60px)/1.02 var(--display); letter-spacing: -.045em; }
+.own p { margin: 0; max-width: 560px; font-size: 18px; color: var(--ink-2); }
+
+/* Appel final */
+.final .wrap { display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; padding-top: 24px; padding-bottom: 24px; }
+.final h2 { margin: 0; font: 600 clamp(32px, 4vw, 56px)/1.02 var(--display); letter-spacing: -.045em; }
+footer.site { border-top: 1px solid var(--line); padding: 28px 0 40px; font-size: 13.5px; color: var(--muted); }
+footer.site .wrap { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+footer.site .wrap > :last-child { margin-left: auto; }
+
+/* ---------- mobile ---------- */
+@media (max-width: 960px) {
+  .hero .wrap, .export, .own { grid-template-columns: 1fr; }
+  .sec-head, .ledger li { grid-template-columns: 1fr; gap: 14px; }
+  .relay { grid-template-columns: 1fr 1fr; } .step:nth-child(3) { border-left: 0; } .step:nth-child(n+3) { border-top: 1px solid var(--line); }
+  .cards, .features, .pillars { grid-template-columns: 1fr 1fr; }
+  .agents { grid-template-columns: repeat(4, 1fr); } .agents div:nth-child(5) { border-left: 0; } .agents div:nth-child(n+5) { border-top: 1px solid var(--line); }
+  .final .wrap { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+}
+@media (max-width: 600px) {
+  .wrap { padding: 0 18px; } section { padding: 64px 0; }
+  .relay, .cards, .features, .pillars { grid-template-columns: 1fr; } .step + .step { border-left: 0; border-top: 1px solid var(--line); } .step { min-height: 0; }
+  .dark { margin: 0; border-radius: 0; }
+  .lang { display: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="home.html"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="12" height="12" rx="4" fill="none" stroke="#111110" stroke-width="1.8"/><rect x="8.5" y="8.5" width="12" height="12" rx="4" fill="none" stroke="#111110" stroke-width="1.8"/><path d="M12.5 8.5H15.5V11.5A4 4 0 0 1 11.5 15.5H8.5V12.5A4 4 0 0 1 12.5 8.5Z" fill="#111110"/></svg>Coheld</a>
+    <nav class="nav-links" aria-label="Sections"><a href="#demo">Démonstration</a><a href="#formats">Formats</a><a href="#equipes">Équipes</a><a href="#donnees">Vos données</a></nav>
+    <div class="nav-end"><span class="lang"><b>FR</b> · <span>EN</span></span><a class="btn sm line" href="login.html">Se connecter</a></div>
+  </div>
+</header>
+
+<main>
+<section class="hero" style="padding:0">
+  <div class="wrap">
+    <div>
+      <span class="k">Pour les équipes qui travaillent avec des agents IA</span>
+      <h1><span class="mark c">Claude</span> transmet à <span class="mark b">ChatGPT</span><span class="l2">Le contexte de l’équipe reste.</span></h1>
+      <p class="lede">Coheld est l’outil de collaboration des équipes qui travaillent avec des agents IA : vos agents s’échangent des documents, le contexte de chaque projet est gardé, et chacun reprend là où un collègue s’est arrêté.</p>
+      <div class="cta"><a class="btn" href="login.html">Commencer <span aria-hidden="true">→</span></a><a class="link" href="#demo">Voir la démonstration</a></div>
+      <p class="note">Vos documents restent à vous. Export Markdown, JSON ou CSV à tout moment.</p>
+    </div>
+    <div class="inter" role="img" aria-label="L’agent de Camille et celui de Karim se chevauchent : au milieu, le contexte commun (brief.md v4, decision.md v1).">
+      <svg viewBox="0 0 460 440" aria-hidden="true">
+        <rect x="10" y="20" width="290" height="290" rx="64" fill="#ff5c39"/>
+        <rect x="130" y="130" width="290" height="290" rx="64" fill="#2f5bff"/>
+        <path d="M194 130H300V246A64 64 0 0 1 236 310H130V194A64 64 0 0 1 194 130Z" fill="#111110"/>
+      </svg>
+      <div class="sq-label a"><img src="site-assets/agents/claude.svg" alt=""><span><b>Assistant de Camille</b>son assistant habituel</span></div>
+      <div class="sq-label b"><img src="site-assets/agents/chatgpt.svg" alt=""><span><b>Assistant de Karim</b>un autre assistant</span></div>
+      <div class="lens-files"><div class="chip">brief.md <small>v4</small></div><div class="chip">decision.md <small>v1</small></div><div class="cap">Contexte commun</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="demo" class="rule">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Démonstration</span><h2>Refonte du site</h2></div>
+    <div class="relay">
+      <article class="step s1">
+        <span class="n">01</span><h3>Choisir</h3>
+        <div class="who"><i class="c">C</i>Assistant de Camille · son assistant habituel</div>
+        <div class="msg me">Transmets à Karim le contexte du projet « Refonte du site ».<time>09:41</time></div>
+        <div class="msg">Voici ce que je peux transmettre. Tes notes restent privées.<time>09:41</time></div>
+        <div class="files"><div><span>brief.md</span><span>v4</span></div><div><span>decision.md</span><span>v1</span></div><div><span class="off">notes-privees.md</span><span>privé</span></div></div>
+        <p class="tagline">À transmettre · 2 fichiers envoyés à Karim</p>
+      </article>
+      <article class="step s2">
+        <span class="n">02</span><h3>Transmettre</h3>
+        <div class="who">Coheld · Refonte du site</div>
+        <div class="files"><div><span>brief.md</span><span>v4</span></div><div><span>decision.md</span><span>v1</span></div><div><span class="off">notes-privees.md</span><span>non partagé</span></div></div>
+        <p class="tagline">Reçu par Karim · Versions conservées<br>Source · Camille · 09:41</p>
+      </article>
+      <article class="step s3">
+        <span class="n">03</span><h3>Reprendre</h3>
+        <div class="who"><i class="b">K</i>Assistant de Karim · un autre assistant</div>
+        <div class="msg me">Où en est la refonte du site ?<time>09:40</time></div>
+        <div class="msg">Camille m’a partagé des documents.<br><span class="mono" style="font-size:12px">brief.md v4 · Camille<br>decision.md v1 · Camille</span><time>09:42</time></div>
+        <div class="btns"><span>Utiliser ce contexte</span><span>Ignorer</span></div>
+      </article>
+      <article class="step s4">
+        <span class="n">04</span><h3>Produire</h3>
+        <div class="doc"><b>plan-accueil.md <em>nouveau</em></b># Plan de l’accueil<br>1. Promesse en une phrase<br>2. Démonstration en quatre étapes<br>3. Vos données, exportables</div>
+        <p class="tagline">Sources : brief.md v4 · decision.md v1</p>
+      </article>
+    </div>
+    <p class="relay-cap">Karim avance avec le contexte de Camille : plan-accueil.md cite ses sources.</p>
+  </div>
+</section>
+
+<section class="rule" style="padding-top:0;border:0">
+  <div class="wrap">
+    <ol class="ledger">
+      <li><p>Arrêtez de réexpliquer votre projet à chaque conversation.</p></li>
+      <li><p>Votre agent <span class="u c">transmet</span>, celui de votre collègue <span class="u b">reprend</span>.</p></li>
+      <li><p>Un contexte <span class="inv">commun</span> et gardé pour toute l’équipe.</p></li>
+      <li><p>En Markdown, JSON ou CSV : lisible par tous vos agents.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="formats" class="rule">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Formats</span><div><h2>Des formats que les agents lisent sans conversion.</h2>
+      <div class="exts"><span style="background:#111110">.md</span><span style="background:#7c4ddb">.json</span><span style="background:#2b9a66">.csv</span><span style="background:#0f766e">.tex</span><span style="background:#6b6a65">.txt</span></div></div></div>
+    <div class="cards">
+      <article class="card" style="--tab:#111110"><header>brief.md <small>v4</small></header><pre># Brief — refonte du site
+## Objectif
+Clarifier la promesse en une phrase.
+- Noir et blanc, formes arrondies</pre><footer><b>Camille</b><span>contexte commun</span></footer></article>
+      <article class="card" style="--tab:#7c4ddb"><header>decision.json <small>v1</small></header><pre>{
+  "decision": "hebergeur-b",
+  "statut": "confirmée",
+  "source": "camille"
+}</pre><footer><b>Karim</b><span>contexte commun</span></footer></article>
+      <article class="card" style="--tab:#2b9a66"><header>trafic.csv <small>v2</small></header><pre>page      visites  conv.
+accueil   1 240    3,1 %
+tarifs    410      5,8 %
+blog      980      0,9 %</pre><footer><b>Inès</b><span>contexte commun</span></footer></article>
+      <article class="card" style="--tab:#0f766e"><header>modele.tex <small>v1</small></header><pre>\section{Modèle}
+Taux : $r = \frac{c}{v}$
+
+r = c / v</pre><footer><b>Karim</b><span>contexte commun</span></footer></article>
+      <article class="card" style="--tab:#111110"><header>questions.md <small>v2</small></header><pre># Brief — refonte du site
+## Objectif
+Clarifier la promesse en une phrase.
+- Noir et blanc, formes arrondies</pre><footer><b>Inès</b><span>contexte commun</span></footer></article>
+      <article class="card" style="--tab:#6b6a65"><header>compte-rendu.txt <small>v1</small></header><pre>Compte-rendu du 24/11
+Hébergeur B retenu.
+Mise en ligne après validation.</pre><footer><b>Camille</b><span>contexte commun</span></footer></article>
+    </div>
+    <p class="cards-cap">Markdown, JSON, CSV, LaTeX, texte : chaque fichier garde ses versions, sa source et son statut.</p>
+  </div>
+</section>
+
+<section id="equipes" class="rule">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Équipes</span><h2>Pas d’outil maison à construire ni à maintenir.</h2></div>
+    <div class="pillars">
+      <div class="pillar"><svg viewBox="0 0 56 44" aria-hidden="true"><rect x="1" y="1" width="42" height="42" rx="12" fill="#111110"/><rect x="18" y="12" width="18" height="18" rx="6" fill="#fff"/></svg><p><b>Garder.</b>Le contexte d’un projet survit à la conversation, à l’onglet fermé et au changement d’agent.</p></div>
+      <div class="pillar"><svg viewBox="0 0 56 44" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="10" fill="#ff5c39"/><rect x="22" y="11" width="32" height="32" rx="10" fill="#2f5bff"/><path d="M32 11H33V23A10 10 0 0 1 23 33H22V21A10 10 0 0 1 32 11Z" fill="#111110"/></svg><p><b>Travailler à plusieurs.</b>Un espace pour les petites équipes : mêmes projets, mêmes sources, chacun avec son agent.</p></div>
+      <div class="pillar"><svg viewBox="0 0 56 44" aria-hidden="true"><rect x="1" y="1" width="32" height="42" rx="10" fill="#111110"/><path d="M24 22h29M45 14l8 8-8 8" stroke="#2f5bff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Sortir.</b>Un export dans le format de votre choix, lisible par n’importe quel agent ou par vous, hors de Coheld.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rule">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Indépendant des fournisseurs</span><div></div></div>
+    <div class="agents">
+      <div><img src="site-assets/agents/claude.svg" alt="">Claude</div><div><img src="site-assets/agents/chatgpt.svg" alt="">ChatGPT</div><div><img src="site-assets/agents/codex.svg" alt="">Codex</div><div><img src="site-assets/agents/gemini.svg" alt="">Gemini</div><div><img src="site-assets/agents/grok.svg" alt="">Grokbot</div><div><img src="site-assets/agents/perplexity.svg" alt="">Perplexity</div><div class="more">et les suivants</div>
+    </div>
+    <p class="agents-cap">Vos agents se branchent à Coheld et y retrouvent le contexte de l’équipe. Il suffit d’une offre qui accepte les connecteurs personnalisés : ChatGPT Business, Perplexity Pro ou Enterprise, Grok payant ; Claude, Codex et Gemini aussi. Coheld n’est affilié à aucun de ces fournisseurs.</p>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Ce qui en sort</span><h2>Un paquet de contexte prêt à l’emploi.</h2></div>
+    <div class="export">
+      <div>
+        <p>Un projet s’exporte dans le format dont vos agents ont besoin : Markdown, JSON, CSV, LaTeX, texte… Résumé, manifeste, décisions et données, versionnés et sourcés. Donnez-le à l’agent de votre choix : il reprend là où l’équipe s’est arrêtée.</p>
+        <div class="give">À donner tel quel à <span><img src="site-assets/agents/claude.svg" alt="">Claude</span><span><img src="site-assets/agents/chatgpt.svg" alt="">ChatGPT</span><span><img src="site-assets/agents/codex.svg" alt="">Codex</span><span><img src="site-assets/agents/grok.svg" alt="">Grokbot</span></div>
+      </div>
+      <div class="tree">
+        <span class="root">refonte-du-site/<small>export du projet</small></span>
+        <div><span>context.md</span><small>résumé lisible</small></div>
+        <div><span>manifest.json</span><small>versions et empreintes</small></div>
+        <div><span>decisions.csv</span><small>décisions datées</small></div>
+        <div><span>modele.tex</span><small>document technique</small></div>
+        <div><span>notes.txt</span><small>notes de l’équipe</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="k">Pour votre équipe</span><h2>Ce que Coheld fait pour votre équipe.</h2></div>
+    <div class="features">
+      <article class="feat"><div class="art"><div><b>brief.md</b></div><div><span class="v on">v4</span>Direction validée <small>8314d8</small></div><div><span class="v">v3</span>Relecture <small>a07c21</small></div><div><span class="v">v2</span>Contraintes ajoutées <small>5e91f0</small></div><div><span class="v">v1</span>Version initiale <small>0b42ce</small></div></div><p><b>Des versions immuables.</b>Chaque modification crée une version avec son empreinte. Restaurer, c’est en créer une nouvelle.</p></article>
+      <article class="feat"><div class="art"><div><span class="st" style="background:#111110"></span>decision.md <small>Validé</small></div><div><span class="st" style="background:#2f5bff"></span>brief.md <small>En cours</small></div><div><span class="st" style="background:#ff5c39"></span>plan-accueil.md <small>À valider</small></div><div><span class="st" style="background:#c9c8c3"></span>ancien-plan.md <small>Périmé</small></div></div><p><b>Des statuts explicites.</b>Confirmé, provisoire, déduit ou obsolète : toujours écrit, jamais une simple couleur.</p></article>
+      <article class="feat"><div class="art"><div><b>coheld-export/</b></div><div>&nbsp;&nbsp;manifest.json</div><div>&nbsp;&nbsp;data.json</div><div>&nbsp;&nbsp;refonte-du-site/</div><div>&nbsp;&nbsp;&nbsp;&nbsp;brief.md</div><div>&nbsp;&nbsp;&nbsp;&nbsp;decision.md</div></div><p><b>Un export complet.</b>Tout le projet, versions et sources comprises, dans le format que vos agents lisent.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="donnees" class="rule">
+  <div class="wrap own">
+    <div><span class="k">Vos données</span><h2 style="margin-top:20px">Vos documents vous appartiennent. Exportables à tout moment.</h2><p>Sortez quand vous voulez. Exportez un projet ou tout votre espace, versions et sources comprises, dans le format de votre choix.</p></div>
+    <div class="exts" style="justify-content:flex-end"><span style="background:#111110">.md</span><span style="background:#7c4ddb">.json</span><span style="background:#2b9a66">.csv</span><span style="background:#0f766e">.tex</span><span style="background:#6b6a65">.txt</span></div>
+  </div>
+</section>
+
+<section class="final rule" style="padding:64px 0">
+  <div class="wrap">
+    <svg width="120" height="120" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="12" height="12" rx="4" fill="#ff5c39"/><rect x="8.5" y="8.5" width="12" height="12" rx="4" fill="#2f5bff"/><path d="M12.5 8.5H15.5V11.5A4 4 0 0 1 11.5 15.5H8.5V12.5A4 4 0 0 1 12.5 8.5Z" fill="#111110"/></svg>
+    <h2>Un contexte commun.<br>Sans outil maison.</h2>
+    <a class="btn" href="login.html">Commencer <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+</main>
+
+<footer class="site"><div class="wrap"><a class="brand" href="home.html" style="font-size:16px">Coheld</a><span>Une marque ASAS · Another Seed Another Season</span><span><b style="color:#111110">FR</b> · EN</span></div></footer>
+</body>
+</html>
