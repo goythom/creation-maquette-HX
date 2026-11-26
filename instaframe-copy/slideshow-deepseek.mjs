@@ -5,6 +5,7 @@ import { elementFilename, downloadDataURL, buildZip } from './local-gallery-deep
 
 const MAX_SLIDES = 10;
 let savedDraft={slideIds:[],caption:'',platform:'instagram'};
+export function resetSlideshowDraft(){savedDraft={slideIds:[],caption:'',platform:'instagram'}}
 const frameFilename=(frame,index)=>elementFilename(frame.format,[frame.caption,index===undefined?'':String(index+1)].filter(Boolean).join(' '));
 
 const FRAME_SPECS = {
@@ -20,6 +21,30 @@ function cardHeight(frame) {
 }
 
 function slideFrameEl(frame, width, maxHeight) {
+  if (frame.artSrc) {
+    const r = (frame.artW || 1) / (frame.artH || 1);
+    if (frame.artRotate && width > 100) {
+      const L = Math.min(maxHeight || 300, 300), T = L / r;
+      const rb = document.createElement('div');
+      rb.setAttribute('aria-hidden', 'true');
+      rb.style.cssText = 'width:' + T + 'px;height:' + L + 'px;position:relative;margin:0 auto';
+      const ri = document.createElement('img');
+      ri.src = frame.artSrc; ri.draggable = false;
+      ri.style.cssText = 'position:absolute;max-width:none;max-height:none;left:50%;top:50%;width:' + L + 'px;height:' + T + 'px;transform:translate(-50%,-50%) rotate(-90deg);filter:drop-shadow(0 6px 12px rgba(0,0,0,.45))';
+      rb.appendChild(ri);
+      return rb;
+    }
+    let w = width;
+    if (r > 1.4 && width > 100) w = width * 1.12;
+    if (maxHeight) w = Math.min(w, maxHeight * r);
+    const box = document.createElement('div');
+    box.setAttribute('aria-hidden', 'true');
+    const im = document.createElement('img');
+    im.src = frame.artSrc; im.draggable = false;
+    im.style.cssText = 'display:block;width:' + w + 'px;height:auto;filter:drop-shadow(0 6px 12px rgba(0,0,0,.45))';
+    box.appendChild(im);
+    return box;
+  }
   const spec = FRAME_SPECS[frame.format] || FRAME_SPECS['instax-mini'];
   let scale = width / spec.card.w;
   if (maxHeight) scale = Math.min(scale, maxHeight / cardHeight(frame));
