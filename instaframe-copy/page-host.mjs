@@ -6,6 +6,7 @@ import {renderHomePage} from './home-page-deepseek.mjs';
 import {renderInspiredPage} from './inspired-page-deepseek.mjs';
 import {renderShopPage} from './shop-pages-deepseek.mjs';
 import {renderAccountVisitor} from './account-visitors-deepseek.mjs';
+import {renderSignedAccount} from './account-signed-demo.mjs';
 import {renderTransferScene} from './transfer-scenes-deepseek.mjs';
 import {FR} from './french-dictionary.mjs';
 import {renderFaq} from './faq-deepseek.mjs';
@@ -22,6 +23,7 @@ export function renderLocalScene({route='/faq',lang='en',state={},onNavigate=()=
  else if(route==='/get-inspired')root.append(renderInspiredPage({lang,onNavigate:navigate}),toggle(lang));
  else if(route==='/faq')root.append(renderFaq({lang,openIndex:state.openIndex??-1}));
  else if(route.startsWith('/shop')){root.append(renderShopPage({page:route==='/shop'?'shop':route.split('/')[2],lang,cart:state.cart||{},onCartChange:cart=>{state.cart=cart;},onNavigate:navigate}),toggle(lang));}
+ else if(state.signed&&['/saved/elements','/saved/notebooks','/compte'].includes(route)){root.append(renderSignedAccount({page:({'/saved/elements':'elements','/saved/notebooks':'notebooks','/compte':'account'})[route],lang,onNavigate:navigate}),toggle(lang));}
  else if(['/saved/elements','/saved/notebooks','/compte','/compte/parametres','/owner','/admin'].includes(route)){const page=({'/saved/elements':'elements','/saved/notebooks':'notebooks','/compte':'account','/compte/parametres':'settings','/owner':'owner','/admin':'admin'})[route];root.append(renderAccountVisitor({page,lang,onNavigate:navigate}));if(page!=='admin')root.append(toggle(lang));}
  else if(route==='/video/local-demo')root.append(renderGeneratorPage({lang,kind:'Video',welcome:false,videoLocalDemo:true,onNavigate:navigate}),toggle(lang));
  else if(route==='/album/local-demo')root.append(renderLocalStudioDemo({lang,onNavigate:navigate}));

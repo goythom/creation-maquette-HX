@@ -376,3 +376,167 @@ body.instaframe-design-copy .tb.tb--sq>svg:only-child {width:26px!important;heig
 body.instaframe-design-copy .side .side__foot {padding-inline:0!important;}
 body.instaframe-design-copy .side .gbtn:has(>svg:first-child) {padding-inline:6px!important;}
 body.instaframe-design-copy .side .gbtn span {flex-shrink:0!important;}
+
+/* ===== Homogeneity layer (2026-11-26, copy only) =====================================
+   One shell for every app page: the same beige page under the sidebar, the main area
+   and the Studio stage; white only for cards, panels and inputs. One ink line, one
+   card shape, one window title bar (yellow), one button family, one H1, one place
+   for EN/FR (sidebar foot). Fixes the white sidebar band next to a beige page. */
+body.instaframe-design-copy {
+  --if-page:#f7f4f1; --if-card:#fff; --if-ink:#100808; --if-hair:#e2dbd2; --if-soft:#efe9e2;
+  --if-accent:#e73b0d; --if-accent-dark:#a71d08; --if-sun:#fbc856; --if-muted:#6b6460;
+  --if-radius:6px; --if-shadow:3px 3px 0 var(--if-ink);
+  background:var(--if-page)!important;
+}
+/* 1. Shell: no white band. Sidebar, main and Studio share the page colour. */
+body.instaframe-design-copy :is(.app,.app--workbench,.inspired-app,.app.studio) {background:var(--if-page)!important;}
+body.instaframe-design-copy .side,
+body.instaframe-design-copy .side .side__home {background:var(--if-page)!important;}
+body.instaframe-design-copy .side {border-right:1.5px solid var(--if-ink)!important;box-shadow:none!important;}
+body.instaframe-design-copy :is(.main,.main.saved-page,.main.hx-account,.main.inspired-page,.main.shop__main,.studio__main) {background:var(--if-page)!important;}
+body.instaframe-design-copy .creator-header {background:var(--if-page)!important;border-bottom:1.5px solid var(--if-ink)!important;}
+/* Same content inset on every app page (24px from the sidebar toggle column). */
+body.instaframe-design-copy :is(.main.saved-page,.main.hx-account) {padding:24px 32px 40px 24px!important;box-sizing:border-box;}
+body.instaframe-design-copy .side__toggle {border-width:1.5px!important;box-shadow:none!important;}
+
+/* 2. One H1 for app pages (generator, account, saved, Studio preview). */
+body.instaframe-design-copy :is(.creator-header h1,.hx-account > h1,.saved-page h1,.gallery__head h1) {font-family:'Bricolage Grotesque','DM Sans',sans-serif!important;font-size:26px!important;line-height:32px!important;font-weight:800!important;letter-spacing:-.025em!important;color:var(--if-ink)!important;margin:0 0 4px!important;text-transform:none!important;}
+
+/* 3. One card shape: white, 1px ink, small radius, short ink offset. */
+body.instaframe-design-copy :is(.creation-panel,.hx-panel,.pal,.studio-note,.gallery__signin,.saved-card,.card--saved) {background:var(--if-card)!important;border:1px solid var(--if-ink)!important;border-radius:var(--if-radius)!important;box-shadow:var(--if-shadow)!important;}
+body.instaframe-design-copy .creation-panel > :first-child {border-radius:5px 5px 0 0!important;}
+body.instaframe-design-copy .studio-note {box-shadow:none!important;}
+
+/* 4. One window title bar: the three generator panels use the same yellow bar
+      (the same one as the dialogs), not yellow / red / black. */
+body.instaframe-design-copy .creation-workspace .creation-panel .creation-panel__controls,
+body.instaframe-design-copy .creation-workspace .creation-panel .creation-panel__bar {background:var(--if-sun)!important;color:var(--if-ink)!important;border-bottom:1px solid var(--if-ink)!important;}
+body.instaframe-design-copy .creation-workspace .creation-panel :is(.creation-panel__controls,.creation-panel__bar) :is(button,svg,span) {color:var(--if-ink)!important;}
+
+/* 5. Account and saved pages: no dark banner, the same header everywhere. */
+body.instaframe-design-copy .saved-page .gallery__head {background:transparent!important;border:0!important;box-shadow:none!important;padding:0 0 16px!important;color:var(--if-ink)!important;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
+body.instaframe-design-copy .saved-page .card--gallery {background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;}
+body.instaframe-design-copy .saved-page .notebooks-trash-tabs {justify-content:flex-start!important;width:auto!important;}
+body.instaframe-design-copy .gallery__signin {align-items:flex-start!important;text-align:left!important;padding:20px!important;max-width:560px;color:var(--if-ink)!important;font-size:14px!important;}
+body.instaframe-design-copy .hx-panel {max-width:560px;padding:20px!important;}
+body.instaframe-design-copy .hx-panel p,body.instaframe-design-copy .gallery__signin p {margin:0 0 12px!important;font-size:14px!important;line-height:21px!important;}
+
+/* 6. One button family. Primary = red, secondary = white with ink line,
+      selected = ink. Same height and radius in Studio, generator and account. */
+body.instaframe-design-copy :is(.hx-primary,.gallery__signin .btn,.btn--primary) {background:var(--if-accent)!important;color:#fff!important;border:1px solid var(--if-ink)!important;border-radius:4px!important;min-height:40px!important;padding:8px 16px!important;font:600 13px/20px 'DM Sans',sans-serif!important;box-shadow:2px 2px 0 var(--if-ink)!important;}
+body.instaframe-design-copy :is(.btn--small,.saved-actions .btn) {min-height:36px!important;padding:6px 14px!important;border-radius:4px!important;font-size:13px!important;line-height:20px!important;}
+body.instaframe-design-copy .saved-actions {gap:0!important;}
+body.instaframe-design-copy .saved-actions .btn {border:1px solid var(--if-ink)!important;box-shadow:none!important;}
+body.instaframe-design-copy .saved-actions .btn + .btn {border-left:0!important;}
+body.instaframe-design-copy .saved-actions .btn--dark {background:var(--if-ink)!important;color:#fff!important;}
+body.instaframe-design-copy .saved-actions .btn--white {background:var(--if-card)!important;color:var(--if-ink)!important;}
+body.instaframe-design-copy :is(.creation-panel,.gallery__actions,.creation-settings__actions,.row--actions) button:disabled {opacity:.38!important;background:var(--if-card)!important;color:var(--if-ink)!important;border:1px solid var(--if-ink)!important;box-shadow:none!important;}
+
+/* 7. Studio: same shell, quieter toolbar in groups, white palette card. */
+body.instaframe-design-copy .studio__panel {background:var(--if-page)!important;border:1px solid var(--if-ink)!important;border-radius:var(--if-radius)!important;overflow:hidden;}
+body.instaframe-design-copy .studio__bar {background:var(--if-page)!important;border-bottom:1px solid var(--if-ink)!important;padding:12px 16px 12px 56px!important;}
+body.instaframe-design-copy .studio__commands {gap:12px!important;row-gap:8px!important;flex-wrap:wrap;}
+body.instaframe-design-copy .studio__command-group {gap:4px!important;padding-right:12px;border-right:1px solid var(--if-hair);}
+body.instaframe-design-copy .studio__command-group:last-child {border-right:0;padding-right:0;}
+body.instaframe-design-copy .studio__bar .tb {background:var(--if-card)!important;border:1px solid var(--if-ink)!important;border-radius:4px!important;box-shadow:none!important;min-height:34px!important;height:34px!important;padding:0 10px!important;font:600 12px/18px 'DM Sans',sans-serif!important;color:var(--if-ink)!important;}
+body.instaframe-design-copy .studio__bar .tb:hover {background:var(--if-soft)!important;}
+body.instaframe-design-copy .studio__bar .tb[aria-pressed=true] {background:var(--if-ink)!important;color:#fff!important;}
+body.instaframe-design-copy .studio__bar .tb--pct {background:transparent!important;border-color:transparent!important;color:var(--if-muted)!important;}
+body.instaframe-design-copy .studio__bar .studio__primary-tool {background:var(--if-ink)!important;color:#fff!important;}
+body.instaframe-design-copy .studio__notes {padding:8px 16px 0!important;}
+body.instaframe-design-copy .studio-note {background:var(--if-soft)!important;border:0!important;border-radius:4px!important;font-size:12px!important;}
+body.instaframe-design-copy .studio__stage {background:var(--if-page)!important;}
+body.instaframe-design-copy .studio-nav__trigger {border-radius:4px!important;box-shadow:var(--if-shadow)!important;}
+body.instaframe-design-copy .pal {box-shadow:none!important;}
+body.instaframe-design-copy .pal__tabs {gap:0!important;border:1px solid var(--if-ink);border-radius:4px;overflow:hidden;padding:0!important;}
+body.instaframe-design-copy .pal__tab {background:var(--if-card)!important;border:0!important;border-radius:0!important;box-shadow:none!important;color:var(--if-ink)!important;font-weight:600!important;}
+body.instaframe-design-copy .pal__tab.pal__tab--on {background:var(--if-ink)!important;color:#fff!important;}
+body.instaframe-design-copy .acct {background:var(--if-card)!important;border:1px solid var(--if-ink)!important;border-radius:4px!important;box-shadow:none!important;}
+
+/* 8. Notices: one quiet style (no green box in the gallery). */
+body.instaframe-design-copy :is(.gnotice,.gallery__notice,.creation-gallery .notice,.gallery__hint) {background:transparent!important;border:0!important;color:var(--if-muted)!important;font-size:12px!important;line-height:18px!important;}
+
+/* 9. EN/FR: one place on every app page, at the foot of the sidebar. */
+body.instaframe-design-copy .lang-toggle.lang-toggle--side {position:static!important;inset:auto!important;display:flex!important;width:100%!important;margin:12px 0 0!important;border:1px solid var(--if-ink)!important;border-radius:4px!important;overflow:hidden;box-shadow:none!important;background:var(--if-card)!important;}
+body.instaframe-design-copy .lang-toggle.lang-toggle--side button {flex:1 1 50%;height:32px!important;min-height:32px!important;font:600 12px/18px 'DM Sans',sans-serif!important;border-radius:0!important;}
+
+/* 10. Book preview: the reader sits on the same beige as the page (3D clear
+       colour patched in the copy bundle), header line in ink. */
+body.instaframe-design-copy :is(.notebook-preview,.album-reader,.reader-stage,.notebook-host) {background:var(--if-page)!important;}
+/* 11. Saved pages: the Notebooks/Trash switch uses the same segmented control
+       as the gallery tabs (same size, same weight). */
+body.instaframe-design-copy .saved-page .notebooks-trash-tabs .btn {font:600 13px/20px 'DM Sans',sans-serif!important;border-radius:0!important;}
+body.instaframe-design-copy .saved-page .notebooks-trash-tabs .btn:first-child {border-radius:4px 0 0 4px!important;}
+body.instaframe-design-copy .saved-page .notebooks-trash-tabs .btn:last-child {border-radius:0 4px 4px 0!important;}
+/* 12. Book preview header: on the page beige, one primary (Share, red), one
+       secondary (Appearance, white), EN/FR in the same segmented style. */
+body.instaframe-design-copy .notebook-preview > header {background:var(--if-page)!important;border-bottom:1.5px solid var(--if-ink)!important;}
+body.instaframe-design-copy .notebook-preview .reader-actions {gap:8px!important;align-items:center!important;}
+body.instaframe-design-copy .notebook-preview :is(.reader-share-btn,.reader-appearance > button) {min-height:40px!important;padding:8px 16px!important;border:1px solid var(--if-ink)!important;border-radius:4px!important;font:600 13px/20px 'DM Sans',sans-serif!important;box-shadow:2px 2px 0 var(--if-ink)!important;}
+body.instaframe-design-copy .notebook-preview .reader-share-btn {background:var(--if-accent)!important;color:#fff!important;}
+body.instaframe-design-copy .notebook-preview .reader-appearance > button {background:var(--if-card)!important;color:var(--if-ink)!important;}
+body.instaframe-design-copy .notebook-preview .lang-toggle {border:1px solid var(--if-ink)!important;border-radius:4px!important;overflow:hidden;box-shadow:none!important;}
+body.instaframe-design-copy .notebook-preview .lang-toggle button {height:38px!important;min-height:38px!important;border:0!important;box-shadow:none!important;}
+body.instaframe-design-copy .notebook-preview .reader-back {font:600 13px/20px 'DM Sans',sans-serif!important;}
+/* 13. Combination: same card shape as the other generator tabs. */
+body.instaframe-design-copy :is(.comb__lib,.comb__work) {border:1px solid var(--if-ink)!important;border-radius:var(--if-radius)!important;box-shadow:var(--if-shadow)!important;overflow:hidden;}
+body.instaframe-design-copy .comb__lib {background:var(--if-card)!important;}
+body.instaframe-design-copy .comb__work {background:var(--if-card)!important;}
+/* 14. Signed-in account pages (copy demo, from the owner's captures). */
+body.instaframe-design-copy .if-main {padding:24px 32px 40px 24px!important;box-sizing:border-box;overflow:auto;font-family:'DM Sans',sans-serif;color:var(--if-ink);}
+body.instaframe-design-copy .if-head {display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:0 0 24px;}
+body.instaframe-design-copy .if-head h1 {font:800 26px/32px 'Bricolage Grotesque','DM Sans',sans-serif;letter-spacing:-.025em;margin:0;}
+body.instaframe-design-copy .if-head p {margin:0;font-size:14px;line-height:21px;color:var(--if-muted);}
+body.instaframe-design-copy .if-head > :last-child:not(h1):not(p) {margin-top:8px;}
+body.instaframe-design-copy .if-group {margin:0 0 24px;max-width:880px;}
+body.instaframe-design-copy .if-group h2 {font:700 11px/16px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--if-muted);margin:0 0 8px;}
+body.instaframe-design-copy .if-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;}
+body.instaframe-design-copy .if-tile {display:flex;align-items:center;gap:14px;min-height:72px;padding:14px 16px;text-align:left;background:var(--if-card);border:1px solid var(--if-ink);border-radius:var(--if-radius);box-shadow:var(--if-shadow);color:var(--if-ink);cursor:pointer;font:inherit;}
+body.instaframe-design-copy .if-tile:hover {background:var(--if-soft);}
+body.instaframe-design-copy .if-tile:active {transform:translate(1px,1px);box-shadow:2px 2px 0 var(--if-ink);}
+body.instaframe-design-copy .if-tile__icon {display:grid;place-items:center;width:40px;height:40px;flex:none;background:var(--if-page);border:1px solid var(--if-hair);border-radius:4px;}
+body.instaframe-design-copy .if-tile__txt {display:flex;flex-direction:column;gap:2px;flex:1;min-width:0;}
+body.instaframe-design-copy .if-tile__txt b {font-size:14px;line-height:20px;}
+body.instaframe-design-copy .if-tile__txt span {font-size:12px;line-height:18px;color:var(--if-muted);}
+body.instaframe-design-copy .if-tile__go {font-size:16px;color:var(--if-muted);}
+body.instaframe-design-copy .if-tile--quiet {box-shadow:none;border-style:dashed;}
+body.instaframe-design-copy .if-danger {display:flex;align-items:center;gap:16px;max-width:880px;margin-top:32px;padding-top:16px;border-top:1px solid var(--if-hair);}
+body.instaframe-design-copy .if-link-danger {background:none;border:0;padding:0;color:var(--if-accent-dark);font:600 13px/20px 'DM Sans',sans-serif;text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
+body.instaframe-design-copy .if-btn {display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:36px;padding:6px 14px;background:var(--if-card);color:var(--if-ink);border:1px solid var(--if-ink);border-radius:4px;font:600 13px/20px 'DM Sans',sans-serif;cursor:pointer;}
+body.instaframe-design-copy .if-btn:hover {background:var(--if-soft);}
+body.instaframe-design-copy .if-btn--primary {background:var(--if-accent);color:#fff;box-shadow:2px 2px 0 var(--if-ink);min-height:40px;padding:8px 16px;}
+body.instaframe-design-copy .if-btn--primary:hover {background:var(--if-accent-dark);}
+body.instaframe-design-copy .if-btn:disabled {opacity:.38;cursor:not-allowed;box-shadow:none;}
+body.instaframe-design-copy .if-btn--icon {width:36px;padding:0;}
+body.instaframe-design-copy .if-seg {display:inline-flex;border:1px solid var(--if-ink);border-radius:4px;overflow:hidden;background:var(--if-card);}
+body.instaframe-design-copy .if-seg button {min-height:34px;padding:6px 14px;border:0;border-left:1px solid var(--if-ink);background:transparent;color:var(--if-ink);font:600 13px/20px 'DM Sans',sans-serif;cursor:pointer;}
+body.instaframe-design-copy .if-seg button:first-child {border-left:0;}
+body.instaframe-design-copy .if-seg button[aria-pressed=true] {background:var(--if-ink);color:#fff;}
+body.instaframe-design-copy .if-tools {display:flex;align-items:center;flex-wrap:wrap;gap:12px;}
+body.instaframe-design-copy .if-count {font-size:13px;color:var(--if-muted);}
+body.instaframe-design-copy .if-items {display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px;max-width:1000px;}
+body.instaframe-design-copy .if-item {display:flex;flex-direction:column;background:var(--if-card);border:1px solid var(--if-ink);border-radius:var(--if-radius);box-shadow:var(--if-shadow);overflow:hidden;}
+body.instaframe-design-copy .if-item__img {aspect-ratio:4/3;background:var(--if-page);border-bottom:1px solid var(--if-ink);display:grid;place-items:center;overflow:hidden;}
+body.instaframe-design-copy .if-item__img img {width:100%;height:100%;object-fit:cover;}
+body.instaframe-design-copy .if-item__title {display:flex;align-items:flex-start;gap:10px;padding:12px 12px 8px;cursor:pointer;}
+body.instaframe-design-copy .if-item__title input {margin:3px 0 0;width:16px;height:16px;accent-color:var(--if-ink);}
+body.instaframe-design-copy .if-item__title span {display:flex;flex-direction:column;}
+body.instaframe-design-copy .if-item__title small {font-size:11px;line-height:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--if-muted);}
+body.instaframe-design-copy .if-item__title b {font-size:14px;line-height:20px;}
+body.instaframe-design-copy .if-item__actions {display:flex;gap:8px;padding:0 12px 12px;margin-top:auto;}
+body.instaframe-design-copy .if-item__actions .if-btn:first-child {flex:1;}
+body.instaframe-design-copy .if-empty {max-width:560px;padding:32px 24px;background:var(--if-card);border:1px solid var(--if-ink);border-radius:var(--if-radius);box-shadow:var(--if-shadow);display:flex;flex-direction:column;align-items:flex-start;gap:8px;}
+body.instaframe-design-copy .if-empty__icon {display:grid;place-items:center;width:56px;height:56px;background:var(--if-page);border:1px solid var(--if-hair);border-radius:4px;margin-bottom:4px;}
+body.instaframe-design-copy .if-empty h2 {font:800 20px/26px 'Bricolage Grotesque','DM Sans',sans-serif;margin:0;}
+body.instaframe-design-copy .if-empty p {margin:0 0 8px;font-size:14px;line-height:21px;color:var(--if-muted);}
+body.instaframe-design-copy .if-empty__actions {display:flex;gap:8px;flex-wrap:wrap;}
+body.instaframe-design-copy .if-me {padding:12px;background:var(--if-card);border:1px solid var(--if-ink);border-radius:var(--if-radius);display:flex;flex-direction:column;gap:8px;font-family:'DM Sans',sans-serif;}
+body.instaframe-design-copy .if-me__row {display:flex;align-items:center;gap:10px;min-width:0;}
+body.instaframe-design-copy .if-me__av {width:32px;height:32px;flex:none;display:grid;place-items:center;background:var(--if-accent);color:#fff;font:700 14px/1 'DM Sans',sans-serif;border:1px solid var(--if-ink);}
+body.instaframe-design-copy .if-me__id {display:flex;flex-direction:column;min-width:0;font-size:12px;line-height:16px;}
+body.instaframe-design-copy .if-me__id span {color:var(--if-muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+body.instaframe-design-copy .if-me__storage {display:flex;justify-content:space-between;font-size:11px;line-height:16px;color:var(--if-muted);}
+body.instaframe-design-copy .if-me__bar {height:6px;border:1px solid var(--if-ink);background:var(--if-page);}
+body.instaframe-design-copy .if-me__bar i {display:block;height:100%;background:var(--if-accent);}
+body.instaframe-design-copy .if-me {text-align:left;}
+body.instaframe-design-copy .if-signed .side__nav a.nav {justify-content:flex-start;}

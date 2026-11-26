@@ -24,7 +24,8 @@
  ];
  const groups=desktopGroups;
  function make(tag,cls,text){const e=document.createElement(tag);if(cls)e.className=cls;if(text)e.textContent=text;return e}
- function activeGroups(){return edition==='mobile'?mobileGroups:groups}
+ const copySignedGroup=['Compte connecté - copie',[['Compte - connecté','/compte?signed=true'],['Éléments enregistrés - connecté','/saved/elements?signed=true'],['Carnets - connecté','/saved/notebooks?signed=true']]];
+ function activeGroups(){if(edition==='mobile')return mobileGroups;if(edition==='copy'){const g=groups.slice();g.splice(g.findIndex(x=>x[0]==='Carnets et compte')+1,0,copySignedGroup);return g}return groups}
  function buildNav(){if(!shell)return;const nav=shell.querySelector('nav');if(!nav)return;nav.replaceChildren();for(const[g,items]of activeGroups()){nav.append(make('h2','',g));for(const item of items){const b=make('button','fresh-page',item[0]);b.dataset.page=item[1];b.onclick=()=>show(item);nav.append(b)}}}
  function frameHeight(){return edition==='mobile'?(viewport<=320?720:844):1000}
  function resize(){if(!shell||shell.hidden)return;const area=shell.querySelector('.fresh-stage'),scale=actual?1:Math.min(1,(area.clientWidth-32)/viewport),h=frameHeight();frame.style.width=viewport+'px';frame.style.height=h+'px';frame.style.transform='scale('+Math.max(.1,scale)+')';const space=shell.querySelector('.fresh-frame-space');space.style.width=viewport*Math.max(.1,scale)+'px';space.style.height=h*Math.max(.1,scale)+'px'}
