@@ -1,0 +1,50 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>InstaFrame - Marketing</title>
+<link rel="stylesheet" href="./styles/generator.css"><link rel="stylesheet" href="./styles/slideshow.css"><link rel="stylesheet" href="./design-details.css">
+<style>
+html,body{height:auto;overflow:auto;background:#efefed}
+body.mk{margin:0;font:14px/1.4 "Helvetica Neue",Arial,sans-serif;color:#141312;padding:20px 16px 40px}
+.mk h1{font-size:20px;margin:0 0 14px;text-align:center}
+.mk .phones{display:flex;flex-wrap:wrap;gap:28px 24px;justify-content:center}
+.mk .one{width:300px}.mk .one h2{font-size:13px;margin:0 0 4px;text-align:center}
+.mk .slot .proposals-backdrop{position:static;background:none;padding:0;display:block;z-index:auto}
+.mk .slot .ss__win{margin:0;max-height:none;width:100%;box-shadow:none;border:0;background:none;overflow:visible}
+.mk .slot .ss__win-title,.mk .slot .ss__left,.mk .slot .ss__r-title,.mk .slot .ss__note,.mk .slot .ss__right>p,.mk .slot .ready{display:none!important}
+.mk .slot .ss{display:block;padding:0}.mk .slot .ss__right{width:100%;padding:0;margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.mk .ss__phone{isolation:isolate;overflow:hidden}.mk .mkbg{position:absolute;inset:-40px;z-index:-1;background-size:cover;background-position:center;filter:blur(11px) brightness(.8) saturate(1.15);pointer-events:none}
+.mk .ss__homebar{display:none}.mk .mkwm{position:absolute;left:0;right:0;bottom:7px;text-align:center;font:600 9px/1 'Helvetica Neue',Arial,sans-serif;letter-spacing:.08em;color:rgba(255,255,255,.5);text-shadow:0 0 3px rgba(0,0,0,.35);pointer-events:none;z-index:30}.mk details{max-width:700px;margin:26px auto 0;font-size:12px;color:#666}.mk summary{cursor:pointer}
+</style></head><body class="mk"><h1>Marketing</h1><div class="phones" id="ideas"></div>
+<details><summary>Sources</summary><p>Images : visuels de Grand Theft Auto VI (Rockstar Games), présentés comme officiels par la galerie tierce https://gta6gang.com/gallery/jason-and-lucia.html. Droits Rockstar Games / Take-Two : maquette uniquement, à remplacer avant publication réelle.</p></details>
+<script type="module">
+import {renderSlideshowWorkspace,resetSlideshowDraft} from './slideshow-deepseek.mjs';
+import {elementDefaults,renderElement,borderedSticker,renderVideoCard} from './current-rendering-helpers.mjs';
+const GP=n=>'./marketing/gta/'+n+'.webp';
+const USED=new Set();
+const A=async(type,caption,fn)=>{const src=await fn();const im=new Image();im.src=src;await im.decode();USED.add(type);return {id:'mk'+(++k),format:'instax-mini',photo:null,zoom:1,pan:{x:.5,y:.5},caption,captionSize:24,artSrc:src,artW:im.naturalWidth,artH:im.naturalHeight,artType:type,artRotate:false}};
+const E=(kind,o)=>()=>renderElement({...elementDefaults(kind),...o});
+HTMLElement.prototype.focus=function(){};
+const P=(n)=>({src:'./marketing/gta/'+n+'.webp',width:1280,height:720});
+let k=0;const F=(format,n,x,caption,y=.5)=>({id:'mk'+(++k),format,photo:P(n),zoom:1,pan:{x,y},caption,captionSize:24});
+const S=(items,caption)=>({id:'mk'+(++k),format:'instax-mini',photo:null,zoom:1,pan:{x:.5,y:.5},caption,captionSize:24,stripPhotos:items.map(([n,x])=>({photo:P(n),zoom:1,pan:{x,y:.5}}))});
+const ideas=[
+{id:'i1',title:'1. POV : vous deux, version carnet',platform:'tiktok',hook:'Hook texte : « POV : tu mets ta moitié dans un carnet ». 6 diapos qui montent en intensité, de la première rencontre au coucher de soleil.',mix:['Instax','Polaroid','Bande de 3'],tip:'Une diapo toutes les 1,5 s, son tendance romantique. Dernière diapo = appel à créer son carnet.',caption:'POV : votre histoire dans un carnet #instaframe #couple #souvenirs',slides:[F('instax-mini','01',.3,'Jour 1'),F('polaroid','03',.5,'Ce sourire'),S([['11',.45],['20',.4],['07',.5]],'Road trip'),await A('Music','La nuit',E('Music',{image:GP('14'),text:'Notre chanson',subtitle:'La playlist'})),await A('Stamps','Toujours toi',E('Stamps',{image:GP('13'),text:'Vice City 2026'})),await A('Post-its','Pour la vie',E('Post-its',{text:'Toi + moi\npour la vie'}))]},
+{id:'i2',title:'2. Notre histoire en 5 cadres',platform:'instagram',hook:'Carrousel chronologique : rencontre, escapade, soirée, câlin, promesse. Une légende courte par cadre.',mix:['Instax','Polaroid'],tip:'Publier le dimanche soir. Première diapo = la plus forte, la dernière invite à sauvegarder.',caption:'Notre histoire, cadre par cadre. À sauvegarder pour le prochain anniversaire #instaframe',slides:[F('instax-mini','01',.3,'On se rencontre'),F('polaroid','11',.45,'Première escapade'),await A('Combination (Concert Ticket)','Première soirée',E('Combination',{comboFormat:'Concert Ticket',image:GP('14'),comboFields:{event:'NUIT NÉON',presenter:'Lucia & Jason',venue:'Vice City',city:'Leonida',date:'19 NOV',doors:'22h'}})),await A('Date (calendrier)','Premier câlin',E('Date',{text:'Notre jour',subtitle:'2026-11-19',dateLabel:'Anniversary'})),await A('Letter','Et après ?',E('Letter',{text:'Toujours toi',subtitle:'26 novembre 2026'}))]},
+{id:'i3',title:'3. Photomaton : 3 poses, 1 bande',platform:'instagram',hook:'Format bande de 3 : trois poses du couple dans un seul cadre, répété avec 3 ambiances différentes.',mix:['Bande de 3','Instax'],tip:'Idéal en carrousel de 3 : chaque bande = une ambiance (jour, néon, nuit). Fort potentiel de partage en story.',caption:'3 poses, 1 bande. Et toi, ça donnerait quoi ? #photomaton #instaframe',slides:[S([['01',.3],['03',.5],['11',.45]],'Jour'),S([['14',.5],['20',.4],['07',.5]],'Néon'),S([['13',.5],['12',.55],['08',.5]],'Nuit'),await A('Video','Road trip',()=>renderVideoCard(GP('20'),'Notre road trip','')),await A('Post-its','Crée la tienne',E('Post-its',{text:'Crée la tienne\nInstaframe.fr',colour:'#f6c1d0'}))]},
+{id:'i4',title:'4. Date night : avant / après le carnet',platform:'tiktok',hook:'Rythme rapide : 4 moments de la soirée en Polaroid, puis le carnet complété. Texte à l\'écran : « le seul souvenir qui ne reste pas dans ta galerie ».',mix:['Polaroid','Instax','Bande de 3'],tip:'Idée de montage : alterner Polaroid et bande, finir sur un cadre vide « à ton tour ».',caption:'Ta galerie oublie, ton carnet garde #datenight #instaframe',slides:[F('polaroid','10',.7,'19h'),await A('Audio','22h',E('Audio',{text:'Message vocal'})),S([['07',.5],['12',.55],['09',.65]],'Minuit'),await A('Messages','Le lendemain',E('Messages',{image:GP('01')})),await A('Stickers','À ton tour',async()=>(await borderedSticker('./stickers/kawaii_01.png','#ffffff',10)).src)]},
+{id:'i5',title:'5. Duo à deux voix : lui / elle',platform:'tiktok',hook:'Même scène vue par chacun : un cadre « elle », un cadre « lui », puis le cadre « nous ». Légendes en miroir.',mix:['Instax','Polaroid'],tip:'Convient aux commentaires « et le vôtre ? » pour faire envoyer le lien à son partenaire.',caption:'Elle. Lui. Nous. #couplegoals #instaframe',slides:[F('instax-mini','01',.15,'Elle'),F('instax-mini','01',.65,'Lui'),F('polaroid','01',.35,'Nous'),F('instax-mini','11',.3,'Elle, en copilote'),await A('Combination (Postcard)','Lui, au volant',E('Combination',{comboFormat:'Postcard',image:GP('11'),text:'Bons baisers de Vice City'})),await A('Stamps','Nous, encore',E('Stamps',{image:GP('03'),text:'Nous deux'}))]}
+];
+
+
+const host=document.getElementById('ideas');
+const BGS={i1:['vc/11','vc/15','vc/08','vc/27','vc/17','gta/16'],i2:['vc/15','vc/03','vc/27','vc/11','gta/16'],i3:['vc/03','vc/27','vc/08','vc/11','vc/10'],i4:['vc/22','vc/27','vc/08','vc/10','vc/11'],i5:['vc/15','vc/10','vc/03','vc/17','vc/22','gta/16']};
+for(const it of ideas)it.slides.forEach((f,i)=>{f.bg='./marketing/'+BGS[it.id][i]+'.webp'});
+function bgSrc(fr){return fr.bg}
+for(const it of ideas){
+ const sec=document.createElement('section');sec.className='one';sec.id=it.id;const h=document.createElement('h2');h.textContent=it.title;const slot=document.createElement('div');slot.className='slot';sec.append(h,slot);host.append(sec);
+ resetSlideshowDraft();const root=renderSlideshowWorkspace({gallery:it.slides,lang:'fr',onClose(){}});slot.append(root);
+ const cap=root.querySelector('#ss-caption');if(cap){cap.value=it.caption;cap.dispatchEvent(new Event('input',{bubbles:true}))}
+ if(it.platform==='tiktok')[...root.querySelectorAll('.ss__toggle button')].find(x=>/TikTok/.test(x.textContent))?.click();
+ root.querySelectorAll('[id]').forEach(e=>e.removeAttribute('id'));
+ const apply=()=>{root.querySelectorAll('.ss__phone').forEach(ph=>{const dots=[...ph.querySelectorAll('.ss__dots button')];let i=dots.findIndex(b=>b.getAttribute('aria-current')==='true');if(i<0)i=0;const src=bgSrc(it.slides[i]||it.slides[0]);if(!ph.querySelector(':scope > .mkwm')){const w=document.createElement('div');w.className='mkwm';w.textContent='Instaframe.fr';ph.append(w)}let bg=ph.querySelector(':scope > .mkbg');if(!bg){bg=document.createElement('div');bg.className='mkbg';ph.prepend(bg)}const url='url("'+src+'")';if(bg.style.backgroundImage!==url)bg.style.backgroundImage=url})};
+ new MutationObserver(apply).observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['aria-current']});apply();
+}
+</script></body></html>
