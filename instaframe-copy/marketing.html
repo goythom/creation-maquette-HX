@@ -17,12 +17,14 @@ body.mk{margin:0;font:14px/1.4 "Helvetica Neue",Arial,sans-serif;color:#141312;p
 <script type="module">
 import {renderSlideshowWorkspace,resetSlideshowDraft} from './slideshow-deepseek.mjs';
 import {elementDefaults,renderElement,borderedSticker,renderVideoCard} from './current-rendering-helpers.mjs';
-const GP=n=>'./marketing/gta/'+n+'.webp';
+const GM={"01": "19-01", "03": "20-03", "07": "26-07", "08": "22-08", "09": "27-09", "10": "28-10", "11": "38-11", "12": "39-12", "13": "32-13", "14": "33-14", "16": "18-16", "20": "47-20"},VM={"03": "35-03", "08": "36-08", "10": "41-10", "11": "48-11", "15": "43-15", "17": "44-17", "22": "45-22", "27": "46-27"};
+const IMG=(d,n)=>'./marketing/'+d+'/'+(d==='gta'?GM:VM)[n]+'.webp';
+const GP=n=>IMG('gta',n);
 const USED=new Set();
 const A=async(type,caption,fn)=>{const src=await fn();const im=new Image();im.src=src;await im.decode();USED.add(type);return {id:'mk'+(++k),format:'instax-mini',photo:null,zoom:1,pan:{x:.5,y:.5},caption,captionSize:24,artSrc:src,artW:im.naturalWidth,artH:im.naturalHeight,artType:type,artRotate:false}};
 const E=(kind,o)=>()=>renderElement({...elementDefaults(kind),...o});
 HTMLElement.prototype.focus=function(){};
-const P=(n)=>({src:'./marketing/gta/'+n+'.webp',width:1280,height:720});
+const P=(n)=>({src:IMG('gta',n),width:1280,height:720});
 let k=0;const F=(format,n,x,caption,y=.5)=>({id:'mk'+(++k),format,photo:P(n),zoom:1,pan:{x,y},caption,captionSize:24});
 const S=(items,caption)=>({id:'mk'+(++k),format:'instax-mini',photo:null,zoom:1,pan:{x:.5,y:.5},caption,captionSize:24,stripPhotos:items.map(([n,x])=>({photo:P(n),zoom:1,pan:{x,y:.5}}))});
 const ideas=[
@@ -36,7 +38,7 @@ const ideas=[
 
 const host=document.getElementById('ideas');
 const BGS={i1:['vc/11','vc/15','vc/08','vc/27','vc/17','gta/16'],i2:['vc/15','vc/03','vc/27','vc/11','gta/16'],i3:['vc/03','vc/27','vc/08','vc/11','vc/10'],i4:['vc/22','vc/27','vc/08','vc/10','vc/11'],i5:['vc/15','vc/10','vc/03','vc/17','vc/22','gta/16']};
-for(const it of ideas)it.slides.forEach((f,i)=>{f.bg='./marketing/'+BGS[it.id][i]+'.webp'});
+for(const it of ideas)it.slides.forEach((f,i)=>{{const [d,n]=BGS[it.id][i].split('/');f.bg=IMG(d,n)}});
 function bgSrc(fr){return fr.bg}
 for(const it of ideas){
  const sec=document.createElement('section');sec.className='one';sec.id=it.id;const h=document.createElement('h2');h.textContent=it.title;const slot=document.createElement('div');slot.className='slot';sec.append(h,slot);host.append(sec);
