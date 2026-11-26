@@ -1,14 +1,17 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body class="instaframe-design-copy"><script type="module">
 import{renderLocalScene}from'./page-host.mjs';
-const q=new URLSearchParams(location.search), state={strip:Number(q.get('strip'))||0,error:q.get('error')==='true',cart:{},sub:q.get('sub')||'Post-it',kind:({'Photo':'Frames','Message':'Post-its'})[q.get('type')]||q.get('type')||'Frames',welcome:q.get('welcome')!=='false'};
+const q=new URLSearchParams(location.search), state={strip:Number(q.get('strip'))||0,error:q.get('error')==='true',cart:{},sub:q.get('sub')||'Post-it',kind:({'Photo':'Frames','Message':'Post-its'})[q.get('type')]||q.get('type')||'Frames',welcome:q.get('welcome')!=='false',signed:q.get('signed')==='true'};
 let route=q.get('route')||'/faq',lang=q.get('lang')||'en';
 function draw(){
 const key=route==='/generator'&&state.kind!=='Frames'?'generator-elements':route==='/generator/pro'?'generator-pro':route==='/generator'?'generator':route==='/'?'home':route.startsWith('/shop')?({'/shop':'shop','/shop/notebook':'notebook','/shop/track':'track','/shop/checkout':'checkout'}[route]||'shop'):({'/saved/elements':'elements','/saved/notebooks':'notebooks','/owner':'owner','/admin':'admin','/phone':'phone','/album':'album','/album/local-demo':'album','/video/local-demo':'generator-elements'}[route]||(route.startsWith('/s/')?'share':route.startsWith('/t/')?'transfer':'public'));
 let css=document.querySelector('#scene-styles');if(!css){css=document.createElement('link');css.id='scene-styles';css.rel='stylesheet';document.head.append(css)}css.href='./styles/'+key+'.css';
 let details=document.querySelector('#design-details');if(!details){details=document.createElement('link');details.id='design-details';details.rel='stylesheet';details.href='./design-details.css';document.head.append(details)}
-document.body.replaceChildren(renderLocalScene({route,lang,state,onNavigate(to){lang=document.querySelector('.local-scene')?.dataset.lang||lang;route=to.split('?')[0];const params=new URLSearchParams(to.split('?')[1]||'');if(params.has('type'))state.kind=({'Photo':'Frames','Message':'Post-its'})[params.get('type')]||params.get('type');state.strip=Number(params.get('strip'))||0;state.sub=params.get('sub')||'Post-it';draw()}}))}
+document.body.replaceChildren(renderLocalScene({route,lang,state,onNavigate(to){lang=document.querySelector('.local-scene')?.dataset.lang||lang;route=to.split('?')[0];const params=new URLSearchParams(to.split('?')[1]||'');if(params.has('type'))state.kind=({'Photo':'Frames','Message':'Post-its'})[params.get('type')]||params.get('type');state.strip=Number(params.get('strip'))||0;state.sub=params.get('sub')||'Post-it';state.signed=params.get('signed')==='true';draw()}}))}
 let modalLocked=false;function syncModalLock(){const lock=!!document.querySelector('.onboard__backdrop');if(lock===modalLocked)return;modalLocked=lock;Object.assign(document.body.style,lock?{position:'fixed',top:'0px',left:'0px',width:'100%',overflow:'hidden'}:{position:'',top:'',left:'',width:'',overflow:''});if(!lock)scrollTo(0,0)}
 new MutationObserver(syncModalLock).observe(document.body,{childList:true,subtree:true});
+// Copy only: on pages with the app sidebar, EN/FR always sits at the foot of the sidebar.
+function placeLangToggle(){const t=document.querySelector('.local-scene > .lang-toggle'),side=document.querySelector('.local-scene .side:not(.side--studio)');if(!t||!side)return;t.classList.add('lang-toggle--side');const legal=side.querySelector('.side__legal');(legal?.parentElement||side).insertBefore(t,legal||null)}
+new MutationObserver(placeLangToggle).observe(document.body,{childList:true,subtree:true});placeLangToggle();
 draw();syncModalLock();
 if(q.has('preset'))import('./visual-presets.mjs').then(m=>m.initializeVisualPreset(q.get('preset')));
 </script></body></html>

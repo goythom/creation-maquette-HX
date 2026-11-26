@@ -72714,7 +72714,7 @@ function mount3D(host, d3, initial, onChange, surface = renderSurface, relief) {
   const renderer = new WebGLRenderer({ antialias: true, alpha: false });
   renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
   renderer.outputColorSpace = SRGBColorSpace;
-  renderer.setClearColor("#ffffff");
+  renderer.setClearColor("#f7f4f1");
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = PCFSoftShadowMap;
   renderer.domElement.style.touchAction = "pan-y pinch-zoom";
